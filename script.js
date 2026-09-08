@@ -4,6 +4,7 @@
   const header = document.querySelector('[data-header]');
   const menu = document.querySelector('.menu-toggle');
   const nav = document.querySelector('#site-nav');
+  document.querySelectorAll('.contact-icon').forEach((element) => element.setAttribute('aria-hidden', 'true'));
 
   const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 18);
   updateHeader();
