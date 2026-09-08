@@ -16,6 +16,9 @@ $plans = [
 function e(string $value): string { return htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); }
 function wa(string $message): string { return 'https://wa.me/6287753719307?text=' . rawurlencode($message); }
 $defaultMessage = 'Halo Webkubator, saya ingin konsultasi website.';
+$assetVersion = (string) max((int) @filemtime(__DIR__ . '/styles.css'), (int) @filemtime(__DIR__ . '/script.js'));
+header('Cache-Control: no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
 ?>
 <!doctype html>
 <html lang="id">
@@ -34,7 +37,7 @@ $defaultMessage = 'Halo Webkubator, saya ingin konsultasi website.';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=<?= e($assetVersion) ?>">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
@@ -155,7 +158,7 @@ $defaultMessage = 'Halo Webkubator, saya ingin konsultasi website.';
 
     <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top" aria-label="Webkubator, kembali ke atas"><img src="assets/images/logo.webp" alt="Webkubator" width="160" height="25"></a><p>Website yang bekerja lebih keras untuk bisnis Anda.</p><div class="footer-bottom"><span>© <?= date('Y') ?> Webkubator</span><span>Dibuat dengan niat baik di Indonesia.</span><a href="#top">Kembali ke atas ↑</a></div></div></footer>
     <a class="whatsapp-float" href="https://wa.me/6287753719307" target="_blank" rel="noopener" aria-label="Hubungi Webkubator melalui WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.08 0C5.55 0 .24 5.3.24 11.83c0 2.08.54 4.11 1.57 5.9L.14 23.85l6.27-1.64a11.8 11.8 0 0 0 5.66 1.44h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.41-8.33ZM12.08 21.6h-.01a9.77 9.77 0 0 1-4.98-1.36l-.36-.22-3.72.98 1-3.62-.24-.37a9.77 9.77 0 0 1-1.5-5.18c0-5.38 4.38-9.76 9.77-9.76a9.7 9.7 0 0 1 6.91 2.87 9.7 9.7 0 0 1 2.86 6.92c0 5.38-4.38 9.75-9.75 9.75Zm5.35-7.3c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.65.15-.2.29-.75.94-.92 1.13-.17.2-.34.22-.63.08-.29-.15-1.24-.46-2.36-1.46a8.9 8.9 0 0 1-1.64-2.03c-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.08-.15-.65-1.57-.89-2.15-.23-.56-.47-.49-.65-.5h-.55c-.2 0-.52.07-.8.37-.27.29-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.21 3.09.15.2 2.1 3.2 5.1 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.87.12.57-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34Z"/></svg></a>
-    <script src="script.js" defer></script>
+    <script src="script.js?v=<?= e($assetVersion) ?>" defer></script>
 </body>
 </html>
 
