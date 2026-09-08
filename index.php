@@ -1,21 +1,48 @@
 <?php
-$sent = filter_input(INPUT_GET, 'sent', FILTER_VALIDATE_INT);
+$services = [
+    ['image' => 'service-website.webp', 'title' => 'Pembuatan Website', 'text' => 'Kami membuat website profesional yang responsif dengan desain terbaik.'],
+    ['image' => 'service-seo.webp', 'title' => 'Optimasi SEO', 'text' => 'Optimasi SEO untuk meningkatkan peringkat dan visibilitas website Anda di mesin pencari.'],
+    ['image' => 'service-hosting.webp', 'title' => 'Layanan Hosting', 'text' => 'Webkubator menyediakan hosting cepat dan handal untuk memastikan website Anda selalu online.'],
+    ['image' => 'service-maintenance.webp', 'title' => 'Pemeliharaan Website', 'text' => 'Layanan pemeliharaan untuk menjaga performa dan keamanan website Anda.'],
+];
+$partners = [
+    ['image' => 'partner-ofc.webp', 'alt' => 'Our Five Coco'],
+    ['image' => 'partner-image10.webp', 'alt' => 'Mitra Webkubator'],
+    ['image' => 'partner-danuzkuy.webp', 'alt' => 'Danuzkuy'],
+];
 $projects = [
-    ['name' => 'PT Altiga Falindo', 'type' => 'Company profile · Industri', 'image' => 'assets/images/altiga.webp', 'url' => 'https://altigabengkel.com/'],
-    ['name' => 'Kazeem Vokasi', 'type' => 'Education · Company profile', 'image' => 'assets/images/kazeem.webp', 'url' => 'https://kazeemvocint.com/'],
-    ['name' => 'Sewa Boat Batam', 'type' => 'Travel · Booking', 'image' => 'assets/images/boat.webp', 'url' => 'https://sewaboatbatam.com/'],
-    ['name' => 'FME Indonesia', 'type' => 'Organization · Information', 'image' => 'assets/images/fmei.webp', 'url' => 'https://fmeindonesia.com/'],
-    ['name' => 'Desa Cipayung', 'type' => 'Government · Public service', 'image' => 'assets/images/cipayung.webp', 'url' => 'https://desacipayung.id/'],
-    ['name' => 'Desa Talang Tinggi', 'type' => 'Government · Public service', 'image' => 'assets/images/talang-tinggi.webp', 'url' => 'https://desatalangtinggiulumanna.com/'],
+    ['name' => 'Our Five Coco', 'image' => 'our-five-coco.webp', 'url' => 'https://ourfivecoco.preview.webkubator.com/'],
+    ['name' => 'Edukasi Berkendara', 'image' => 'edukasi.webp', 'url' => 'https://edukasiberkendara.id/'],
+    ['name' => 'Danuzkuy', 'image' => 'danuzkuy.webp', 'url' => 'https://sewazoom.danuzkuy.my.id/'],
+    ['name' => 'Kazeem Vokasi', 'image' => 'kazeem.webp', 'url' => 'https://kazeemvocint.com/'],
+    ['name' => 'Fikri Hamdani', 'image' => 'fikri.webp', 'url' => 'https://fikrihamdani.my.id/'],
 ];
 $plans = [
-    ['name' => 'Starter', 'price' => '1,45 jt', 'description' => 'Untuk landing page dan bisnis yang baru mulai serius online.', 'features' => ['Landing page / company profile', 'Domain .COM atau .WEB.ID', 'Hosting 1 GB SSD', 'SSL dan 3 email domain', 'Pengerjaan hingga 7 hari']],
-    ['name' => 'Business', 'price' => '1,75 jt', 'description' => 'Pilihan seimbang untuk bisnis yang ingin terlihat profesional.', 'features' => ['Company profile hingga 5 menu', 'Domain .COM atau .ID', 'Hosting 2 GB SSD', 'SSL dan 5 email domain', 'CTA WhatsApp dan form kontak']],
-    ['name' => 'Commerce', 'price' => '2,5 jt', 'description' => 'Untuk katalog produk, direct WhatsApp, dan kebutuhan yang lebih lengkap.', 'features' => ['Katalog produk dan toko online direct WA', 'Domain .COM, .ID, atau .SHOP', 'Hosting 3 GB SSD', 'SSL dan 7 email domain', 'Pengerjaan 10–15 hari']],
+    ['name' => 'Start Up', 'price' => '1.450.000', 'renewal' => 'Perpanjangan Rp1.000.000/Tahun', 'features' => ['FREE Domain .WEB.ID', '6 Menu Landing Page', 'Hosting 800MB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '5 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Garansi Selamanya']],
+    ['name' => 'Bisnis', 'price' => '1.750.000', 'renewal' => 'Perpanjangan Rp1.200.000/Tahun', 'features' => ['FREE Domain .COM', '10 Menu Landing Page', 'Hosting 1,2GB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '10 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Free Template Premium', 'Garansi Selamanya']],
+    ['name' => 'Premium', 'price' => '2.500.000', 'renewal' => 'Perpanjangan Rp1.500.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '20 Menu Landing Page', 'Hosting 3GB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '20 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Free Template Premium', 'Optimasi SEO', 'Free Plugin', 'Garansi Selamanya']],
+];
+$testimonials = [
+    ['image' => 'avatar-hendry.webp', 'name' => 'Hendry', 'company' => 'Nusa Jaya Steel', 'text' => 'Pengerjaan nya bagus dan cepet, admin nya juga sopan dan baik 🙏'],
+    ['image' => 'avatar-ldoats.webp', 'name' => 'L.doats', 'company' => 'Warmie Tengah', 'text' => 'Keren bangettt, harganya murah tapi bagus. Adminnya juga okk, bisa tanya ini itu dan ngasih rekomendasi buat aku yang gak ngerti web'],
+    ['image' => 'avatar-alphascent.webp', 'name' => 'Alphascent', 'company' => 'Alphascent Official', 'text' => 'Thank you. Sangat membatu untuk aku yang males ribet ini hehehe'],
+];
+$reasons = [
+    ['title' => 'Harga Terjangkau', 'text' => 'Kami menawarkan solusi website yang dapat disesuaikan dengan kebutuhan dan anggaran Anda. Dengan harga yang kompetitif, Webkubator memastikan Anda mendapatkan nilai terbaik tanpa menguras anggaran.', 'icon' => 'coins'],
+    ['title' => 'Performa Website Terbaik', 'text' => 'Kecepatan website adalah kunci. Di Webkubator, kami memastikan website Anda dioptimalkan untuk kecepatan, memberikan pengalaman pengguna yang lancar dan responsif, meningkatkan interaksi dan konversi pengunjung.', 'icon' => 'server'],
+    ['title' => 'Dukungan Teknis yang Andal', 'text' => 'Tim kami selalu siap membantu kapanpun Anda membutuhkannya. Dengan dukungan teknis yang responsif dan profesional, Webkubator memastikan website Anda selalu dalam performa terbaik.', 'icon' => 'headset'],
 ];
 function e(string $value): string { return htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); }
-function wa(string $message): string { return 'https://wa.me/6287753719307?text=' . rawurlencode($message); }
-$defaultMessage = 'Halo Webkubator, saya ingin konsultasi website.';
+function wa(string $message = 'Halo Webkubator, saya ingin konsultasi website.'): string { return 'https://wa.me/6287753719307?text=' . rawurlencode($message); }
+function icon(string $name): string
+{
+    $paths = [
+        'coins' => '<path d="M256 0C150 0 64 28.7 64 64s86 64 192 64 192-28.7 192-64S362 0 256 0Zm-192 128v48c0 35.3 86 64 192 64s192-28.7 192-64v-48c-41.3 34-116.9 51.6-192 51.6S105.3 162 64 128Zm0 112v48c0 35.3 86 64 192 64s192-28.7 192-64v-48c-41.3 34-116.9 51.6-192 51.6S105.3 274 64 240Zm0 112v48c0 35.3 86 64 192 64s192-28.7 192-64v-48c-41.3 34-116.9 51.6-192 51.6S105.3 386 64 352Z"/>',
+        'server' => '<path d="M480 32H32C14.3 32 0 46.3 0 64v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32ZM96 120a24 24 0 1 1 0-48 24 24 0 0 1 0 48Zm64 0a24 24 0 1 1 0-48 24 24 0 0 1 0 48Zm320 72H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-64c0-17.7-14.3-32-32-32ZM96 280a24 24 0 1 1 0-48 24 24 0 0 1 0 48Zm64 0a24 24 0 1 1 0-48 24 24 0 0 1 0 48Zm320 72H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-64c0-17.7-14.3-32-32-32ZM96 440a24 24 0 1 1 0-48 24 24 0 0 1 0 48Zm64 0a24 24 0 1 1 0-48 24 24 0 0 1 0 48Z"/>',
+        'headset' => '<path d="M256 0C113.2 0 4.6 118.8 0 256v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16c0-105.9 86.1-192 192-192s192 86.1 192 192h-.1c.1 2.4.1 165.7.1 165.7 0 14.5-11.8 26.3-26.3 26.3H320c0-26.5-21.5-48-48-48h-32c-26.5 0-48 21.5-48 48s21.5 48 48 48h181.7c49.9 0 90.3-40.4 90.3-90.3V256C507.4 118.8 398.8 0 256 0Zm-96 176h-16c-35.3 0-64 28.7-64 64v48c0 35.3 28.7 64 64 64h16c17.7 0 32-14.3 32-32V208c0-17.7-14.3-32-32-32Zm208 0h-16c-17.7 0-32 14.3-32 32v112c0 17.7 14.3 32 32 32h16c35.3 0 64-28.7 64-64v-48c0-35.3-28.7-64-64-64Z"/>',
+    ];
+    return '<svg viewBox="0 0 512 512" aria-hidden="true" focusable="false">' . ($paths[$name] ?? '') . '</svg>';
+}
 $assetVersion = (string) max((int) @filemtime(__DIR__ . '/styles.css'), (int) @filemtime(__DIR__ . '/script.js'));
 header('Cache-Control: no-cache, must-revalidate, max-age=0');
 header('Pragma: no-cache');
@@ -23,140 +50,29 @@ header('Pragma: no-cache');
 <!doctype html>
 <html lang="id">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#080d2b">
-    <meta name="description" content="Webkubator membantu bisnis, organisasi, dan UMKM membangun website yang cepat, meyakinkan, dan siap menghasilkan kontak baru.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="id_ID">
-    <meta property="og:title" content="Webkubator — Website yang Membuat Bisnis Terlihat Serius">
-    <meta property="og:description" content="Jasa pembuatan website profesional dengan proses jelas, desain modern, dan dukungan yang manusiawi.">
-    <meta property="og:url" content="https://webkubator.com/">
-    <link rel="canonical" href="https://webkubator.com/">
-    <title>Webkubator — Jasa Pembuatan Website Profesional</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#00032D">
+    <meta name="description" content="Webkubator adalah penyedia jasa pembuatan website yang berfokus pada solusi digital cepat, efektif, dan terjangkau. Kami hadir untuk membantu bisnis dari berbagai skala menghadirkan kehadiran online yang kuat dengan desain menarik, performa cepat, dan proses pengerjaan yang efisien.">
+    <meta property="og:type" content="website"><meta property="og:locale" content="id_ID"><meta property="og:title" content="Webkubator - Jasa Pembuatan Website Tercepat dan Terpecaya"><meta property="og:description" content="Solusi website cepat untuk bisnis modern."><meta property="og:url" content="https://webkubator.com/"><link rel="canonical" href="https://webkubator.com/">
+    <title>Webkubator - Jasa Pembuatan Website Tercepat dan Terpecaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Ubuntu:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=<?= e($assetVersion) ?>">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
-    <header class="site-header" data-header>
-        <div class="container header-inner">
-            <a class="brand" href="#top" aria-label="Webkubator, kembali ke halaman utama">
-                <img src="assets/images/logo.webp" alt="Logo Webkubator" width="160" height="25">
-            </a>
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu navigasi">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="site-nav" id="site-nav" aria-label="Navigasi utama">
-                <a href="#layanan">Layanan</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#harga">Harga</a>
-                <a href="#faq">FAQ</a>
-                <a class="nav-cta" href="<?= e(wa($defaultMessage)) ?>" target="_blank" rel="noopener">Konsultasi gratis <span aria-hidden="true">↗</span></a>
-            </nav>
-        </div>
-    </header>
-
+    <header class="site-header" data-header><div class="container header-inner"><a class="brand" href="#top" aria-label="Webkubator, kembali ke halaman utama"><img src="assets/images/logo.webp" alt="Logo Webkubator" width="160" height="25"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu navigasi"><span></span><span></span><span></span></button><nav class="site-nav" id="site-nav" aria-label="Navigasi utama"><a href="#service">Service</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#contactus">Contact Us</a></nav><div class="header-actions" aria-label="Tautan cepat"><a href="#contactus" aria-label="Lihat kontak Webkubator" class="header-icon"><?= icon('headset') ?></a><a href="#about" aria-label="Tentang Webkubator" class="header-icon"><?= icon('server') ?></a></div></div></header>
     <main id="main-content">
-        <?php if ($sent === 1): ?><div class="notice notice-success" role="status">Terima kasih. Pesan Anda sudah dikirim ke Webkubator.</div><?php endif; ?>
-        <?php if ($sent === 0): ?><div class="notice notice-error" role="alert">Pesan belum terkirim. Silakan hubungi kami melalui WhatsApp.</div><?php endif; ?>
-        <section class="hero section" id="top">
-            <div class="container hero-grid">
-                <div class="hero-copy reveal">
-                    <p class="eyebrow"><span class="eyebrow-dot"></span> Digital partner untuk bisnis Indonesia</p>
-                    <h1>Website yang membuat bisnis terlihat <em>serius.</em></h1>
-                    <p class="hero-lead">Kami merancang website yang bukan hanya bagus dilihat, tetapi juga membantu calon pelanggan percaya, memahami, lalu menghubungi bisnis Anda.</p>
-                    <div class="hero-actions">
-                        <a class="button button-primary" href="#contact">Mulai konsultasi <span aria-hidden="true">↗</span></a>
-                        <a class="button button-ghost" href="#portfolio">Lihat hasil kerja <span aria-hidden="true">↓</span></a>
-                    </div>
-                    <div class="trust-row" aria-label="Pencapaian Webkubator">
-                        <div><strong>5+</strong><span>Tahun pengalaman</span></div>
-                        <div><strong>52+</strong><span>Website diluncurkan</span></div>
-                        <div><strong>25+</strong><span>Klien bertumbuh</span></div>
-                    </div>
-                </div>
-                <div class="hero-visual reveal reveal-delay-1">
-                    <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
-                    <div class="hero-card">
-                        <div class="hero-card-top"><span class="status-dot"></span><span>WEBKUBATOR / 2026</span><span class="hero-card-menu">•••</span></div>
-                        <img src="assets/images/hero.webp" alt="Ilustrasi tim membangun website bisnis" width="1024" height="683">
-                        <div class="hero-card-caption"><span>Build with purpose</span><strong>01 — 04</strong></div>
-                    </div>
-                    <div class="floating-note note-top"><span class="note-icon">↗</span><span><b>Fast to launch</b><small>Mulai online lebih cepat</small></span></div>
-                    <div class="floating-note note-bottom"><span class="note-icon note-icon-lime">✦</span><span><b>Made for growth</b><small>Siap dikembangkan</small></span></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="marquee-band" aria-label="Keunggulan Webkubator"><div class="marquee-track"><span>Strategy</span><i>✦</i><span>Design</span><i>✦</i><span>Development</span><i>✦</i><span>SEO ready</span><i>✦</i><span>Strategy</span><i>✦</i><span>Design</span><i>✦</i><span>Development</span><i>✦</i><span>SEO ready</span></div></section>
-
-        <section class="section section-light" id="layanan">
-            <div class="container">
-                <div class="section-heading reveal"><div><p class="eyebrow eyebrow-dark">Apa yang kami kerjakan</p><h2>Fondasi digital yang terasa <span>solid.</span></h2></div><p class="section-intro">Dari halaman pertama hingga website yang siap berkembang, kami bantu menyederhanakan prosesnya.</p></div>
-                <div class="service-grid">
-                    <article class="service-card reveal"><div class="service-number">01</div><div class="line-icon">↗</div><h3>Website bisnis</h3><p>Company profile, landing page, dan katalog yang menjelaskan nilai bisnis Anda dalam hitungan detik.</p><a href="#contact">Pelajari layanan <span aria-hidden="true">→</span></a></article>
-                    <article class="service-card reveal reveal-delay-1"><div class="service-number">02</div><div class="line-icon">⌁</div><h3>SEO dasar</h3><p>Struktur konten dan teknis yang lebih siap ditemukan mesin pencari sejak website diluncurkan.</p><a href="#contact">Pelajari layanan <span aria-hidden="true">→</span></a></article>
-                    <article class="service-card reveal reveal-delay-2"><div class="service-number">03</div><div class="line-icon">◌</div><h3>Hosting & domain</h3><p>Setup hosting, domain, SSL, dan email bisnis agar semuanya siap dipakai tanpa drama teknis.</p><a href="#contact">Pelajari layanan <span aria-hidden="true">→</span></a></article>
-                    <article class="service-card service-card-dark reveal reveal-delay-3"><div class="service-number">04</div><div class="line-icon">✦</div><h3>Maintenance</h3><p>Pendampingan setelah launch untuk menjaga website tetap aman, relevan, dan terawat.</p><a href="#contact">Bicarakan kebutuhan <span aria-hidden="true">→</span></a></article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-ink" id="portfolio">
-            <div class="container">
-                <div class="section-heading section-heading-light reveal"><div><p class="eyebrow">Dipercaya oleh berbagai bidang</p><h2>Beberapa karya yang <span>kami banggakan.</span></h2></div><a class="text-link" href="#contact">Ingin jadi berikutnya? <span aria-hidden="true">↗</span></a></div>
-                <div class="portfolio-grid">
-                    <?php foreach ($projects as $index => $project): ?>
-                        <article class="project-card reveal <?= $index % 2 ? 'project-offset' : '' ?>">
-                            <a href="<?= e($project['url']) ?>" target="_blank" rel="noopener" class="project-image"><img src="<?= e($project['image']) ?>" alt="Preview website <?= e($project['name']) ?>" loading="lazy"><span class="project-arrow" aria-hidden="true">↗</span></a>
-                            <div class="project-meta"><div><h3><?= e($project['name']) ?></h3><p><?= e($project['type']) ?></p></div><span class="project-index">0<?= $index + 1 ?></span></div>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-paper" id="proses">
-            <div class="container process-grid">
-                <div class="process-intro reveal"><p class="eyebrow eyebrow-dark">Cara kerja</p><h2>Jelas dari awal.<br><span>Tenang sampai akhir.</span></h2><p>Kami menjaga proses tetap sederhana agar Anda bisa fokus pada bisnis, bukan mengejar kabar tentang website.</p><a class="button button-dark" href="<?= e(wa('Halo Webkubator, saya ingin tahu proses pembuatan website.')) ?>" target="_blank" rel="noopener">Tanya prosesnya <span aria-hidden="true">↗</span></a></div>
-                <div class="steps-list">
-                    <div class="step reveal"><span class="step-number">01</span><div><h3>Kenali kebutuhan</h3><p>Kita mulai dari tujuan, audiens, dan apa yang ingin website capai.</p></div><span class="step-mark">↗</span></div>
-                    <div class="step reveal reveal-delay-1"><span class="step-number">02</span><div><h3>Rancang & bangun</h3><p>Struktur, desain, dan konten disusun menjadi pengalaman yang mudah dipahami.</p></div><span class="step-mark">↗</span></div>
-                    <div class="step reveal reveal-delay-2"><span class="step-number">03</span><div><h3>Launch & dampingi</h3><p>Website online, terukur, dan tetap punya tempat untuk berkembang.</p></div><span class="step-mark">↗</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-light pricing-section" id="harga">
-            <div class="container">
-                <div class="section-heading reveal"><div><p class="eyebrow eyebrow-dark">Paket yang transparan</p><h2>Mulai dari kebutuhan,<br><span>bukan jargon.</span></h2></div><p class="section-intro">Semua paket dibuat sederhana. Jika kebutuhan Anda berbeda, kami bantu susun penawaran yang lebih tepat.</p></div>
-                <div class="pricing-grid">
-                    <?php foreach ($plans as $index => $plan): ?>
-                        <article class="price-card <?= $index === 1 ? 'price-card-featured' : '' ?> reveal reveal-delay-<?= $index ?>">
-                            <?php if ($index === 1): ?><span class="popular-label">Paling populer</span><?php endif; ?>
-                            <div class="price-top"><span class="price-index">0<?= $index + 1 ?></span><h3><?= e($plan['name']) ?></h3></div>
-                            <p class="price-description"><?= e($plan['description']) ?></p><div class="price-value"><small>mulai</small><strong>Rp<?= e($plan['price']) ?></strong></div>
-                            <ul><?php foreach ($plan['features'] as $feature): ?><li><span aria-hidden="true">✓</span><?= e($feature) ?></li><?php endforeach; ?></ul>
-                            <a class="button <?= $index === 1 ? 'button-primary' : 'button-outline' ?>" href="<?= e(wa('Halo Webkubator, saya tertarik dengan paket ' . $plan['name'] . '.')) ?>" target="_blank" rel="noopener">Pilih paket <span aria-hidden="true">↗</span></a>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
-
-        <section class="section testimonial-section">
-            <div class="container"><div class="testimonial-heading reveal"><p class="eyebrow eyebrow-dark">Kata mereka</p><h2>Partner yang enak<br><span>diajak tumbuh.</span></h2></div><div class="testimonial-grid"><blockquote class="quote-card reveal"><div class="quote-mark">“</div><p>Pengerjaannya bagus dan cepat. Adminnya sopan, komunikatif, dan membantu memberi rekomendasi.</p><footer><strong>Hendry</strong><span>Nusa Jaya Steel</span></footer></blockquote><blockquote class="quote-card quote-card-accent reveal reveal-delay-1"><div class="quote-mark">“</div><p>Harganya masuk akal, hasilnya bagus, dan saya bisa tanya banyak hal tanpa merasa merepotkan.</p><footer><strong>L.doats</strong><span>Warmie Tengah</span></footer></blockquote><blockquote class="quote-card reveal reveal-delay-2"><div class="quote-mark">“</div><p>Sangat membantu untuk yang ingin punya website tanpa harus ribet mengurus semuanya sendiri.</p><footer><strong>Alphascent</strong><span>Official Store</span></footer></blockquote></div></div>
-        </section>
-
-        <section class="section faq-section" id="faq"><div class="container faq-grid"><div class="faq-intro reveal"><p class="eyebrow eyebrow-dark">Pertanyaan umum</p><h2>Masih ada yang ingin<br><span>ditanyakan?</span></h2><p>Kalau pertanyaan Anda belum ada di sini, langsung kirim pesan. Kami jawab dengan bahasa manusia.</p><a class="text-link text-link-dark" href="<?= e(wa('Halo Webkubator, saya ingin bertanya tentang layanan website.')) ?>" target="_blank" rel="noopener">Tanya langsung <span aria-hidden="true">↗</span></a></div><div class="faq-list reveal reveal-delay-1"><details open><summary>Berapa lama proses pembuatan website?</summary><p>Landing page dan company profile biasanya selesai dalam 7 hari kerja. Paket dengan katalog atau kebutuhan lebih kompleks membutuhkan sekitar 10–15 hari kerja.</p></details><details><summary>Apakah domain dan hosting sudah termasuk?</summary><p>Ya, setiap paket memiliki fasilitas domain, hosting, SSL, dan email sesuai detail paket yang dipilih.</p></details><details><summary>Apakah bisa request desain sendiri?</summary><p>Bisa. Kami dapat menyesuaikan arah visual dengan identitas brand, referensi, dan kebutuhan audiens Anda.</p></details><details><summary>Bagaimana setelah website online?</summary><p>Kami tetap bisa membantu maintenance, perubahan konten, dan pengembangan fitur sesuai kebutuhan berikutnya.</p></details></div></div></section>
-
-        <section class="section contact-section" id="contact"><div class="container contact-shell reveal"><div class="contact-copy"><p class="eyebrow">Mari mulai percakapan</p><h2>Punya ide?<br><span>Kita wujudkan.</span></h2><p>Ceritakan bisnis dan kebutuhan Anda. Tidak harus sudah tahu semuanya—kami bantu merapikannya.</p><div class="contact-links"><a href="https://wa.me/6287753719307" target="_blank" rel="noopener"><span>WhatsApp</span><strong>+62 877 5371 9307 ↗</strong></a><a href="mailto:webkubator@gmail.com"><span>Email</span><strong>webkubator@gmail.com ↗</strong></a></div></div><form class="contact-form" action="contact.php" method="post"><input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><label for="name">Nama lengkap</label><input id="name" name="name" type="text" placeholder="Nama Anda" required><label for="email">Email</label><input id="email" name="email" type="email" placeholder="nama@email.com" required><label for="message">Ceritakan kebutuhan Anda</label><textarea id="message" name="message" rows="4" placeholder="Saya ingin membuat website untuk..." required></textarea><button class="button button-lime" type="submit">Kirim pesan <span aria-hidden="true">↗</span></button><p class="form-note">Atau langsung chat via WhatsApp untuk respons lebih cepat.</p></form></div></section>
+        <section class="hero section" id="top"><div class="container hero-grid"><div class="hero-copy reveal"><p class="eyebrow"><span class="eyebrow-dot"></span> Solusi digital cepat untuk bisnis modern</p><h1>Buat Website Bisnis Anda Sekarang</h1><p class="hero-lead">Jadikan impian website bisnis Anda kenyataan dengan Webkubator. Dengan desain menarik, performa website yang cepat, dan proses pengerjaan kilat dari Webkubator, bisnis Anda akan tumbuh lebih pesat tanpa hambatan.</p><a class="button button-primary" href="<?= e(wa('Halo Webkubator, saya ingin memesan website.')) ?>" target="_blank" rel="noopener">Hubungi Kami <span aria-hidden="true">↗</span></a></div><div class="hero-visual reveal reveal-delay-1"><div class="hero-glow"></div><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div><div class="hero-image-frame"><img src="assets/images/hero.webp" alt="Ilustrasi Webkubator membangun website bisnis" width="1024" height="683"></div><span class="hero-badge badge-top">Fast website</span><span class="hero-badge badge-bottom">Grow online <b>✦</b></span></div></div></section>
+        <section class="section service-section" id="service"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Yang kami kerjakan</p><h2>Layanan untuk <span>bisnis Anda</span></h2></div><div class="service-grid"><?php foreach ($services as $index => $service): ?><article class="service-card reveal reveal-delay-<?= min($index, 3) ?>"><div class="service-image"><img src="assets/images/<?= e($service['image']) ?>" alt="" width="300" height="300" loading="lazy"></div><h3><?= e($service['title']) ?></h3><p><?= e($service['text']) ?></p></article><?php endforeach; ?></div></div></section>
+        <section class="section about-section" id="about"><div class="container about-grid"><div class="about-visual reveal"><div class="about-ring"></div><img src="assets/images/about.webp" alt="Ilustrasi layanan cloud Webkubator" width="768" height="512" loading="lazy"></div><div class="about-copy reveal reveal-delay-1"><p class="eyebrow">Tentang Webkubator</p><h2>Solusi Website Cepat untuk Bisnis Modern</h2><p><strong>Webkubator</strong> adalah penyedia jasa pembuatan website yang berfokus pada solusi digital cepat, efektif, dan terjangkau. Kami hadir untuk membantu bisnis dari berbagai skala menghadirkan kehadiran online yang kuat dengan desain menarik, performa cepat, dan proses pengerjaan yang efisien. Dengan komitmen untuk mendukung pertumbuhan bisnis melalui teknologi digital, kami tidak hanya membangun website, tetapi juga menciptakan pengalaman online yang memukau.</p><a class="button button-primary" href="<?= e(wa('Halo Webkubator, saya ingin konsultasi website.')) ?>" target="_blank" rel="noopener">Hubungi Kami <span aria-hidden="true">↗</span></a></div></div></section>
+        <section class="stats-section" aria-label="Pencapaian Webkubator"><div class="container stats-grid"><div class="stat reveal"><strong data-counter="5">0</strong><span>Tahun Pengalaman</span></div><div class="stat reveal reveal-delay-1"><strong data-counter="52">0</strong><span>Projek Website</span></div><div class="stat reveal reveal-delay-2"><strong data-counter="25">0</strong><span>Klient</span></div></div></section>
+        <section class="section partners-section"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Kolaborasi yang berarti</p><h2>Klien dan Mitra Kami</h2></div><div class="partner-grid"><?php foreach ($partners as $partner): ?><div class="partner-card reveal"><img src="assets/images/<?= e($partner['image']) ?>" alt="<?= e($partner['alt']) ?>" loading="lazy"></div><?php endforeach; ?></div></div></section>
+        <section class="section portfolio-section" id="portfolio"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Hasil kerja kami</p><h2>Website yang <span>berbicara</span></h2></div><div class="portfolio-grid"><?php foreach ($projects as $index => $project): ?><article class="project-card reveal <?= $index % 2 ? 'project-offset' : '' ?>"><a class="project-image" href="<?= e($project['url']) ?>" target="_blank" rel="noopener"><img src="assets/images/<?= e($project['image']) ?>" alt="Preview website <?= e($project['name']) ?>" loading="lazy"><span class="project-arrow" aria-hidden="true">↗</span></a><div class="project-meta"><h3><?= e($project['name']) ?></h3><a href="<?= e($project['url']) ?>" target="_blank" rel="noopener">Visit Website <span aria-hidden="true">↗</span></a></div></article><?php endforeach; ?></div></div></section>
+        <section class="section pricing-section" id="pricing"><span id="pricelist" class="anchor-target"></span><div class="container"><div class="section-heading reveal"><p class="eyebrow">Pilihan paket</p><h2>Price <span>list</span></h2></div><div class="pricing-grid"><?php foreach ($plans as $index => $plan): ?><article class="price-card <?= $index === 1 ? 'price-card-featured' : '' ?> reveal reveal-delay-<?= min($index, 2) ?>"><div class="price-header"><span class="price-number">0<?= $index + 1 ?></span><h3><?= e($plan['name']) ?></h3></div><strong class="price">Rp<?= e($plan['price']) ?></strong><p class="renewal"><?= e($plan['renewal']) ?></p><ul><?php foreach ($plan['features'] as $feature): ?><li><span aria-hidden="true">✓</span><?= e($feature) ?></li><?php endforeach; ?></ul><a class="button <?= $index === 1 ? 'button-primary' : 'button-outline' ?>" href="<?= e(wa('Halo Webkubator, saya mau order paket website. Nama: Bidang Bisnis: Paket: ' . $plan['name'] . ' Jenis Website: Terimakasih')) ?>" target="_blank" rel="noopener">Pesan Sekarang <span aria-hidden="true">↗</span></a></article><?php endforeach; ?></div></div></section>
+        <section class="section testimonial-section"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Cerita dari klien</p><h2>Testi<span>moni</span></h2></div><div class="testimonial-grid"><?php foreach ($testimonials as $index => $testimonial): ?><article class="testimonial-card reveal reveal-delay-<?= min($index, 2) ?>"><img src="assets/images/<?= e($testimonial['image']) ?>" alt="" width="80" height="80" loading="lazy"><div class="stars" aria-label="5 dari 5 bintang">★★★★★</div><p>“<?= e($testimonial['text']) ?>”</p><strong><?= e($testimonial['name']) ?></strong><span><?= e($testimonial['company']) ?></span></article><?php endforeach; ?></div></div></section>
+        <section class="section reasons-section"><div class="container reasons-grid"><div class="reasons-copy reveal"><p class="eyebrow">Kenapa Webkubator?</p><h2>Kenapa memilih <span>kami</span></h2><p>Bangun kehadiran online yang dapat dipercaya dengan partner yang memahami kebutuhan bisnis Anda.</p><div class="tech-visual" aria-hidden="true"><span class="tech-core">WK</span><span class="tech-orbit tech-orbit-one"></span><span class="tech-orbit tech-orbit-two"></span><span class="tech-star star-one">✦</span><span class="tech-star star-two">✦</span></div></div><div class="reason-list"><?php foreach ($reasons as $index => $reason): ?><article class="reason-card reveal reveal-delay-<?= min($index, 2) ?>"><span class="reason-icon"><?= icon($reason['icon']) ?></span><div><h3><?= e($reason['title']) ?></h3><p><?= e($reason['text']) ?></p></div></article><?php endforeach; ?></div></div></section>
+        <section class="section contact-section" id="contactus"><div class="container contact-shell reveal"><div><p class="eyebrow">Siap memulai?</p><h2>Hubungi <span>kami</span></h2><p>Diskusikan kebutuhan website Anda bersama Webkubator.</p></div><div class="contact-list"><a class="contact-card" href="https://wa.me/6287753719307" target="_blank" rel="noopener"><span class="contact-icon">☎</span><span><small>Hubungi Kami</small><strong>(+62)87753719307</strong></span><b aria-hidden="true">↗</b></a><a class="contact-card" href="mailto:webkubator@gmail.com"><span class="contact-icon">@</span><span><small>Email</small><strong>webkubator@gmail.com</strong></span><b aria-hidden="true">↗</b></a></div></div></section>
     </main>
-
-    <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top" aria-label="Webkubator, kembali ke atas"><img src="assets/images/logo.webp" alt="Webkubator" width="160" height="25"></a><p>Website yang bekerja lebih keras untuk bisnis Anda.</p><div class="footer-bottom"><span>© <?= date('Y') ?> Webkubator</span><span>Dibuat dengan niat baik di Indonesia.</span><a href="#top">Kembali ke atas ↑</a></div></div></footer>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top" aria-label="Kembali ke atas"><img src="assets/images/logo.webp" alt="Webkubator" width="160" height="25"></a><p>Solusi website cepat untuk bisnis modern.</p><div class="footer-bottom"><span>Copyright © 2025 Webkubator | Powered by Webkubator</span><a href="#top">Kembali ke atas ↑</a></div></div></footer>
     <a class="whatsapp-float" href="https://wa.me/6287753719307" target="_blank" rel="noopener" aria-label="Hubungi Webkubator melalui WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.08 0C5.55 0 .24 5.3.24 11.83c0 2.08.54 4.11 1.57 5.9L.14 23.85l6.27-1.64a11.8 11.8 0 0 0 5.66 1.44h.01c6.52 0 11.83-5.3 11.83-11.82 0-3.16-1.23-6.13-3.41-8.33ZM12.08 21.6h-.01a9.77 9.77 0 0 1-4.98-1.36l-.36-.22-3.72.98 1-3.62-.24-.37a9.77 9.77 0 0 1-1.5-5.18c0-5.38 4.38-9.76 9.77-9.76a9.7 9.7 0 0 1 6.91 2.87 9.7 9.7 0 0 1 2.86 6.92c0 5.38-4.38 9.75-9.75 9.75Zm5.35-7.3c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.65.15-.2.29-.75.94-.92 1.13-.17.2-.34.22-.63.08-.29-.15-1.24-.46-2.36-1.46a8.9 8.9 0 0 1-1.64-2.03c-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.3-.49.1-.2.05-.37-.02-.52-.08-.15-.65-1.57-.89-2.15-.23-.56-.47-.49-.65-.5h-.55c-.2 0-.52.07-.8.37-.27.29-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.21 3.09.15.2 2.1 3.2 5.1 4.49.71.31 1.27.5 1.7.64.71.23 1.36.2 1.87.12.57-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.34Z"/></svg></a>
     <script src="script.js?v=<?= e($assetVersion) ?>" defer></script>
 </body>
