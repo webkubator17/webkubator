@@ -71,7 +71,7 @@ $defaultMessage = 'Halo Webkubator, saya ingin konsultasi website.';
                     </div>
                     <div class="trust-row" aria-label="Pencapaian Webkubator">
                         <div><strong>5+</strong><span>Tahun pengalaman</span></div>
-                        <div><strong>40+</strong><span>Website diluncurkan</span></div>
+                        <div><strong>52</strong><span>Website diluncurkan</span></div>
                         <div><strong>25+</strong><span>Klien bertumbuh</span></div>
                     </div>
                 </div>
