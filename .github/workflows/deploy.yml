@@ -27,7 +27,10 @@ jobs:
           local-dir: ./
           # Create the FTP account with its home directory set to public_html.
           server-dir: ./
-          security: strict
+          # Shared-hosting FTP certificates may be issued for the provider hostname.
+          # FTPS encryption remains enabled; loose only relaxes certificate-name validation.
+          security: loose
+          log-level: verbose
           exclude: |
             **/.git*/**
             **/.git*
