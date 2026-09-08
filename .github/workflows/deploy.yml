@@ -1,0 +1,45 @@
+name: Deploy Webkubator to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Upload website via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./
+          # Create the FTP account with its home directory set to public_html.
+          server-dir: ./
+          security: strict
+          exclude: |
+            **/.git*/**
+            **/.git*
+            **/.github/**
+            **/.cpanel.yml
+            **/.gitignore
+            **/README.md
+            **/.env*
+            **/wp-config.php
+            **/*.sql
+            **/*.sql.gz
+            **/*.bak
+            **/*.backup
+            **/*.log
+            **/.ftp-deploy-sync-state.json
+
