@@ -8,3 +8,7 @@ Repository ini menggunakan `.cpanel.yml` untuk menyalin file website ke `/home/w
 
 File WordPress lama, database SQL, `wp-config.php`, cache, dan kredensial tidak disimpan di repository ini.
 
+## Automatic deployment
+
+Setiap push ke branch `main` menjalankan GitHub Actions dan mengunggah website ke hosting melalui explicit FTPS. FTP credentials disimpan sebagai GitHub Actions Secrets, bukan di dalam source code.
+
