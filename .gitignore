@@ -1,0 +1,16 @@
+# Local and sensitive WordPress files
+wp-config.php
+*.sql
+*.sql.gz
+*.bak
+*.backup
+*.log
+.env
+.env.*
+
+# Local tooling and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+node_modules/
+
