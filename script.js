@@ -3,6 +3,7 @@
 
   const header = document.querySelector('[data-header]');
   const menu = document.querySelector('.menu-toggle');
+  const menuClose = document.querySelector('.menu-close');
   const nav = document.querySelector('#site-nav');
   document.querySelectorAll('.contact-icon').forEach((element) => element.setAttribute('aria-hidden', 'true'));
 
@@ -23,6 +24,7 @@
     menu.setAttribute('aria-label', open ? 'Buka menu navigasi' : 'Tutup menu navigasi');
     nav?.classList.toggle('is-open', !open);
   });
+  menuClose?.addEventListener('click', closeMenu);
   nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
 
@@ -63,4 +65,3 @@
     counterItems.forEach(showCounter);
   }
 })();
-
