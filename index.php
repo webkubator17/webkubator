@@ -33,10 +33,10 @@ $reasons = [
     ['title' => 'Dukungan Teknis yang Andal', 'text' => 'Tim kami selalu siap membantu kapanpun Anda membutuhkannya. Dengan dukungan teknis yang responsif dan profesional, Webkubator memastikan website Anda selalu dalam performa terbaik.', 'icon' => 'headset'],
 ];
 $heroValues = [
-    ['title' => '5 Hari Selesai', 'text' => 'Dari brief sampai siap online', 'image' => 'hero-rocket.png'],
-    ['title' => 'Full Garansi', 'text' => 'Dibantu sampai benar-benar siap', 'image' => 'hero-shield.png'],
-    ['title' => 'Cepat & Responsif', 'text' => 'Nyaman dibuka di semua device', 'image' => 'hero-speed.png'],
-    ['title' => 'UI/UX Moderen', 'text' => 'Rapi, modern, fokus konversi', 'image' => 'hero-palette.png'],
+    ['title' => '5 Hari Selesai', 'text' => 'Brief ke online', 'image' => 'hero-rocket.png'],
+    ['title' => 'Full Garansi', 'text' => 'Dibantu sampai siap', 'image' => 'hero-shield.png'],
+    ['title' => 'Cepat & Responsif', 'text' => 'Nyaman di semua device', 'image' => 'hero-speed.png'],
+    ['title' => 'UI/UX Moderen', 'text' => 'Rapi, modern, konversi', 'image' => 'hero-palette.png'],
 ];
 function e(string $value): string { return htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); }
 function wa(string $message = 'Halo Webkubator, saya ingin konsultasi website.'): string { return 'https://wa.me/6287753719307?text=' . rawurlencode($message); }
