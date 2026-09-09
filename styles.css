@@ -24,3 +24,7 @@ h1,h2,h3,h4,h5{font-family:'Poppins',Arial,sans-serif}.button-primary{background
 .menu-close{display:none}
 @media (max-width:880px){.menu-close{position:absolute;top:20px;right:18px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(1,45,181,.72);color:#fff;font:400 28px/1 'Poppins',Arial,sans-serif;cursor:pointer}.menu-close:hover,.menu-close:focus-visible{background:#174bd4;border-color:#fff}}
 .header-left{grid-column:1;justify-self:start;display:flex;align-items:center}.header-contact{justify-self:start}
+/* Keep the desktop CTA at the far right, directly beside the navigation. */
+.header-inner{grid-template-columns:minmax(0,auto) minmax(0,1fr) auto auto;gap:24px}.header-left{grid-column:1}.site-nav{grid-column:2;min-width:0}.header-contact{grid-column:3;justify-self:end}.menu-toggle{grid-column:4}
+@media (max-width:880px){.header-inner{grid-template-columns:minmax(0,1fr) auto;gap:12px}.header-left{grid-column:1}.site-nav{grid-column:auto}.header-contact{display:none}.menu-toggle{grid-column:2}}
+
