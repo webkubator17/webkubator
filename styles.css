@@ -23,3 +23,4 @@ h1,h2,h3,h4,h5{font-family:'Poppins',Arial,sans-serif}.button-primary{background
 @media (max-width:700px){.header-left{gap:0}.header-contact{display:none}.brand{font-size:17px}.hero-copy h1{max-width:min(100%,360px);margin-inline:auto;font-size:clamp(22px,7.6vw,32px);line-height:1.1;letter-spacing:-.035em;text-wrap:balance}.hero-lead{font-size:15.5px}.hero-actions .button-primary,.hero-actions .button-outline{color:#fff}}
 .menu-close{display:none}
 @media (max-width:880px){.menu-close{position:absolute;top:20px;right:18px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(1,45,181,.72);color:#fff;font:400 28px/1 'Poppins',Arial,sans-serif;cursor:pointer}.menu-close:hover,.menu-close:focus-visible{background:#174bd4;border-color:#fff}}
+.header-left{grid-column:1;justify-self:start;display:flex;align-items:center}.header-contact{justify-self:start}
