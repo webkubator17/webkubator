@@ -150,7 +150,7 @@ jobs:
               for candidate in host_candidates:
                   try:
                       connection = FTP_TLS()
-                      connection.connect(candidate, port, timeout=45)
+                      connection.connect(candidate, port, timeout=12)
                       connection.auth()
                       connection.prot_p()
                       connection.login(username, password)
