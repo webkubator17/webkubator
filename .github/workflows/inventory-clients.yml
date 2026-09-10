@@ -39,6 +39,7 @@ jobs:
               ".git", ".github", ".well-known", "node_modules", "vendor", "cache",
               "caches", "tmp", "logs", "plugins", "themes", "dist", "build", "backup", "backups", "wp-admin", "wp-includes", "cgi-bin"
           }
+          PRIORITY_DIRS = {"assets", "images", "img", "media", "static", "uploads", "wp-content", "public", "resources"}
           MAX_LOGOS_PER_SITE = 4
           MAX_LOGO_BYTES = 8 * 1024 * 1024
           MAX_TOTAL_BYTES = 50 * 1024 * 1024
@@ -85,7 +86,8 @@ jobs:
                           continue
                       relative = name if current == "." else f"{current}/{name}"
                       kind = str(facts.get("type", "")).lower()
-                      if kind in {"dir", "cdir", "pdir"} and len(relative.split("/")) <= 3:
+                      parts = relative.split("/")
+                      if kind in {"dir", "cdir", "pdir"} and len(parts) <= 4 and (len(parts) == 1 or parts[-1].lower() in PRIORITY_DIRS):
                           queue.append(relative)
                       elif kind in {"file", ""}:
                           files.append(relative)
