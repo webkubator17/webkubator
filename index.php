@@ -9,6 +9,12 @@ $partners = [
     ['image' => 'partner-ofc.webp', 'alt' => 'Our Five Coco'],
     ['image' => 'partner-image10.webp', 'alt' => 'Mitra Webkubator'],
     ['image' => 'partner-danuzkuy.webp', 'alt' => 'Danuzkuy'],
+    ['image' => 'client-logos/ct-housee-brand.png', 'alt' => 'CT-Housee Beauty Studio'],
+    ['image' => 'client-logos/pkbm-siloam.png', 'alt' => 'PKBM Siloam'],
+    ['image' => 'client-logos/tautku.png', 'alt' => 'Tautku.id'],
+    ['image' => 'client-logos/tebakkata.svg', 'alt' => 'Tebak Kata'],
+    ['image' => 'client-logos/pluearth-moment.png', 'alt' => 'Pluearth Moment Radio'],
+    ['image' => 'client-logos/seo-webkubator.png', 'alt' => 'Webkubator SEO'],
 ];
 $projects = [
     ['name' => 'Our Five Coco', 'image' => 'our-five-coco.webp', 'url' => 'https://ourfivecoco.preview.webkubator.com/'],
