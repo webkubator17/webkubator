@@ -37,3 +37,4 @@ h1,h2,h3,h4,h5{font-family:'Poppins',Arial,sans-serif}.button-primary{background
 @media (max-width:700px){.hero-grid{grid-template-areas:'eyebrow' 'visual' 'title' 'lead' 'actions';}.hero-copy{display:contents}.hero-copy .eyebrow{grid-area:eyebrow;margin-bottom:0}.hero-visual-composite{grid-area:visual}.hero-copy h1{grid-area:title}.hero-copy .hero-lead{grid-area:lead}.hero-copy .hero-actions{grid-area:actions}}
 @media (max-width:700px){.hero-grid{gap:8px}.hero-copy .hero-lead{margin:14px 0 18px}}
 @media (max-width:700px){.hero-copy h1{font-size:clamp(22px,6.4vw,28px);line-height:1.15;letter-spacing:-.055em}}
+@media (min-width:981px){.hero-copy h1{font-size:clamp(38px,3vw,42px);line-height:1.12}}@media (max-width:700px){.hero-visual-composite{margin-bottom:30px}}
