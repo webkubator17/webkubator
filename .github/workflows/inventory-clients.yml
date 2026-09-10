@@ -35,6 +35,8 @@ jobs:
           LOGO_DIR = OUTPUT / "logos"
           IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif", ".ico", ".avif"}
           LOGO_TERMS = ("logo", "favicon", "brand", "site-icon", "custom-logo", "wordmark")
+          EXCLUDE_TERMS = ("background", "backgroud", "bgrdo", "foto", "price", "podcast", "pin-by", "img_", "bunga", "kue", "hero", "smush")
+          INTERNAL_SITES = {"assets", "wp-content"}
           SKIP_DIRS = {
               ".git", ".github", ".well-known", "node_modules", "vendor", "cache",
               "caches", "tmp", "logs", "plugins", "themes", "dist", "build", "backup", "backups", "wp-admin", "wp-includes", "cgi-bin"
@@ -94,13 +96,13 @@ jobs:
               return files
 
           def site_key(remote_path):
-              return remote_path.split("/", 1)[0] if "/" in remote_path else "(public_html root)"
+              return remote_path.split("/", 1)[0] if "/" in remote_path else "webkubator.com"
 
           def candidate_score(remote_path):
               path = remote_path.lower()
               filename = posixpath.basename(path)
               suffix = Path(filename).suffix
-              if suffix not in IMAGE_EXTENSIONS:
+              if suffix not in IMAGE_EXTENSIONS or any(term in filename for term in EXCLUDE_TERMS):
                   return None
               score = 0
               if any(term in filename for term in LOGO_TERMS):
@@ -168,7 +170,7 @@ jobs:
           grouped = {}
           for remote_path in files:
               score = candidate_score(remote_path)
-              if score:
+              if score and site_key(remote_path) not in INTERNAL_SITES:
                   grouped.setdefault(site_key(remote_path), []).append((score, remote_path))
 
           report = {
@@ -212,7 +214,7 @@ jobs:
                   "downloaded": selected,
               })
 
-          for website in sorted({site_key(path) for path in files} - set(grouped)):
+          for website in sorted({site_key(path) for path in files if site_key(path) not in INTERNAL_SITES} - set(grouped)):
               report["websites"].append({
                   "folder": website,
                   "logo_candidates": 0,
