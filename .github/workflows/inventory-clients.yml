@@ -72,7 +72,7 @@ jobs:
               queue = ["."]
               visited = set()
               files = []
-              max_directories = 4000
+              max_directories = 600
               while queue:
                   current = queue.pop(0)
                   if current in visited:
@@ -85,7 +85,7 @@ jobs:
                           continue
                       relative = name if current == "." else f"{current}/{name}"
                       kind = str(facts.get("type", "")).lower()
-                      if kind in {"dir", "cdir", "pdir"}:
+                      if kind in {"dir", "cdir", "pdir"} and len(relative.split("/")) <= 5:
                           queue.append(relative)
                       elif kind in {"file", ""}:
                           files.append(relative)
