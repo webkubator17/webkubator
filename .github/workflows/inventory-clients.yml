@@ -177,6 +177,14 @@ jobs:
               "total_files_scanned": len(files),
           }
           total_downloaded = 0
+          download_session = None
+
+          def get_download_ftp():
+              global download_session
+              if download_session is None:
+                  download_session, _ = connect_ftp()
+              return download_session
+
           for website, candidates in sorted(grouped.items()):
               candidates.sort(key=lambda item: (-item[0], len(item[1]), item[1]))
               selected = []
@@ -186,17 +194,10 @@ jobs:
                   safe_site = clean_name(website)
                   safe_file = clean_name(remote_path.replace("/", "__"))
                   local_file = LOGO_DIR / safe_site / safe_file
-                  download_ftp = None
                   try:
-                      download_ftp, _ = connect_ftp()
-                      size = download_logo(download_ftp, remote_path, local_file)
+                      size = download_logo(get_download_ftp(), remote_path, local_file)
                   except Exception:
                       size = 0
-                  finally:
-                      try:
-                          download_ftp.quit()
-                      except Exception:
-                          pass
                   if size:
                       total_downloaded += size
                       selected.append({
