@@ -126,16 +126,35 @@ jobs:
                       return 0
               return received
 
-          host = os.environ["FTP_SERVER"]
+          raw_host = os.environ["FTP_SERVER"].strip()
+          for prefix in ("ftps://", "ftp://"):
+              if raw_host.lower().startswith(prefix):
+                  raw_host = raw_host[len(prefix):]
+          raw_host = raw_host.split("/", 1)[0]
+          if raw_host.count(":") == 1 and raw_host.rsplit(":", 1)[1].isdigit():
+              raw_host = raw_host.rsplit(":", 1)[0]
+          host_candidates = [raw_host]
+          if raw_host.lower() == "ftp.webkubator.com":
+              host_candidates.append("srv175.niagahoster.com")
           port = int(os.environ.get("FTP_PORT") or "21")
           username = os.environ["FTP_USERNAME"]
           password = os.environ["FTP_PASSWORD"]
 
-          ftp = FTP_TLS()
-          ftp.connect(host, port, timeout=45)
-          ftp.auth()
-          ftp.prot_p()
-          ftp.login(username, password)
+          def connect_ftp():
+              last_error = None
+              for candidate in host_candidates:
+                  try:
+                      connection = FTP_TLS()
+                      connection.connect(candidate, port, timeout=45)
+                      connection.auth()
+                      connection.prot_p()
+                      connection.login(username, password)
+                      return connection, candidate
+                  except Exception as error:
+                      last_error = error
+              raise last_error
+
+          ftp, host = connect_ftp()
           files = crawl(ftp)
           ftp.quit()
 
@@ -160,12 +179,9 @@ jobs:
                   safe_site = clean_name(website)
                   safe_file = clean_name(remote_path.replace("/", "__"))
                   local_file = LOGO_DIR / safe_site / safe_file
-                  download_ftp = FTP_TLS()
+                  download_ftp = None
                   try:
-                      download_ftp.connect(host, port, timeout=45)
-                      download_ftp.auth()
-                      download_ftp.prot_p()
-                      download_ftp.login(username, password)
+                      download_ftp, _ = connect_ftp()
                       size = download_logo(download_ftp, remote_path, local_file)
                   except Exception:
                       size = 0
