@@ -40,9 +40,9 @@ jobs:
               "caches", "tmp", "logs", "plugins", "themes", "dist", "build", "backup", "backups", "wp-admin", "wp-includes", "cgi-bin"
           }
           PRIORITY_DIRS = {"assets", "images", "img", "media", "static", "uploads", "wp-content", "public", "resources"}
-          MAX_LOGOS_PER_SITE = 4
+          MAX_LOGOS_PER_SITE = 6
           MAX_LOGO_BYTES = 8 * 1024 * 1024
-          MAX_TOTAL_BYTES = 50 * 1024 * 1024
+          MAX_TOTAL_BYTES = 80 * 1024 * 1024
 
           def clean_name(value):
               return re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-") or "root"
@@ -73,7 +73,7 @@ jobs:
               queue = ["."]
               visited = set()
               files = []
-              max_directories = 50
+              max_directories = 150
               while queue:
                   current = queue.pop(0)
                   if current in visited:
@@ -87,7 +87,7 @@ jobs:
                       relative = name if current == "." else f"{current}/{name}"
                       kind = str(facts.get("type", "")).lower()
                       parts = relative.split("/")
-                      if kind in {"dir", "cdir", "pdir"} and len(parts) <= 2 and (len(parts) == 1 or parts[-1].lower() in PRIORITY_DIRS):
+                      if kind in {"dir", "cdir", "pdir"} and len(parts) <= 3 and (len(parts) <= 2 or parts[-1].lower() in PRIORITY_DIRS):
                           queue.append(relative)
                       elif kind in {"file", ""}:
                           files.append(relative)
@@ -111,6 +111,8 @@ jobs:
                   score += 3
               if "wp-content/uploads" in path:
                   score += 1
+              if score == 0 and len(remote_path.split("/")) <= 3:
+                  score = 1
               return score or None
 
           def download_logo(ftp, remote_path, local_path):
