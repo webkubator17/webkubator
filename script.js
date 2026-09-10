@@ -64,4 +64,82 @@
     revealItems.forEach((element) => element.classList.add('is-visible'));
     counterItems.forEach(showCounter);
   }
+
+  const setupLogoMarquee = () => {
+    const marquee = document.querySelector('[data-logo-marquee]');
+    const track = marquee?.querySelector('[data-logo-marquee-track]');
+    const group = track?.querySelector('.logo-marquee-group');
+    if (!marquee || !track || !group) return;
+
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const defaultSpeed = 42;
+    let loopWidth = 0;
+    let offset = 0;
+    let previousTime = performance.now();
+    let pointerId = null;
+    let lastPointerX = 0;
+    let dragging = false;
+
+    const normalizeOffset = () => {
+      if (!loopWidth) return;
+      offset %= loopWidth;
+      if (offset < 0) offset += loopWidth;
+    };
+
+    const measure = () => {
+      loopWidth = group.getBoundingClientRect().width;
+      normalizeOffset();
+      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    };
+
+    const startDrag = (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      dragging = true;
+      pointerId = event.pointerId;
+      lastPointerX = event.clientX;
+      track.classList.add('is-dragging');
+      track.setPointerCapture?.(event.pointerId);
+    };
+
+    const moveDrag = (event) => {
+      if (!dragging || event.pointerId !== pointerId) return;
+      const deltaX = event.clientX - lastPointerX;
+      lastPointerX = event.clientX;
+      offset -= deltaX;
+      normalizeOffset();
+      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    };
+
+    const stopDrag = (event) => {
+      if (!dragging || (event?.pointerId != null && event.pointerId !== pointerId)) return;
+      dragging = false;
+      track.classList.remove('is-dragging');
+      if (pointerId != null) track.releasePointerCapture?.(pointerId);
+      pointerId = null;
+    };
+
+    track.addEventListener('pointerdown', startDrag);
+    track.addEventListener('pointermove', moveDrag);
+    track.addEventListener('pointerup', stopDrag);
+    track.addEventListener('pointercancel', stopDrag);
+    track.addEventListener('lostpointercapture', stopDrag);
+    track.addEventListener('dragstart', (event) => event.preventDefault());
+    measure();
+    window.addEventListener('resize', measure, { passive: true });
+
+    const tick = (now) => {
+      const deltaTime = Math.min((now - previousTime) / 1000, 0.05);
+      previousTime = now;
+      if (!dragging && !motionQuery.matches) {
+        offset += defaultSpeed * deltaTime;
+        normalizeOffset();
+        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      }
+      window.requestAnimationFrame(tick);
+    };
+    window.requestAnimationFrame(tick);
+  };
+
+  setupLogoMarquee();
 })();
+
