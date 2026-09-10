@@ -1,0 +1,227 @@
+name: Inventory client websites and logos
+
+on:
+  push:
+    paths:
+      - ".github/workflows/inventory-clients.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan public_html over FTPS
+        env:
+          FTP_SERVER: \${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: \${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: \${{ secrets.FTP_PASSWORD }}
+          FTP_PORT: \${{ secrets.FTP_PORT }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import posixpath
+          import re
+          from ftplib import FTP_TLS
+          from pathlib import Path
+
+          OUTPUT = Path(".client-inventory")
+          LOGO_DIR = OUTPUT / "logos"
+          IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".svg", ".gif", ".ico", ".avif"}
+          LOGO_TERMS = ("logo", "favicon", "brand", "site-icon", "custom-logo", "wordmark")
+          SKIP_DIRS = {
+              ".git", ".github", ".well-known", "node_modules", "vendor", "cache",
+              "caches", "tmp", "logs", "wp-admin", "wp-includes", "cgi-bin"
+          }
+          MAX_LOGOS_PER_SITE = 12
+          MAX_LOGO_BYTES = 8 * 1024 * 1024
+          MAX_TOTAL_BYTES = 120 * 1024 * 1024
+
+          def clean_name(value):
+              return re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-") or "root"
+
+          def is_skipped(name):
+              return name.startswith(".") or name.lower() in SKIP_DIRS
+
+          def list_dir(ftp, path):
+              try:
+                  return list(ftp.mlsd(path))
+              except Exception:
+                  rows = []
+                  for raw in ftp.nlst(path):
+                      name = posixpath.basename(raw.rstrip("/"))
+                      if not name or name in {".", ".."}:
+                          continue
+                      try:
+                          current = ftp.pwd()
+                          ftp.cwd(raw)
+                          ftp.cwd(current)
+                          kind = "dir"
+                      except Exception:
+                          kind = "file"
+                      rows.append((name, {"type": kind}))
+                  return rows
+
+          def crawl(ftp):
+              queue = ["."]
+              visited = set()
+              files = []
+              while queue:
+                  current = queue.pop(0)
+                  if current in visited:
+                      continue
+                  visited.add(current)
+                  for name, facts in list_dir(ftp, current):
+                      if name in {".", ".."} or is_skipped(name):
+                          continue
+                      relative = name if current == "." else f"{current}/{name}"
+                      kind = str(facts.get("type", "")).lower()
+                      if kind in {"dir", "cdir", "pdir"}:
+                          queue.append(relative)
+                      elif kind in {"file", ""}:
+                          files.append(relative)
+              return files
+
+          def site_key(remote_path):
+              return remote_path.split("/", 1)[0] if "/" in remote_path else "(public_html root)"
+
+          def candidate_score(remote_path):
+              path = remote_path.lower()
+              filename = posixpath.basename(path)
+              suffix = Path(filename).suffix
+              if suffix not in IMAGE_EXTENSIONS:
+                  return None
+              score = 0
+              if any(term in filename for term in LOGO_TERMS):
+                  score += 10
+              if suffix == ".ico":
+                  score += 5
+              if "/" not in remote_path:
+                  score += 3
+              if "wp-content/uploads" in path:
+                  score += 1
+              return score or None
+
+          def download_logo(ftp, remote_path, local_path):
+              local_path.parent.mkdir(parents=True, exist_ok=True)
+              received = 0
+              with local_path.open("wb") as output:
+                  def write_chunk(chunk):
+                      nonlocal received
+                      received += len(chunk)
+                      if received <= MAX_LOGO_BYTES:
+                          output.write(chunk)
+                      if received > MAX_LOGO_BYTES:
+                          raise RuntimeError("logo exceeds size limit")
+                  try:
+                      ftp.retrbinary(f"RETR {remote_path}", write_chunk, blocksize=65536)
+                  except Exception:
+                      local_path.unlink(missing_ok=True)
+                      return 0
+              return received
+
+          host = os.environ["FTP_SERVER"]
+          port = int(os.environ.get("FTP_PORT") or "21")
+          username = os.environ["FTP_USERNAME"]
+          password = os.environ["FTP_PASSWORD"]
+
+          ftp = FTP_TLS()
+          ftp.connect(host, port, timeout=45)
+          ftp.auth()
+          ftp.prot_p()
+          ftp.login(username, password)
+          files = crawl(ftp)
+          ftp.quit()
+
+          grouped = {}
+          for remote_path in files:
+              score = candidate_score(remote_path)
+              if score:
+                  grouped.setdefault(site_key(remote_path), []).append((score, remote_path))
+
+          report = {
+              "source": "/public_html/",
+              "websites": [],
+              "total_files_scanned": len(files),
+          }
+          total_downloaded = 0
+          for website, candidates in sorted(grouped.items()):
+              candidates.sort(key=lambda item: (-item[0], len(item[1]), item[1]))
+              selected = []
+              for score, remote_path in candidates[:MAX_LOGOS_PER_SITE]:
+                  if total_downloaded >= MAX_TOTAL_BYTES:
+                      break
+                  safe_site = clean_name(website)
+                  safe_file = clean_name(remote_path.replace("/", "__"))
+                  local_file = LOGO_DIR / safe_site / safe_file
+                  download_ftp = FTP_TLS()
+                  try:
+                      download_ftp.connect(host, port, timeout=45)
+                      download_ftp.auth()
+                      download_ftp.prot_p()
+                      download_ftp.login(username, password)
+                      size = download_logo(download_ftp, remote_path, local_file)
+                  except Exception:
+                      size = 0
+                  finally:
+                      try:
+                          download_ftp.quit()
+                      except Exception:
+                          pass
+                  if size:
+                      total_downloaded += size
+                      selected.append({
+                          "remote_path": remote_path,
+                          "score": score,
+                          "bytes": size,
+                          "local_file": str(local_file).replace("\\", "/"),
+                      })
+              report["websites"].append({
+                  "folder": website,
+                  "logo_candidates": len(candidates),
+                  "downloaded": selected,
+              })
+
+          for website in sorted({site_key(path) for path in files} - set(grouped)):
+              report["websites"].append({
+                  "folder": website,
+                  "logo_candidates": 0,
+                  "downloaded": [],
+              })
+          report["websites"].sort(key=lambda item: item["folder"])
+          OUTPUT.mkdir(parents=True, exist_ok=True)
+          (OUTPUT / "clients.json").write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
+          lines = [
+              "# Client website inventory",
+              "",
+              "Source: /public_html/ via FTPS.",
+              "",
+              "| Website folder | Logo candidates | Logos downloaded |",
+              "|---|---:|---:|",
+          ]
+          for item in report["websites"]:
+              lines.append(f"| {item['folder']} | {item['logo_candidates']} | {len(item['downloaded'])} |")
+          lines.extend(["", f"Files scanned: {report['total_files_scanned']}.", f"Downloaded bytes: {total_downloaded}."])
+          (OUTPUT / "CLIENTS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print(f"Websites: {len(report['websites'])}")
+          print(f"Files scanned: {len(files)}")
+          print(f"Logos downloaded: {sum(len(item['downloaded']) for item in report['websites'])}")
+          PY
+
+      - name: Save inventory to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .client-inventory
+          if git diff --cached --quiet; then
+            echo "No inventory changes"
+            exit 0
+          fi
+          git commit -m "chore: inventory client websites and logos"
+          git push

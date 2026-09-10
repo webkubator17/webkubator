@@ -37,6 +37,7 @@ jobs:
             **/.github/**
             **/.cpanel.yml
             **/.gitignore
+            .client-inventory/**
             **/README.md
             **/.env*
             **/wp-config.php
