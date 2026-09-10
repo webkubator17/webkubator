@@ -39,7 +39,7 @@ jobs:
               ".git", ".github", ".well-known", "node_modules", "vendor", "cache",
               "caches", "tmp", "logs", "plugins", "themes", "dist", "build", "backup", "backups", "wp-admin", "wp-includes", "cgi-bin"
           }
-          MAX_LOGOS_PER_SITE = 6
+          MAX_LOGOS_PER_SITE = 4
           MAX_LOGO_BYTES = 8 * 1024 * 1024
           MAX_TOTAL_BYTES = 50 * 1024 * 1024
 
@@ -72,7 +72,7 @@ jobs:
               queue = ["."]
               visited = set()
               files = []
-              max_directories = 600
+              max_directories = 120
               while queue:
                   current = queue.pop(0)
                   if current in visited:
@@ -85,7 +85,7 @@ jobs:
                           continue
                       relative = name if current == "." else f"{current}/{name}"
                       kind = str(facts.get("type", "")).lower()
-                      if kind in {"dir", "cdir", "pdir"} and len(relative.split("/")) <= 5:
+                      if kind in {"dir", "cdir", "pdir"} and len(relative.split("/")) <= 3:
                           queue.append(relative)
                       elif kind in {"file", ""}:
                           files.append(relative)
