@@ -141,8 +141,8 @@ jobs:
           if raw_host.count(":") == 1 and raw_host.rsplit(":", 1)[1].isdigit():
               raw_host = raw_host.rsplit(":", 1)[0]
           host_candidates = [raw_host]
-          if raw_host.lower() == "ftp.webkubator.com":
-              host_candidates.append("srv175.niagahoster.com")
+          if raw_host.lower() in {"ftp.webkubator.com", "srv175.niagahoster.com"}:
+              host_candidates.append("webkubator.com")
           port = int(os.environ.get("FTP_PORT") or "21")
           username = os.environ["FTP_USERNAME"]
           password = os.environ["FTP_PASSWORD"]
