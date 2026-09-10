@@ -37,11 +37,11 @@ jobs:
           LOGO_TERMS = ("logo", "favicon", "brand", "site-icon", "custom-logo", "wordmark")
           SKIP_DIRS = {
               ".git", ".github", ".well-known", "node_modules", "vendor", "cache",
-              "caches", "tmp", "logs", "wp-admin", "wp-includes", "cgi-bin"
+              "caches", "tmp", "logs", "plugins", "themes", "dist", "build", "backup", "backups", "wp-admin", "wp-includes", "cgi-bin"
           }
-          MAX_LOGOS_PER_SITE = 12
+          MAX_LOGOS_PER_SITE = 6
           MAX_LOGO_BYTES = 8 * 1024 * 1024
-          MAX_TOTAL_BYTES = 120 * 1024 * 1024
+          MAX_TOTAL_BYTES = 50 * 1024 * 1024
 
           def clean_name(value):
               return re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-") or "root"
@@ -72,11 +72,14 @@ jobs:
               queue = ["."]
               visited = set()
               files = []
+              max_directories = 4000
               while queue:
                   current = queue.pop(0)
                   if current in visited:
                       continue
                   visited.add(current)
+                  if len(visited) >= max_directories:
+                      break
                   for name, facts in list_dir(ftp, current):
                       if name in {".", ".."} or is_skipped(name):
                           continue
