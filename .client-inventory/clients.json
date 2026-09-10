@@ -17,9 +17,76 @@
       "downloaded": []
     },
     {
+      "folder": "agribos.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "altigabengkel.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "ambisptn.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "anhaclothing.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "app.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
       "folder": "app.webkubator.com",
       "logo_candidates": 0,
       "downloaded": []
+    },
+    {
+      "folder": "assets",
+      "logo_candidates": 34,
+      "downloaded": [
+        {
+          "remote_path": "assets/images/logo.webp",
+          "score": 10,
+          "bytes": 13330,
+          "local_file": ".client-inventory/logos/assets/assets__images__logo.webp"
+        },
+        {
+          "remote_path": "assets/images/favicon.png",
+          "score": 10,
+          "bytes": 14005,
+          "local_file": ".client-inventory/logos/assets/assets__images__favicon.png"
+        },
+        {
+          "remote_path": "assets/images/logo-white.webp",
+          "score": 10,
+          "bytes": 9900,
+          "local_file": ".client-inventory/logos/assets/assets__images__logo-white.webp"
+        },
+        {
+          "remote_path": "assets/images/boat.webp",
+          "score": 1,
+          "bytes": 31348,
+          "local_file": ".client-inventory/logos/assets/assets__images__boat.webp"
+        },
+        {
+          "remote_path": "assets/images/fmei.webp",
+          "score": 1,
+          "bytes": 59864,
+          "local_file": ".client-inventory/logos/assets/assets__images__fmei.webp"
+        },
+        {
+          "remote_path": "assets/images/hero.webp",
+          "score": 1,
+          "bytes": 28422,
+          "local_file": ".client-inventory/logos/assets/assets__images__hero.webp"
+        }
+      ]
     },
     {
       "folder": "batualiendusunjambu.tautku.id",
@@ -33,8 +100,27 @@
     },
     {
       "folder": "beautybysandraacademy.mylinku.my.id",
-      "logo_candidates": 0,
-      "downloaded": []
+      "logo_candidates": 3,
+      "downloaded": [
+        {
+          "remote_path": "beautybysandraacademy.mylinku.my.id/img/Logo.jpeg",
+          "score": 10,
+          "bytes": 35261,
+          "local_file": ".client-inventory/logos/beautybysandraacademy.mylinku.my.id/beautybysandraacademy.mylinku.my.id__img__Logo.jpeg"
+        },
+        {
+          "remote_path": "beautybysandraacademy.mylinku.my.id/img/backgroud.jpeg",
+          "score": 1,
+          "bytes": 67490,
+          "local_file": ".client-inventory/logos/beautybysandraacademy.mylinku.my.id/beautybysandraacademy.mylinku.my.id__img__backgroud.jpeg"
+        },
+        {
+          "remote_path": "beautybysandraacademy.mylinku.my.id/img/Foto Profile.jpeg",
+          "score": 1,
+          "bytes": 22337,
+          "local_file": ".client-inventory/logos/beautybysandraacademy.mylinku.my.id/beautybysandraacademy.mylinku.my.id__img__Foto-Profile.jpeg"
+        }
+      ]
     },
     {
       "folder": "berkahbersamatrans.web.id",
@@ -52,16 +138,71 @@
       "downloaded": []
     },
     {
+      "folder": "catatjual.webkubator.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
       "folder": "ct-housee.tautku.id",
-      "logo_candidates": 1,
+      "logo_candidates": 42,
       "downloaded": [
         {
           "remote_path": "ct-housee.tautku.id/Logo.jpeg",
           "score": 10,
           "bytes": 48448,
           "local_file": ".client-inventory/logos/ct-housee.tautku.id/ct-housee.tautku.id__Logo.jpeg"
+        },
+        {
+          "remote_path": "ct-housee.tautku.id/assets/ct-housee-brand.png",
+          "score": 10,
+          "bytes": 1369194,
+          "local_file": ".client-inventory/logos/ct-housee.tautku.id/ct-housee.tautku.id__assets__ct-housee-brand.png"
+        },
+        {
+          "remote_path": "ct-housee.tautku.id/assets/backgroud.png",
+          "score": 1,
+          "bytes": 1469860,
+          "local_file": ".client-inventory/logos/ct-housee.tautku.id/ct-housee.tautku.id__assets__backgroud.png"
+        },
+        {
+          "remote_path": "ct-housee.tautku.id/Price List Sulam Alis.jpeg",
+          "score": 1,
+          "bytes": 326701,
+          "local_file": ".client-inventory/logos/ct-housee.tautku.id/ct-housee.tautku.id__Price-List-Sulam-Alis.jpeg"
+        },
+        {
+          "remote_path": "ct-housee.tautku.id/price list  treament pontianak/1.jpeg",
+          "score": 1,
+          "bytes": 160645,
+          "local_file": ".client-inventory/logos/ct-housee.tautku.id/ct-housee.tautku.id__price-list-treament-pontianak__1.jpeg"
+        },
+        {
+          "remote_path": "ct-housee.tautku.id/price list  treament pontianak/2.jpeg",
+          "score": 1,
+          "bytes": 226329,
+          "local_file": ".client-inventory/logos/ct-housee.tautku.id/ct-housee.tautku.id__price-list-treament-pontianak__2.jpeg"
         }
       ]
+    },
+    {
+      "folder": "data.webkubator.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "desacipayung.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "desatalangtinggiulumanna.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "entirecontainer.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
     },
     {
       "folder": "fikrihamdani.my.id",
@@ -74,14 +215,79 @@
       "downloaded": []
     },
     {
+      "folder": "getbalitrips.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
       "folder": "hbdaulke22.tautku.id",
+      "logo_candidates": 2,
+      "downloaded": [
+        {
+          "remote_path": "hbdaulke22.tautku.id/backgroud2.png",
+          "score": 1,
+          "bytes": 15185,
+          "local_file": ".client-inventory/logos/hbdaulke22.tautku.id/hbdaulke22.tautku.id__backgroud2.png"
+        },
+        {
+          "remote_path": "hbdaulke22.tautku.id/Pin by Gregiiii on I _ Cute black wallpaper, Black wallpaper, Black wallpaper iphone.jpeg",
+          "score": 1,
+          "bytes": 11036,
+          "local_file": ".client-inventory/logos/hbdaulke22.tautku.id/hbdaulke22.tautku.id__Pin-by-Gregiiii-on-I-_-Cute-black-wallpaper-Black-wallpaper-Black-wallpaper-iphone.jpeg"
+        }
+      ]
+    },
+    {
+      "folder": "input.danuskuy.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "islamku.my.id",
       "logo_candidates": 0,
       "downloaded": []
     },
     {
       "folder": "kicauliake23.tautku.id",
-      "logo_candidates": 0,
-      "downloaded": []
+      "logo_candidates": 11,
+      "downloaded": [
+        {
+          "remote_path": "kicauliake23.tautku.id/img/baru.jpeg",
+          "score": 1,
+          "bytes": 193809,
+          "local_file": ".client-inventory/logos/kicauliake23.tautku.id/kicauliake23.tautku.id__img__baru.jpeg"
+        },
+        {
+          "remote_path": "kicauliake23.tautku.id/img/bunga baru.jpeg",
+          "score": 1,
+          "bytes": 78119,
+          "local_file": ".client-inventory/logos/kicauliake23.tautku.id/kicauliake23.tautku.id__img__bunga-baru.jpeg"
+        },
+        {
+          "remote_path": "kicauliake23.tautku.id/img/kue web.jpg.jpeg",
+          "score": 1,
+          "bytes": 79536,
+          "local_file": ".client-inventory/logos/kicauliake23.tautku.id/kicauliake23.tautku.id__img__kue-web.jpg.jpeg"
+        },
+        {
+          "remote_path": "kicauliake23.tautku.id/img/IMG_0811.JPG.jpeg",
+          "score": 1,
+          "bytes": 187341,
+          "local_file": ".client-inventory/logos/kicauliake23.tautku.id/kicauliake23.tautku.id__img__IMG_0811.JPG.jpeg"
+        },
+        {
+          "remote_path": "kicauliake23.tautku.id/img/IMG_0815.JPG.jpeg",
+          "score": 1,
+          "bytes": 56663,
+          "local_file": ".client-inventory/logos/kicauliake23.tautku.id/kicauliake23.tautku.id__img__IMG_0815.JPG.jpeg"
+        },
+        {
+          "remote_path": "kicauliake23.tautku.id/img/IMG_0990.JPG.jpeg",
+          "score": 1,
+          "bytes": 159629,
+          "local_file": ".client-inventory/logos/kicauliake23.tautku.id/kicauliake23.tautku.id__img__IMG_0990.JPG.jpeg"
+        }
+      ]
     },
     {
       "folder": "lingkarsambas.com",
@@ -94,12 +300,45 @@
       "downloaded": []
     },
     {
-      "folder": "pkbmsiloam.mylinku.my.id",
+      "folder": "magangonlinebnsp.com",
       "logo_candidates": 0,
       "downloaded": []
     },
     {
+      "folder": "matrixweldingschool.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "mylinku.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "pkbmsiloam.mylinku.my.id",
+      "logo_candidates": 2,
+      "downloaded": [
+        {
+          "remote_path": "pkbmsiloam.mylinku.my.id/img/Logo PKBM SILOAM.png",
+          "score": 10,
+          "bytes": 39225,
+          "local_file": ".client-inventory/logos/pkbmsiloam.mylinku.my.id/pkbmsiloam.mylinku.my.id__img__Logo-PKBM-SILOAM.png"
+        },
+        {
+          "remote_path": "pkbmsiloam.mylinku.my.id/img/backgroud.jpeg",
+          "score": 1,
+          "bytes": 67490,
+          "local_file": ".client-inventory/logos/pkbmsiloam.mylinku.my.id/pkbmsiloam.mylinku.my.id__img__backgroud.jpeg"
+        }
+      ]
+    },
+    {
       "folder": "prajanews.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "rafie.tautku.id",
       "logo_candidates": 0,
       "downloaded": []
     },
@@ -110,11 +349,33 @@
     },
     {
       "folder": "seo.webkubator.com",
+      "logo_candidates": 1,
+      "downloaded": [
+        {
+          "remote_path": "seo.webkubator.com/assets/logo.png",
+          "score": 10,
+          "bytes": 117102,
+          "local_file": ".client-inventory/logos/seo.webkubator.com/seo.webkubator.com__assets__logo.png"
+        }
+      ]
+    },
+    {
+      "folder": "sewaboatbatam.com",
       "logo_candidates": 0,
       "downloaded": []
     },
     {
-      "folder": "sewaboatbatam.com",
+      "folder": "sitalang.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "srayabaliwellness.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "talangtinggiulumanna.webkubator.com",
       "logo_candidates": 0,
       "downloaded": []
     },
@@ -164,7 +425,7 @@
     },
     {
       "folder": "ultahtasyake20.tautku.id",
-      "logo_candidates": 2,
+      "logo_candidates": 25,
       "downloaded": [
         {
           "remote_path": "ultahtasyake20.tautku.id/Logo Pluearth Moment.png",
@@ -177,6 +438,30 @@
           "score": 10,
           "bytes": 23618,
           "local_file": ".client-inventory/logos/ultahtasyake20.tautku.id/ultahtasyake20.tautku.id__Podcast_-Badge-icon-stamp-logo.jpeg"
+        },
+        {
+          "remote_path": "ultahtasyake20.tautku.id/Radio Pluearth Moment/Logo Pluearth Moment.png",
+          "score": 10,
+          "bytes": 47955,
+          "local_file": ".client-inventory/logos/ultahtasyake20.tautku.id/ultahtasyake20.tautku.id__Radio-Pluearth-Moment__Logo-Pluearth-Moment.png"
+        },
+        {
+          "remote_path": "ultahtasyake20.tautku.id/bgrdo1.png",
+          "score": 1,
+          "bytes": 812067,
+          "local_file": ".client-inventory/logos/ultahtasyake20.tautku.id/ultahtasyake20.tautku.id__bgrdo1.png"
+        },
+        {
+          "remote_path": "ultahtasyake20.tautku.id/bgrdo2.png",
+          "score": 1,
+          "bytes": 1126699,
+          "local_file": ".client-inventory/logos/ultahtasyake20.tautku.id/ultahtasyake20.tautku.id__bgrdo2.png"
+        },
+        {
+          "remote_path": "ultahtasyake20.tautku.id/bgrdo3.png",
+          "score": 1,
+          "bytes": 779843,
+          "local_file": ".client-inventory/logos/ultahtasyake20.tautku.id/ultahtasyake20.tautku.id__bgrdo3.png"
         }
       ]
     },
@@ -197,9 +482,27 @@
     },
     {
       "folder": "wp-content",
+      "logo_candidates": 2,
+      "downloaded": [
+        {
+          "remote_path": "wp-content/uploads/smush-webp-test.png",
+          "score": 1,
+          "bytes": 469,
+          "local_file": ".client-inventory/logos/wp-content/wp-content__uploads__smush-webp-test.png"
+        },
+        {
+          "remote_path": "wp-content/smush-webp/smush-webp-test.png.webp",
+          "score": 1,
+          "bytes": 58,
+          "local_file": ".client-inventory/logos/wp-content/wp-content__smush-webp__smush-webp-test.png.webp"
+        }
+      ]
+    },
+    {
+      "folder": "yukkitatour.mylinku.my.id",
       "logo_candidates": 0,
       "downloaded": []
     }
   ],
-  "total_files_scanned": 427
+  "total_files_scanned": 903
 }
