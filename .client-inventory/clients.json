@@ -1,0 +1,205 @@
+{
+  "source": "/public_html/",
+  "websites": [
+    {
+      "folder": "(public_html root)",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "ads.valka.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "agribos.tautku",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "app.webkubator.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "batualiendusunjambu.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "baturjeeptour.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "beautybysandraacademy.mylinku.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "berkahbersamatrans.web.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "birthdayletter.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "bomber.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "ct-housee.tautku.id",
+      "logo_candidates": 1,
+      "downloaded": [
+        {
+          "remote_path": "ct-housee.tautku.id/Logo.jpeg",
+          "score": 10,
+          "bytes": 48448,
+          "local_file": ".client-inventory/logos/ct-housee.tautku.id/ct-housee.tautku.id__Logo.jpeg"
+        }
+      ]
+    },
+    {
+      "folder": "fikrihamdani.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "gerardomaureira.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "hbdaulke22.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "kicauliake23.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "lingkarsambas.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "links.web.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "pkbmsiloam.mylinku.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "prajanews.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "sakutadewandarumada.web.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "seo.webkubator.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "sewaboatbatam.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "tautku.id",
+      "logo_candidates": 1,
+      "downloaded": [
+        {
+          "remote_path": "tautku.id/logo tautku.id.png",
+          "score": 10,
+          "bytes": 756985,
+          "local_file": ".client-inventory/logos/tautku.id/tautku.id__logo-tautku.id.png"
+        }
+      ]
+    },
+    {
+      "folder": "tebakkata.tautku.id",
+      "logo_candidates": 1,
+      "downloaded": [
+        {
+          "remote_path": "tebakkata.tautku.id/favicon.svg",
+          "score": 10,
+          "bytes": 544,
+          "local_file": ".client-inventory/logos/tebakkata.tautku.id/tebakkata.tautku.id__favicon.svg"
+        }
+      ]
+    },
+    {
+      "folder": "template.webkubator.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "tes-iq.webkubator.com",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "tm.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "tryout.tautku.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "ultahtasyake20.tautku.id",
+      "logo_candidates": 2,
+      "downloaded": [
+        {
+          "remote_path": "ultahtasyake20.tautku.id/Logo Pluearth Moment.png",
+          "score": 10,
+          "bytes": 47955,
+          "local_file": ".client-inventory/logos/ultahtasyake20.tautku.id/ultahtasyake20.tautku.id__Logo-Pluearth-Moment.png"
+        },
+        {
+          "remote_path": "ultahtasyake20.tautku.id/Podcast_ Badge, icon, stamp, logo.jpeg",
+          "score": 10,
+          "bytes": 23618,
+          "local_file": ".client-inventory/logos/ultahtasyake20.tautku.id/ultahtasyake20.tautku.id__Podcast_-Badge-icon-stamp-logo.jpeg"
+        }
+      ]
+    },
+    {
+      "folder": "valka.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "webkubator.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "widiaab.my.id",
+      "logo_candidates": 0,
+      "downloaded": []
+    },
+    {
+      "folder": "wp-content",
+      "logo_candidates": 0,
+      "downloaded": []
+    }
+  ],
+  "total_files_scanned": 427
+}
