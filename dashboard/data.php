@@ -29,14 +29,16 @@ function dashboard_default_data(): array
             'favicon' => 'assets/images/favicon.png',
         ],
         'partners' => [
-            ['image' => 'client-logos/pkbm-siloam.png', 'alt' => 'PKBM Siloam', 'visible' => true],
-            ['image' => 'client-logos/tautku.png', 'alt' => 'Tautku.id', 'visible' => true],
-            ['image' => 'client-logos/sraya-bali.png', 'alt' => 'Sraya Bali Wellness', 'visible' => true],
-            ['image' => 'client-logos/tanajava.png', 'alt' => 'Tanajava Essential Oil', 'visible' => true],
-            ['image' => 'client-logos/nusa-jaya-steel.png', 'alt' => 'Nusa Jaya Steel', 'visible' => true],
-            ['image' => 'client-logos/matrix-welding-school.png', 'alt' => 'Matrix Welding School', 'visible' => true],
-            ['image' => 'client-logos/capunglam.png', 'alt' => 'Capunglam', 'visible' => true],
-            ['image' => 'client-logos/sakuta-dewandaru-mada.png', 'alt' => 'Sakuta Dewandaru Mada', 'visible' => true],
+            ['image' => 'assets/images/partner-ofc.webp', 'alt' => 'Our Five Coco', 'visible' => true],
+            ['image' => 'assets/images/partner-danuzkuy.webp', 'alt' => 'Danuzkuy', 'visible' => true],
+            ['image' => 'assets/images/client-logos/pkbm-siloam.png', 'alt' => 'PKBM Siloam', 'visible' => true],
+            ['image' => 'assets/images/client-logos/tautku.png', 'alt' => 'Tautku.id', 'visible' => true],
+            ['image' => 'assets/images/client-logos/sraya-bali.png', 'alt' => 'Sraya Bali Wellness', 'visible' => true],
+            ['image' => 'assets/images/client-logos/tanajava.png', 'alt' => 'Tanajava Essential Oil', 'visible' => true],
+            ['image' => 'assets/images/client-logos/nusa-jaya-steel.png', 'alt' => 'Nusa Jaya Steel', 'visible' => true],
+            ['image' => 'assets/images/client-logos/matrix-welding-school.png', 'alt' => 'Matrix Welding School', 'visible' => true],
+            ['image' => 'assets/images/client-logos/capunglam.png', 'alt' => 'Capunglam', 'visible' => true],
+            ['image' => 'assets/images/client-logos/sakuta-dewandaru-mada.png', 'alt' => 'Sakuta Dewandaru Mada', 'visible' => true],
         ],
         'projects' => [
             ['name' => 'Edukasi Berkendara', 'image' => 'assets/images/edukasi.webp', 'preview_url' => '', 'url' => 'https://edukasiberkendara.id/', 'traffic' => 0, 'visible' => true],
@@ -75,6 +77,19 @@ function dashboard_normalize_data(array $data): array
                 'alt' => trim((string) $partner['alt']),
                 'visible' => (bool) ($partner['visible'] ?? false),
             ];
+        }
+
+        // Keep the two historical client logos when an older dashboard save
+        // contains only the newer portfolio/client entries.
+        $legacyPartners = [
+            ['image' => 'assets/images/partner-ofc.webp', 'alt' => 'Our Five Coco', 'visible' => true],
+            ['image' => 'assets/images/partner-danuzkuy.webp', 'alt' => 'Danuzkuy', 'visible' => true],
+        ];
+        $storedImages = array_column($normalized['partners'], 'image');
+        foreach (array_reverse($legacyPartners) as $legacyPartner) {
+            if (!in_array($legacyPartner['image'], $storedImages, true)) {
+                array_unshift($normalized['partners'], $legacyPartner);
+            }
         }
     }
 
@@ -124,8 +139,14 @@ function dashboard_normalize_data(array $data): array
 function dashboard_clean_asset_path(string $path): string
 {
     $path = str_replace('\\', '/', trim($path));
-    if ($path === '' || strpos($path, '..') !== false || strncmp($path, 'assets/images/', 14) !== 0) {
+    if ($path === '' || strpos($path, '..') !== false) {
         return '';
+    }
+    if (strncmp($path, 'assets/images/', 14) !== 0) {
+        $path = 'assets/images/' . ltrim($path, '/');
+    }
+    if (strpos($path, 'assets/images/assets/images/') === 0) {
+        $path = substr($path, strlen('assets/images/'));
     }
     return ltrim($path, '/');
 }
