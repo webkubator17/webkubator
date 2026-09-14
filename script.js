@@ -140,6 +140,30 @@
     window.requestAnimationFrame(tick);
   };
 
+  const setupPortfolioPreviews = () => {
+    const previews = document.querySelectorAll('.project-preview');
+    if (!previews.length) return;
+
+    const desktopWidth = 1280;
+    const desktopHeight = 720;
+    const resize = () => {
+      previews.forEach((preview) => {
+        const scale = Math.min(preview.clientWidth / desktopWidth, 1);
+        preview.style.setProperty('--preview-scale', scale.toFixed(4));
+        preview.style.height = Math.round(desktopHeight * scale) + 'px';
+      });
+    };
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(resize);
+      previews.forEach((preview) => observer.observe(preview));
+    } else {
+      window.addEventListener('resize', resize, { passive: true });
+    }
+    resize();
+  };
+
   setupLogoMarquee();
+  setupPortfolioPreviews();
 })();
 
