@@ -116,6 +116,7 @@ h1, h2, p { margin-top: 0; }
 .project-editor { grid-template-columns: 42px repeat(2, minmax(180px, 1fr)) minmax(160px, .7fr); }
 .project-editor .field:nth-of-type(3), .project-editor .field:nth-of-type(4), .project-editor .field:nth-of-type(5) { grid-row: 2; }
 .editor-number { position: absolute; left: 17px; top: 18px; color: var(--blue-700); font: 600 12px 'Fira Code', monospace; }
+/* Manual portfolio ordering controls */
 .editor-reorder { position: absolute; top: 42px; left: 10px; display: grid; gap: 4px; }
 .reorder-button { min-width: 30px; min-height: 30px; color: var(--blue-700); border-color: var(--line); background: #fff; font-size: 17px; }
 .reorder-button:hover:not(:disabled) { border-color: var(--blue-700); background: var(--blue-100); }
