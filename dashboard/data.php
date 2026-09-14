@@ -95,9 +95,14 @@ function dashboard_normalize_data(array $data): array
 
     if (isset($data['projects']) && is_array($data['projects'])) {
         $normalized['projects'] = [];
-        foreach ($data['projects'] as $project) {
+        $usesManualOrder = $data['projects'] !== [];
+        foreach ($data['projects'] as $position => $project) {
             if (!is_array($project) || trim((string) ($project['name'] ?? '')) === '') {
                 continue;
+            }
+            $hasOrder = array_key_exists('order', $project) && is_numeric($project['order']);
+            if (!$hasOrder) {
+                $usesManualOrder = false;
             }
             $normalized['projects'][] = [
                 'name' => trim((string) $project['name']),
@@ -106,8 +111,29 @@ function dashboard_normalize_data(array $data): array
                 'url' => trim((string) ($project['url'] ?? '')),
                 'traffic' => max(0, (int) ($project['traffic'] ?? 0)),
                 'visible' => (bool) ($project['visible'] ?? false),
+                'order' => $hasOrder ? (int) $project['order'] : (int) $position,
             ];
         }
+
+        $withPosition = [];
+        foreach ($normalized['projects'] as $position => $project) {
+            $project['_position'] = $position;
+            $withPosition[] = $project;
+        }
+        usort($withPosition, static function (array $a, array $b) use ($usesManualOrder): int {
+            if ($usesManualOrder) {
+                $order = ((int) $a['order']) <=> ((int) $b['order']);
+                return $order !== 0 ? $order : ($a['_position'] <=> $b['_position']);
+            }
+            $traffic = ((int) $b['traffic']) <=> ((int) $a['traffic']);
+            return $traffic !== 0 ? $traffic : ($a['_position'] <=> $b['_position']);
+        });
+        foreach ($withPosition as $position => &$project) {
+            $project['order'] = $position;
+            unset($project['_position']);
+        }
+        unset($project);
+        $normalized['projects'] = $withPosition;
     }
 
     foreach (['eyebrow', 'title', 'description', 'hero_alt', 'cta_primary', 'cta_secondary'] as $key) {
@@ -117,21 +143,6 @@ function dashboard_normalize_data(array $data): array
     $normalized['brand']['site_name'] = trim((string) ($normalized['brand']['site_name'] ?? $defaults['brand']['site_name']));
     $normalized['brand']['logo'] = dashboard_clean_asset_path((string) ($normalized['brand']['logo'] ?? $defaults['brand']['logo']));
     $normalized['brand']['favicon'] = dashboard_clean_asset_path((string) ($normalized['brand']['favicon'] ?? $defaults['brand']['favicon']));
-
-    $withPosition = [];
-    foreach ($normalized['projects'] as $position => $project) {
-        $project['_position'] = $position;
-        $withPosition[] = $project;
-    }
-    usort($withPosition, static function (array $a, array $b): int {
-        $traffic = ((int) $b['traffic']) <=> ((int) $a['traffic']);
-        return $traffic !== 0 ? $traffic : ($a['_position'] <=> $b['_position']);
-    });
-    foreach ($withPosition as &$project) {
-        unset($project['_position']);
-    }
-    unset($project);
-    $normalized['projects'] = $withPosition;
 
     return $normalized;
 }
