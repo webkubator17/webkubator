@@ -6,8 +6,6 @@ $services = [
     ['image' => 'service-maintenance.webp', 'title' => 'Pemeliharaan Website', 'text' => 'Layanan pemeliharaan untuk menjaga performa dan keamanan website Anda.'],
 ];
 $partners = [
-    ['image' => 'partner-ofc.webp', 'alt' => 'Our Five Coco'],
-    ['image' => 'partner-danuzkuy.webp', 'alt' => 'Danuzkuy'],
     ['image' => 'client-logos/pkbm-siloam.png', 'alt' => 'PKBM Siloam'],
     ['image' => 'client-logos/tautku.png', 'alt' => 'Tautku.id'],
     ['image' => 'client-logos/sraya-bali.png', 'alt' => 'Sraya Bali Wellness'],
@@ -18,14 +16,11 @@ $partners = [
     ['image' => 'client-logos/sakuta-dewandaru-mada.png', 'alt' => 'Sakuta Dewandaru Mada'],
 ];
 $projects = [
-    ['name' => 'Our Five Coco', 'image' => 'our-five-coco.webp', 'url' => 'https://ourfivecoco.preview.webkubator.com/'],
     ['name' => 'Edukasi Berkendara', 'image' => 'edukasi.webp', 'url' => 'https://edukasiberkendara.id/'],
-    ['name' => 'Danuzkuy', 'image' => 'danuzkuy.webp', 'url' => 'https://sewazoom.danuzkuy.my.id/'],
     ['name' => 'Kazeem Vokasi', 'image' => 'kazeem.webp', 'url' => 'https://kazeemvocint.com/'],
     ['name' => 'Fikri Hamdani', 'image' => 'fikri.webp', 'url' => 'https://fikrihamdani.my.id/'],
     ['name' => 'Sraya Bali Wellness', 'preview_url' => 'https://srayabaliwellness.com', 'url' => 'https://srayabaliwellness.com'],
     ['name' => 'Tanajava Essential Oil', 'preview_url' => 'https://tanajava.my.id', 'url' => 'https://tanajava.my.id'],
-    ['name' => 'Desa Talang Tinggi Ulumanna', 'preview_url' => 'https://desatalangtinggiulumanna.com', 'url' => 'https://desatalangtinggiulumanna.com'],
     ['name' => 'Nusa Jaya Steel', 'preview_url' => 'https://nusajayasteel.com', 'url' => 'https://nusajayasteel.com'],
     ['name' => 'Matrix Welding School', 'preview_url' => 'https://matrixweldingschool.com', 'url' => 'https://matrixweldingschool.com'],
     ['name' => 'Capunglam', 'preview_url' => 'https://capunglam.com', 'url' => 'https://capunglam.com'],
