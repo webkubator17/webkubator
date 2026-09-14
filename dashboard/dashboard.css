@@ -121,6 +121,10 @@ h1, h2, p { margin-top: 0; }
 .reorder-button { min-width: 30px; min-height: 30px; color: var(--blue-700); border-color: var(--line); background: #fff; font-size: 17px; }
 .reorder-button:hover:not(:disabled) { border-color: var(--blue-700); background: var(--blue-100); }
 .reorder-button:disabled { opacity: .35; cursor: not-allowed; }
+.drag-handle { cursor: grab; font-size: 19px; line-height: .8; }
+.drag-handle:active { cursor: grabbing; }
+.project-editor.is-dragging { opacity: .55; }
+.project-editor.is-drag-over { border-color: var(--blue-700); box-shadow: 0 0 0 3px rgba(1,45,181,.12); }
 .check-field { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; white-space: nowrap; }
 .check-field input { width: 18px; height: 18px; accent-color: var(--blue-700); }
 .icon-button { min-width: 44px; min-height: 44px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 9px; background: transparent; font-size: 24px; line-height: 1; }
