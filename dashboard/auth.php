@@ -12,7 +12,7 @@ function dashboard_default_auth(): array
         'username' => 'admin',
         'algorithm' => 'sha256',
         'salt' => '9d0cbb3c1dd0d6e34d3bb8706ed1a5d6',
-        'hash' => '05c99a9a606bfb34b201f473066cb8bbe6f930d3d85eb0b005fc6e8a9e9fc49c',
+        'hash' => 'f1b7b846dc9e3be352cd2735aff0e26fe86147880ef220efaee07b2b712a5b36',
     ];
 }
 
