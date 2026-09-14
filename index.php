@@ -5,6 +5,18 @@ $services = [
     ['image' => 'service-hosting.webp', 'title' => 'Layanan Hosting', 'text' => 'Webkubator menyediakan hosting cepat dan handal untuk memastikan website Anda selalu online.'],
     ['image' => 'service-maintenance.webp', 'title' => 'Pemeliharaan Website', 'text' => 'Layanan pemeliharaan untuk menjaga performa dan keamanan website Anda.'],
 ];
+$partners = [
+    ['image' => 'partner-ofc.webp', 'alt' => 'Our Five Coco'],
+    ['image' => 'partner-danuzkuy.webp', 'alt' => 'Danuzkuy'],
+    ['image' => 'client-logos/pkbm-siloam.png', 'alt' => 'PKBM Siloam'],
+    ['image' => 'client-logos/tautku.png', 'alt' => 'Tautku.id'],
+    ['image' => 'client-logos/sraya-bali.png', 'alt' => 'Sraya Bali Wellness'],
+    ['image' => 'client-logos/tanajava.png', 'alt' => 'Tanajava Essential Oil'],
+    ['image' => 'client-logos/nusa-jaya-steel.png', 'alt' => 'Nusa Jaya Steel'],
+    ['image' => 'client-logos/matrix-welding-school.png', 'alt' => 'Matrix Welding School'],
+    ['image' => 'client-logos/capunglam.png', 'alt' => 'Capunglam'],
+    ['image' => 'client-logos/sakuta-dewandaru-mada.png', 'alt' => 'Sakuta Dewandaru Mada'],
+];
 $projects = [
     ['name' => 'Our Five Coco', 'image' => 'our-five-coco.webp', 'url' => 'https://ourfivecoco.preview.webkubator.com/'],
     ['name' => 'Edukasi Berkendara', 'image' => 'edukasi.webp', 'url' => 'https://edukasiberkendara.id/'],
