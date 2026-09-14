@@ -45,6 +45,61 @@
   };
   renumberProjects();
 
+  let draggedProject = null;
+  const clearDragState = () => {
+    projectList?.querySelectorAll('[data-project-editor]').forEach((project) => {
+      project.classList.remove('is-dragging', 'is-drag-over');
+    });
+    draggedProject = null;
+  };
+
+  projectList?.addEventListener('dragstart', (event) => {
+    const handle = event.target.closest('[data-drag-handle]');
+    if (!handle) return;
+    draggedProject = handle.closest('[data-project-editor]');
+    if (!draggedProject) return;
+    draggedProject.classList.add('is-dragging');
+    if (event.dataTransfer) {
+      event.dataTransfer.effectAllowed = 'move';
+      event.dataTransfer.setData('text/plain', 'portfolio');
+    }
+  });
+
+  projectList?.addEventListener('dragover', (event) => {
+    const target = event.target.closest('[data-project-editor]');
+    if (!draggedProject || !target || target === draggedProject) return;
+    event.preventDefault();
+    projectList.querySelectorAll('[data-project-editor]').forEach((project) => {
+      project.classList.toggle('is-drag-over', project === target);
+    });
+    if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+  });
+
+  projectList?.addEventListener('dragleave', (event) => {
+    const target = event.target.closest('[data-project-editor]');
+    if (!target || (event.relatedTarget && target.contains(event.relatedTarget))) return;
+    target.classList.remove('is-drag-over');
+  });
+
+  projectList?.addEventListener('drop', (event) => {
+    const target = event.target.closest('[data-project-editor]');
+    if (!draggedProject || !target || target === draggedProject) return;
+    event.preventDefault();
+    const targetRect = target.getBoundingClientRect();
+    const insertAfter = event.clientY > targetRect.top + targetRect.height / 2;
+    if (insertAfter) {
+      const next = target.nextElementSibling;
+      if (next && next !== draggedProject) projectList.insertBefore(draggedProject, next);
+      else if (!next) projectList.appendChild(draggedProject);
+    } else {
+      projectList.insertBefore(draggedProject, target);
+    }
+    renumberProjects();
+    clearDragState();
+  });
+
+  projectList?.addEventListener('dragend', clearDragState);
+
   document.addEventListener('click', (event) => {
     const moveUp = event.target.closest('[data-move-up]');
     const moveDown = event.target.closest('[data-move-down]');
