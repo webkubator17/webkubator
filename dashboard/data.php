@@ -136,6 +136,18 @@ function dashboard_normalize_data(array $data): array
         $normalized['projects'] = $withPosition;
     }
 
+    // Migrate the former default hero copy while preserving intentional custom
+    // edits made through the dashboard.
+    $legacyHomeCopy = [
+        'eyebrow' => 'Solusi website cepat untuk bisnis modern',
+        'description' => 'Bangun website bisnis yang modern, cepat, dan responsif bersama Webkubator. Cocok untuk UMKM dan perusahaan yang ingin tampil lebih profesional, meningkatkan kepercayaan pelanggan, dan siap online dalam 5 hari.',
+    ];
+    foreach ($legacyHomeCopy as $key => $legacyValue) {
+        if (strcasecmp(trim((string) ($normalized['home'][$key] ?? '')), $legacyValue) === 0) {
+            $normalized['home'][$key] = $defaults['home'][$key];
+        }
+    }
+
     foreach (['eyebrow', 'title', 'description', 'hero_alt', 'cta_primary', 'cta_secondary'] as $key) {
         $normalized['home'][$key] = trim((string) ($normalized['home'][$key] ?? $defaults['home'][$key]));
     }
