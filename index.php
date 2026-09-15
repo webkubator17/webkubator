@@ -22,9 +22,10 @@ $testimonials = [
     ['image' => 'avatar-alphascent.webp', 'name' => 'Alphascent', 'company' => 'Alphascent Official', 'text' => 'Thank you. Sangat membatu untuk aku yang males ribet ini hehehe'],
 ];
 $reasons = [
-    ['title' => 'Harga Terjangkau', 'text' => 'Kami menawarkan solusi website yang dapat disesuaikan dengan kebutuhan dan anggaran Anda. Dengan harga yang kompetitif, Webkubator memastikan Anda mendapatkan nilai terbaik tanpa menguras anggaran.', 'icon' => 'coins'],
-    ['title' => 'Performa Website Terbaik', 'text' => 'Kecepatan website adalah kunci. Di Webkubator, kami memastikan website Anda dioptimalkan untuk kecepatan, memberikan pengalaman pengguna yang lancar dan responsif, meningkatkan interaksi dan konversi pengunjung.', 'icon' => 'server'],
-    ['title' => 'Dukungan Teknis yang Andal', 'text' => 'Tim kami selalu siap membantu kapanpun Anda membutuhkannya. Dengan dukungan teknis yang responsif dan profesional, Webkubator memastikan website Anda selalu dalam performa terbaik.', 'icon' => 'headset'],
+    ['title' => '5 Hari Selesai', 'text' => 'Website bisnis Anda siap online dalam 5 hari dengan proses yang jelas, cepat, dan terarah.', 'icon' => 'clock'],
+    ['title' => 'UI/UX Modern', 'text' => 'Tampilan modern dan mudah digunakan untuk memberi pengalaman terbaik bagi pengunjung di setiap perangkat.', 'icon' => 'palette'],
+    ['title' => 'Cepat dan Responsif', 'text' => 'Website dioptimalkan agar cepat dibuka dan nyaman digunakan di desktop, tablet, maupun mobile.', 'icon' => 'bolt'],
+    ['title' => 'Full Garansi', 'text' => 'Kami mendampingi dan membantu memastikan website tetap berjalan baik setelah selesai dibuat.', 'icon' => 'shield'],
 ];
 function e(string $value): string { return htmlspecialchars($value, ENT_QUOTES, 'UTF-8'); }
 function wa(string $message = 'Halo Webkubator, saya ingin konsultasi website.'): string { return 'https://wa.me/6287753719307?text=' . rawurlencode($message); }
