@@ -15,9 +15,9 @@ function dashboard_default_data(): array
 {
     return [
         'home' => [
-            'eyebrow' => 'Solusi Website Cepat untuk Bisnis Modern',
+            'eyebrow' => 'Jasa Website Cepat untuk Bisnis Modern',
             'title' => 'Jasa Pembuatan Website Profesional untuk Bisnis Anda',
-            'description' => 'Bangun website bisnis yang modern, cepat, dan responsif bersama Webkubator. Cocok untuk UMKM dan perusahaan yang ingin tampil lebih profesional, meningkatkan kepercayaan pelanggan, dan siap online dalam 5 hari.',
+            'description' => 'Bangun website bisnis yang modern, cepat, dan responsif bersama Webkubator, jasa pembuatan website profesional untuk UMKM dan perusahaan. Dapatkan jasa website yang membantu bisnis tampil lebih profesional dan siap online dalam 5 hari.',
             'hero_image' => 'assets/images/hero-image-v3.webp',
             'hero_alt' => 'Pria tersenyum membawa laptop dengan highlight layanan Webkubator.',
             'cta_primary' => 'Cek Paket Website',
