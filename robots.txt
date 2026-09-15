@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /dashboard/
+Disallow: /contact.php
 
 Sitemap: https://webkubator.com/sitemap.xml
 
