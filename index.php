@@ -33,6 +33,26 @@ $structuredData = [
             'inLanguage' => 'id-ID',
             'publisher' => ['@id' => $siteUrl . '#organization'],
         ],
+        [
+            '@type' => 'WebPage',
+            '@id' => $siteUrl . '#webpage',
+            'url' => $siteUrl,
+            'name' => 'Jasa Pembuatan Website Profesional | ' . $brandSettings['site_name'],
+            'description' => 'Jasa pembuatan website profesional dan jasa website untuk UMKM dan perusahaan. Modern, cepat, responsif, dan siap online dalam 5 hari.',
+            'inLanguage' => 'id-ID',
+            'isPartOf' => ['@id' => $siteUrl . '#website'],
+            'about' => ['@id' => $siteUrl . '#organization'],
+        ],
+        [
+            '@type' => 'Service',
+            '@id' => $siteUrl . '#website-service',
+            'name' => 'Jasa Pembuatan Website Profesional',
+            'serviceType' => 'Jasa pembuatan website',
+            'description' => 'Jasa website modern, cepat, responsif, dan siap online untuk UMKM serta perusahaan di Indonesia.',
+            'url' => $siteUrl,
+            'provider' => ['@id' => $siteUrl . '#organization'],
+            'areaServed' => ['@type' => 'Country', 'name' => 'Indonesia'],
+        ],
     ],
 ];
 $services = [
