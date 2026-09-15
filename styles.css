@@ -85,3 +85,13 @@ html body .logo-marquee-item{width:184px;height:86px;padding:12px 18px;border:1p
 .reasons-lottie lottie-player{display:block;width:100%;height:100%}
 @media (max-width:700px){.reasons-lottie{height:230px;margin:25px auto 0}}
 
+/* Pricing category selector */
+.pricing-selector{display:flex;align-items:center;gap:22px;margin:-22px 0 34px;padding:16px 18px;border:1px solid var(--panel);border-radius:12px;background:rgba(16,22,99,.3)}
+.pricing-selector-field{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.pricing-selector label{color:var(--white);font:600 14px 'Poppins',Arial,sans-serif;white-space:nowrap}
+.pricing-selector select{min-width:210px;min-height:46px;padding:10px 38px 10px 14px;border:1px solid rgba(255,255,255,.2);border-radius:8px;background:#101663;color:var(--white);font:500 14px 'Poppins',Arial,sans-serif;outline:none;cursor:pointer}
+.pricing-selector select:focus-visible{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(255,190,0,.18)}
+.pricing-selector option{background:#101663;color:var(--white)}
+.pricing-selector-description{flex:1;color:var(--muted);font-size:14px;line-height:1.6}
+@media (max-width:700px){.pricing-selector{display:grid;gap:12px;margin:-12px 0 28px;padding:14px}.pricing-selector-field{display:grid;gap:7px}.pricing-selector select{width:100%;min-width:0}.pricing-selector-description{font-size:13px}}
+
