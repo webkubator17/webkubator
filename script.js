@@ -162,7 +162,40 @@
     resize();
   };
 
+  const setupPricingSelector = () => {
+    const select = document.querySelector('[data-pricing-select]');
+    const grid = document.querySelector('[data-pricing-grid]');
+    const description = document.querySelector('[data-pricing-description]');
+    const dataElement = document.querySelector('#pricing-catalog');
+    if (!select || !grid || !description || !dataElement) return;
+
+    let catalog;
+    try {
+      catalog = JSON.parse(dataElement.textContent || '{}');
+    } catch {
+      return;
+    }
+
+    const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+    }[character]));
+    const orderLink = (category, plan) => {
+      const message = `Halo Webkubator, saya mau order ${category.label}. Nama: Bidang Bisnis: Paket: ${plan.name} Jenis Website: Terimakasih`;
+      return `https://wa.me/6287753719307?text=${encodeURIComponent(message)}`;
+    };
+
+    const render = (key) => {
+      const category = catalog[key] || catalog['landing-page'];
+      if (!category) return;
+      description.textContent = category.description;
+      grid.innerHTML = category.plans.map((plan, index) => `<article class="price-card ${index === 1 ? 'price-card-featured' : ''} is-visible"><div class="price-header"><h3>${escapeHtml(plan.name)}</h3></div><strong class="price">Rp${escapeHtml(plan.price)}</strong><p class="renewal">${escapeHtml(plan.renewal)}</p><ul>${plan.features.map((feature) => `<li><span aria-hidden="true">✓</span>${escapeHtml(feature)}</li>`).join('')}</ul><a class="button ${index === 1 ? 'button-primary' : 'button-outline'}" href="${orderLink(category, plan)}" target="_blank" rel="noopener">Pesan Sekarang <span aria-hidden="true">↗</span></a></article>`).join('');
+    };
+
+    select.addEventListener('change', () => render(select.value));
+  };
+
   setupLogoMarquee();
   setupPortfolioPreviews();
+  setupPricingSelector();
 })();
 
