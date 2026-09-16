@@ -16,6 +16,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Verify deployment boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          allowed_dirs='.git .github about assets dashboard'
+          unexpected_dirs="$(find . -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | while IFS= read -r name; do
+            case " $allowed_dirs " in
+              *" $name "*) ;;
+              *) printf '%s\n' "$name" ;;
+            esac
+          done)"
+          if [ -n "$unexpected_dirs" ]; then
+            printf 'Deployment stopped: unexpected top-level directories found:\n%s\n' "$unexpected_dirs"
+            exit 1
+          fi
+
       - name: Upload website via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
@@ -27,6 +43,8 @@ jobs:
           local-dir: ./
           # Create the FTP account with its home directory set to public_html.
           server-dir: ./
+          # Never allow a full remote wipe; public_html also contains addon sites.
+          dangerous-clean-slate: false
           # Shared-hosting FTP certificates may be issued for the provider hostname.
           # FTPS encryption remains enabled; loose only relaxes certificate-name validation.
           security: loose
@@ -37,7 +55,6 @@ jobs:
             **/.github/**
             **/.cpanel.yml
             **/.gitignore
-            .client-inventory/**
             **/README.md
             **/.env*
             **/wp-config.php
@@ -47,4 +64,20 @@ jobs:
             **/*.backup
             **/*.log
             **/.ftp-deploy-sync-state.json
+            # Remote-only addon websites in the shared public_html directory.
+            **/baturjeeptour.tautku.id/**
+            **/srayabaliwellness/**
+            **/srayabaliwellness.com/**
+            **/tanajava.my.id/**
+            **/desatalangtinggiulumanna.com/**
+            **/nusajayasteel.com/**
+            **/matrixweldingschool.com/**
+            **/capunglam.com/**
+            **/sakutadewandarumada.web.id/**
+            **/edukasiberkendara.id/**
+            **/kazeemvocint.com/**
+            **/fikrihamdani.my.id/**
+            **/wp-admin/**
+            **/wp-content/**
+            **/wp-includes/**
 
