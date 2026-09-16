@@ -57,15 +57,37 @@ header('Pragma: no-cache');
     <title>Link Bio <?= portal_e($siteName) ?> | Jasa Pembuatan Website</title>
 </head>
 <body>
+    <header class="portal-site-header" data-portal-header>
+        <div class="portal-header-inner">
+            <a class="portal-site-brand" href="../" aria-label="<?= portal_e($siteName) ?>, kembali ke website utama">
+                <span class="portal-site-logo-shell"><img src="<?= portal_e($logo) ?>" alt="Logo <?= portal_e($siteName) ?>" width="48" height="48"></span>
+                <span><?= portal_e($siteName) ?></span>
+            </a>
+
+            <nav class="portal-site-nav" id="portal-site-nav" aria-label="Navigasi utama">
+                <button class="portal-menu-close" type="button" aria-label="Tutup menu navigasi">×</button>
+                <a href="../#service">Service</a>
+                <a href="../#pricing">Pricing</a>
+                <a href="../about/">About</a>
+                <a href="../#portfolio">Portfolio</a>
+                <a href="../#contactus">Contact Us</a>
+            </nav>
+
+            <a class="portal-header-contact" href="<?= portal_e($whatsappUrl) ?>" target="_blank" rel="noopener">
+                <i class="fi fi-rr-paper-plane" aria-hidden="true"></i>
+                <span>Hubungi Kami</span>
+            </a>
+
+            <button class="portal-menu-toggle" type="button" aria-expanded="false" aria-controls="portal-site-nav" aria-label="Buka menu navigasi">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+    <button class="portal-menu-backdrop" type="button" aria-label="Tutup menu navigasi"></button>
+
     <main class="portal-page">
         <header class="portal-header">
-            <a class="portal-brand" href="../" aria-label="<?= portal_e($siteName) ?>, kembali ke website utama">
-                <span class="portal-logo-shell"><img src="<?= portal_e($logo) ?>" alt="Logo <?= portal_e($siteName) ?>" width="88" height="88"></span>
-                <span class="portal-brand-name"><?= portal_e($siteName) ?></span>
-            </a>
-            <p class="portal-kicker">Jasa Pembuatan Website Profesional</p>
-            <h1>Bangun kehadiran online yang <span>lebih kuat.</span></h1>
-            <p class="portal-intro">Pilih link yang ingin Anda buka.</p>
+            <h1 class="portal-kicker">Jasa Pembuatan Website Profesional</h1>
         </header>
 
         <figure class="portal-hero">
@@ -92,4 +114,3 @@ header('Pragma: no-cache');
     <script src="portal.js?v=<?= portal_e($assetVersion) ?>" defer></script>
 </body>
 </html>
-
