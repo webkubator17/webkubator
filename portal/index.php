@@ -60,7 +60,7 @@ header('Pragma: no-cache');
     <header class="portal-site-header" data-portal-header>
         <div class="portal-header-inner">
             <a class="portal-site-brand" href="../" aria-label="<?= portal_e($siteName) ?>, kembali ke website utama">
-                <span class="portal-site-logo-shell"><img src="<?= portal_e($logo) ?>" alt="Logo <?= portal_e($siteName) ?>" width="48" height="48"></span>
+                <img src="<?= portal_e($logo) ?>" alt="Logo <?= portal_e($siteName) ?>" width="48" height="48">
                 <span><?= portal_e($siteName) ?></span>
             </a>
 
