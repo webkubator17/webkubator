@@ -3,6 +3,11 @@ DirectoryIndex index.php index.html index.htm
 
 RewriteEngine On
 
+# Mark requests for the main domain so shared-hosting headers below do not
+# leak into addon domains that live under the same public_html directory.
+RewriteCond %{HTTP_HOST} ^(www\.)?webkubator\.com$ [NC]
+RewriteRule ^ - [E=WEBKUBATOR_HOST:1]
+
 # Canonicalize only Webkubator's own domain. Other addon domains/subfolders
 # must keep their original host instead of being redirected to Webkubator.
 RewriteCond %{HTTP_HOST} ^www\.webkubator\.com$ [NC]
@@ -13,10 +18,10 @@ RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://webkubator.com%{REQUEST_URI} [R=301,L,NE]
 
 <IfModule mod_headers.c>
-  Header always set X-Content-Type-Options "nosniff"
-  Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff" env=WEBKUBATOR_HOST
+  Header always set Referrer-Policy "strict-origin-when-cross-origin" env=WEBKUBATOR_HOST
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()" env=WEBKUBATOR_HOST
+  Header always set Strict-Transport-Security "max-age=31536000" env=WEBKUBATOR_HOST
 </IfModule>
 
 <FilesMatch "\.(sql|bak|backup|log|env|ini)$">
