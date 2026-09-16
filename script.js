@@ -195,6 +195,8 @@
     };
 
     options.forEach((option) => option.addEventListener('click', () => render(option.dataset.pricingOption)));
+    const queryKey = new URLSearchParams(window.location.search).get('pricing');
+    if (queryKey && catalog[queryKey]) render(queryKey);
   };
 
   setupLogoMarquee();

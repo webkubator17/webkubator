@@ -20,7 +20,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          allowed_dirs='.git .github .client-inventory about assets dashboard'
+          allowed_dirs='.git .github .client-inventory about assets dashboard portal'
           unexpected_dirs="$(find . -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | while IFS= read -r name; do
             case " $allowed_dirs " in
               *" $name "*) ;;
