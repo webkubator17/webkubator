@@ -69,7 +69,7 @@ header('Pragma: no-cache');
                 <a href="../#service">Service</a>
                 <a href="../#pricing">Pricing</a>
                 <a href="../about/">About</a>
-                <a href="../#portfolio">Portfolio</a>
+                <a href="../portofolio/">Portfolio</a>
                 <a href="../#contactus">Contact Us</a>
             </nav>
 
