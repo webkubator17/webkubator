@@ -95,3 +95,9 @@ html body .logo-marquee-item{width:184px;height:86px;padding:12px 18px;border:1p
 @media (max-width:980px){.pricing-type-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:700px){.pricing-selector{margin:-12px 0 28px;padding:14px}.pricing-type-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.pricing-type-option{min-height:46px;padding:9px 7px;font-size:12px}.pricing-type-option:last-child{grid-column:1/-1}}
 
+/* Lightweight portfolio motion: transform/opacity only, no external preview loading. */
+.project-card{transition:transform .28s ease}
+.project-card:hover{transform:translateY(-5px)}
+.project-image:before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(112deg,transparent 20%,rgba(255,255,255,.2) 48%,transparent 72%);transform:translateX(-125%);transition:transform .7s ease}
+.project-image:hover:before,.project-image:focus-visible:before{transform:translateX(125%)}
+@media (prefers-reduced-motion:reduce){.project-card,.project-image:before{transition:none}.project-card:hover{transform:none}.project-image:hover:before,.project-image:focus-visible:before{transform:none}}

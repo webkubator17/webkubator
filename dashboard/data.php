@@ -41,15 +41,15 @@ function dashboard_default_data(): array
             ['image' => 'assets/images/client-logos/sakuta-dewandaru-mada.png', 'alt' => 'Sakuta Dewandaru Mada', 'visible' => true],
         ],
         'projects' => [
-            ['name' => 'Edukasi Berkendara', 'image' => 'assets/images/edukasi.webp', 'preview_url' => '', 'url' => 'https://edukasiberkendara.id/', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Kazeem Vokasi', 'image' => 'assets/images/kazeem.webp', 'preview_url' => '', 'url' => 'https://kazeemvocint.com/', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Fikri Hamdani', 'image' => 'assets/images/fikri.webp', 'preview_url' => '', 'url' => 'https://fikrihamdani.my.id/', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Sraya Bali Wellness', 'image' => '', 'preview_url' => 'https://srayabaliwellness.com', 'url' => 'https://srayabaliwellness.com', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Tanajava Essential Oil', 'image' => '', 'preview_url' => 'https://tanajava.my.id', 'url' => 'https://tanajava.my.id', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Nusa Jaya Steel', 'image' => '', 'preview_url' => 'https://nusajayasteel.com', 'url' => 'https://nusajayasteel.com', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Matrix Welding School', 'image' => '', 'preview_url' => 'https://matrixweldingschool.com', 'url' => 'https://matrixweldingschool.com', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Capunglam', 'image' => '', 'preview_url' => 'https://capunglam.com', 'url' => 'https://capunglam.com', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Sakuta Dewandaru Mada', 'image' => '', 'preview_url' => 'https://sakutadewandarumada.web.id', 'url' => 'https://sakutadewandarumada.web.id', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Edukasi Berkendara', 'image' => 'assets/images/portfolio-edukasi.webp', 'preview_url' => '', 'url' => 'https://edukasiberkendara.id/', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Kazeem Vokasi', 'image' => 'assets/images/portfolio-kazeem.webp', 'preview_url' => '', 'url' => 'https://kazeemvocint.com/', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Fikri Hamdani', 'image' => 'assets/images/portfolio-fikri.webp', 'preview_url' => '', 'url' => 'https://fikrihamdani.my.id/', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Sraya Bali Wellness', 'image' => 'assets/images/portfolio-sraya.webp', 'preview_url' => '', 'url' => 'https://srayabaliwellness.com', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Tanajava Essential Oil', 'image' => '', 'preview_url' => '', 'url' => 'https://tanajava.my.id', 'traffic' => 0, 'visible' => false],
+            ['name' => 'Nusa Jaya Steel', 'image' => 'assets/images/portfolio-nusajaya.webp', 'preview_url' => '', 'url' => 'https://nusajayasteel.com', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Matrix Welding School', 'image' => 'assets/images/portfolio-matrix.webp', 'preview_url' => '', 'url' => 'https://matrixweldingschool.com', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Capunglam', 'image' => 'assets/images/portfolio-capunglam.webp', 'preview_url' => '', 'url' => 'https://capunglam.com', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Sakuta Dewandaru Mada', 'image' => 'assets/images/portfolio-sakuta.webp', 'preview_url' => '', 'url' => 'https://sakutadewandarumada.web.id', 'traffic' => 0, 'visible' => true],
         ],
     ];
 }
@@ -200,4 +200,3 @@ function dashboard_save_data(array $data): bool
     }
     return rename($temporary, dashboard_data_path());
 }
-

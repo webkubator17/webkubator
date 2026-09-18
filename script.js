@@ -140,28 +140,6 @@
     window.requestAnimationFrame(tick);
   };
 
-  const setupPortfolioPreviews = () => {
-    const previews = document.querySelectorAll('.project-preview');
-    if (!previews.length) return;
-
-    const desktopWidth = 1280;
-    const desktopHeight = 753;
-    const resize = () => {
-      previews.forEach((preview) => {
-        const scale = Math.min(preview.clientWidth / desktopWidth, preview.clientHeight / desktopHeight, 1);
-        preview.style.setProperty('--preview-scale', scale.toFixed(4));
-      });
-    };
-
-    if ('ResizeObserver' in window) {
-      const observer = new ResizeObserver(resize);
-      previews.forEach((preview) => observer.observe(preview));
-    } else {
-      window.addEventListener('resize', resize, { passive: true });
-    }
-    resize();
-  };
-
   const setupPricingSelector = () => {
     const options = [...document.querySelectorAll('[data-pricing-option]')];
     const grid = document.querySelector('[data-pricing-grid]');
@@ -200,7 +178,5 @@
   };
 
   setupLogoMarquee();
-  setupPortfolioPreviews();
   setupPricingSelector();
 })();
-
