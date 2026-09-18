@@ -94,23 +94,44 @@ function dashboard_normalize_data(array $data): array
     }
 
     if (isset($data['projects']) && is_array($data['projects'])) {
+        $staticPortfolioImages = [
+            'Edukasi Berkendara' => 'assets/images/portfolio-edukasi.webp',
+            'Kazeem Vokasi' => 'assets/images/portfolio-kazeem.webp',
+            'Fikri Hamdani' => 'assets/images/portfolio-fikri.webp',
+            'Sraya Bali Wellness' => 'assets/images/portfolio-sraya.webp',
+            'Nusa Jaya Steel' => 'assets/images/portfolio-nusajaya.webp',
+            'Matrix Welding School' => 'assets/images/portfolio-matrix.webp',
+            'Capunglam' => 'assets/images/portfolio-capunglam.webp',
+            'Sakuta Dewandaru Mada' => 'assets/images/portfolio-sakuta.webp',
+        ];
         $normalized['projects'] = [];
         $usesManualOrder = $data['projects'] !== [];
         foreach ($data['projects'] as $position => $project) {
             if (!is_array($project) || trim((string) ($project['name'] ?? '')) === '') {
                 continue;
             }
+            $projectName = trim((string) $project['name']);
+            $projectImage = dashboard_clean_asset_path((string) ($project['image'] ?? ''));
+            $projectPreviewUrl = trim((string) ($project['preview_url'] ?? ''));
+            if (isset($staticPortfolioImages[$projectName])) {
+                $projectImage = $staticPortfolioImages[$projectName];
+                $projectPreviewUrl = '';
+            }
+            $projectVisible = (bool) ($project['visible'] ?? false);
+            if ($projectName === 'Tanajava Essential Oil') {
+                $projectVisible = false;
+            }
             $hasOrder = array_key_exists('order', $project) && is_numeric($project['order']);
             if (!$hasOrder) {
                 $usesManualOrder = false;
             }
             $normalized['projects'][] = [
-                'name' => trim((string) $project['name']),
-                'image' => dashboard_clean_asset_path((string) ($project['image'] ?? '')),
-                'preview_url' => trim((string) ($project['preview_url'] ?? '')),
+                'name' => $projectName,
+                'image' => $projectImage,
+                'preview_url' => $projectPreviewUrl,
                 'url' => trim((string) ($project['url'] ?? '')),
                 'traffic' => max(0, (int) ($project['traffic'] ?? 0)),
-                'visible' => (bool) ($project['visible'] ?? false),
+                'visible' => $projectVisible,
                 'order' => $hasOrder ? (int) $project['order'] : (int) $position,
             ];
         }
