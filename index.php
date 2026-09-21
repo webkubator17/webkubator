@@ -63,48 +63,8 @@ $services = [
 ];
 $partners = $siteData['partners'];
 $projects = array_values(array_filter($siteData['projects'], static fn (array $project): bool => !empty($project['visible'])));
-$pricingCatalog = [
-    'landing-page' => [
-        'label' => 'Landing Page',
-        'plans' => [
-            ['name' => 'Startup', 'price' => '700.000', 'renewal' => 'Perpanjangan Rp600.000/Tahun', 'features' => ['FREE Domain .WEB.ID', '6 Menu Landing Page', 'Hosting 800MB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '5 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Garansi Selamanya']],
-            ['name' => 'Bisnis', 'price' => '900.000', 'renewal' => 'Perpanjangan Rp750.000/Tahun', 'features' => ['FREE Domain .COM', '10 Menu Landing Page', 'Hosting 1,2GB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '10 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Free Template Premium', 'Garansi Selamanya']],
-            ['name' => 'Premium', 'price' => '1.100.000', 'renewal' => 'Perpanjangan Rp900.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '20 Menu Landing Page', 'Hosting 3GB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '20 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Free Template Premium', 'Optimasi SEO', 'Free Plugin', 'Garansi Selamanya']],
-        ],
-    ],
-    'company-profile' => [
-        'label' => 'Company Profile',
-        'plans' => [
-            ['name' => 'Startup', 'price' => '850.000', 'renewal' => 'Perpanjangan Rp700.000/Tahun', 'features' => ['FREE Domain .COM', '5 Halaman Website', 'Hosting 1GB', 'Website SSL/HTTPS', 'Profil & Layanan', 'Integrasi WhatsApp', 'Google Maps', 'Form Kontak', 'SEO Dasar', 'Garansi Selamanya']],
-            ['name' => 'Bisnis', 'price' => '1.100.000', 'renewal' => 'Perpanjangan Rp900.000/Tahun', 'features' => ['FREE Domain .COM', '10 Halaman Website', 'Hosting 2GB', 'Website SSL/HTTPS', 'Profil, Layanan & Tim', 'Portofolio Proyek', 'Integrasi WhatsApp & Maps', 'Form Kontak', 'SEO Dasar', 'Free Template Premium', 'Garansi Selamanya']],
-            ['name' => 'Premium', 'price' => '1.300.000', 'renewal' => 'Perpanjangan Rp1.050.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '15+ Halaman Website', 'Hosting 3GB', 'Website SSL/HTTPS', 'Profil, Tim & Cabang', 'Portofolio Proyek', 'Blog atau Berita', 'Integrasi WhatsApp & Maps', 'Optimasi SEO', 'Free Plugin', 'Garansi Selamanya']],
-        ],
-    ],
-    'toko-online' => [
-        'label' => 'Website Instansi',
-        'plans' => [
-            ['name' => 'Startup', 'price' => '850.000', 'renewal' => 'Perpanjangan Rp700.000/Tahun', 'features' => ['FREE Domain .COM', '5 Halaman Website', 'Hosting 1GB', 'Website SSL/HTTPS', 'Profil Instansi & Layanan', 'Struktur Organisasi', 'Google Maps', 'Form Kontak', 'SEO Dasar', 'Garansi Selamanya']],
-            ['name' => 'Bisnis', 'price' => '1.100.000', 'renewal' => 'Perpanjangan Rp900.000/Tahun', 'features' => ['FREE Domain .COM', '10 Halaman Website', 'Hosting 2GB', 'Website SSL/HTTPS', 'Profil, Layanan & Program', 'Struktur Organisasi', 'Informasi Publik', 'Integrasi WhatsApp & Maps', 'SEO Dasar', 'Garansi Selamanya']],
-            ['name' => 'Premium', 'price' => '1.300.000', 'renewal' => 'Perpanjangan Rp1.050.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '15+ Halaman Website', 'Hosting 3GB', 'Website SSL/HTTPS', 'Profil, Program & Unit Kerja', 'Struktur Organisasi', 'Berita atau Agenda', 'Form Layanan Publik', 'Optimasi SEO', 'Garansi Selamanya']],
-        ],
-    ],
-    'e-commerce' => [
-        'label' => 'E-Commerce',
-        'plans' => [
-            ['name' => 'Startup', 'price' => '1.000.000', 'renewal' => 'Perpanjangan Rp800.000/Tahun', 'features' => ['FREE Domain .COM', 'Produk hingga 100 Item', 'Hosting 4GB', 'Website SSL/HTTPS', 'Kategori & Variasi Produk', 'Keranjang & Checkout', 'Manajemen Pesanan', 'Integrasi Pembayaran', 'Integrasi WhatsApp', 'Garansi Selamanya']],
-            ['name' => 'Bisnis', 'price' => '1.500.000', 'renewal' => 'Perpanjangan Rp1.200.000/Tahun', 'features' => ['FREE Domain .COM', 'Produk Unlimited', 'Hosting 6GB', 'Website SSL/HTTPS', 'Manajemen Stok', 'Voucher dan Promo', 'Integrasi Pembayaran', 'Laporan Penjualan', 'Optimasi SEO', 'Free Plugin Premium', 'Garansi Selamanya']],
-            ['name' => 'Premium', 'price' => '1.750.000', 'renewal' => 'Perpanjangan Rp1.400.000/Tahun', 'features' => ['FREE Domain .COM/.ID', 'Produk Unlimited', 'Hosting 10GB', 'Website SSL/HTTPS', 'Fitur Multi-Level', 'Manajemen Stok & Pesanan', 'Integrasi Pembayaran', 'Laporan Penjualan', 'Optimasi SEO Lanjutan', 'Prioritas Support', 'Garansi Selamanya']],
-        ],
-    ],
-    'link-bio' => [
-        'label' => 'Link Bio',
-        'plans' => [
-            ['name' => 'Basic', 'price' => '350.000', 'renewal' => 'Perpanjangan Rp250.000/Tahun', 'features' => ['1 Halaman Link Bio', 'Custom Nama Brand', 'Hingga 8 Tombol Link', 'Integrasi Sosial Media', 'Tombol WhatsApp', 'Responsive Mobile', 'SSL/HTTPS', 'Garansi 3 Bulan']],
-            ['name' => 'Pro', 'price' => '650.000', 'renewal' => 'Perpanjangan Rp400.000/Tahun', 'features' => ['1 Halaman Link Bio', 'Custom Domain', 'Hingga 15 Tombol Link', 'Katalog Produk Ringkas', 'Integrasi Sosial Media', 'Tombol WhatsApp', 'Pixel & Analytics Dasar', 'Responsive Mobile', 'Garansi 6 Bulan']],
-            ['name' => 'Premium', 'price' => '1.000.000', 'renewal' => 'Perpanjangan Rp600.000/Tahun', 'features' => ['1 Halaman Link Bio', 'Custom Domain', 'Link dan Produk Unlimited', 'Katalog Produk Ringkas', 'Form Kontak', 'Pixel & Analytics', 'Optimasi SEO Dasar', 'Responsive Mobile', 'Prioritas Support', 'Garansi Selamanya']],
-        ],
-    ],
-];
+require_once __DIR__ . '/pricing-data.php';
+$pricingCatalog = pricing_catalog();
 $defaultPricingKey = 'landing-page';
 $defaultPricing = $pricingCatalog[$defaultPricingKey];
 $testimonials = [
@@ -156,7 +116,30 @@ header('Pragma: no-cache');
         <section class="trust-strip" aria-labelledby="trust-title"><div class="container trust-heading"><h2 id="trust-title">Dipercaya <strong>Ratusan</strong> Klien</h2></div><div class="logo-marquee" data-logo-marquee role="region" aria-label="Logo bisnis dan mitra Webkubator"><div class="logo-marquee-track" data-logo-marquee-track><div class="logo-marquee-group"><?php foreach ($partners as $partner): ?><?php if (!empty($partner['visible'])): ?><div class="logo-marquee-item"><img src="<?= e($partner['image']) ?>" alt="<?= e($partner['alt']) ?>" width="190" height="80" loading="lazy" draggable="false"></div><?php endif; ?><?php endforeach; ?></div><div class="logo-marquee-group" aria-hidden="true"><?php foreach ($partners as $partner): ?><?php if (!empty($partner['visible'])): ?><div class="logo-marquee-item"><img src="<?= e($partner['image']) ?>" alt="" width="190" height="80" loading="lazy" draggable="false"></div><?php endif; ?><?php endforeach; ?></div></div></div></section>
         <section class="section service-section" id="service"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Jasa Website untuk Bisnis</p><h2>Layanan jasa pembuatan website <span>profesional</span></h2></div><div class="service-grid"><?php foreach ($services as $index => $service): ?><article class="service-card reveal reveal-delay-<?= min($index, 3) ?>"><div class="service-image"><img src="assets/images/<?= e($service['image']) ?>" alt="" width="300" height="300" loading="lazy"></div><h3><?= e($service['title']) ?></h3><p><?= e($service['text']) ?></p></article><?php endforeach; ?></div></div></section>
         <section class="section portfolio-section" id="portfolio"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Portfolio jasa website</p><h2>Website yang <span>berbicara</span></h2></div><div class="portfolio-grid"><?php foreach ($projects as $index => $project): ?><article class="project-card reveal <?= $index % 2 ? 'project-offset' : '' ?>"><a class="project-image" href="<?= e($project['url']) ?>" target="_blank" rel="noopener"><img src="<?= e($project['image']) ?>" alt="Preview hero section website <?= e($project['name']) ?>" width="1280" height="753" loading="lazy"><span class="project-arrow" aria-hidden="true">↗</span></a><div class="project-meta"><h3><?= e($project['name']) ?></h3><a href="<?= e($project['url']) ?>" target="_blank" rel="noopener">Visit Website <span aria-hidden="true">↗</span></a></div></article><?php endforeach; ?></div></div></section>
-        <section class="section pricing-section" id="pricing"><span id="pricelist" class="anchor-target"></span><div class="container"><div class="section-heading reveal"><p class="eyebrow">Harga jasa website</p><h2>Pilih paket jasa pembuatan <span>website</span></h2></div><div class="pricing-selector reveal"><span class="pricing-selector-label">Jenis website</span><div class="pricing-type-list" role="group" aria-label="Pilih jenis website"><?php foreach ($pricingCatalog as $key => $category): ?><button class="pricing-type-option <?= $key === $defaultPricingKey ? 'is-active' : '' ?>" type="button" data-pricing-option="<?= e($key) ?>" aria-pressed="<?= $key === $defaultPricingKey ? 'true' : 'false' ?>"><?= e($category['label']) ?></button><?php endforeach; ?></div></div><div class="pricing-grid" id="pricing-grid" data-pricing-grid><?php foreach ($defaultPricing['plans'] as $index => $plan): ?><article class="price-card <?= $index === 1 ? 'price-card-featured' : '' ?> reveal reveal-delay-<?= min($index, 2) ?>"><div class="price-header"><h3><?= e($plan['name']) ?></h3></div><strong class="price">Rp<?= e($plan['price']) ?></strong><p class="renewal"><?= e($plan['renewal']) ?></p><ul><?php foreach ($plan['features'] as $feature): ?><li><span aria-hidden="true">✓</span><?= e($feature) ?></li><?php endforeach; ?></ul><a class="button <?= $index === 1 ? 'button-primary' : 'button-outline' ?>" href="<?= e(wa('Halo Webkubator, saya mau order ' . $defaultPricing['label'] . '. Nama: Bidang Bisnis: Paket: ' . $plan['name'] . ' Jenis Website: Terimakasih')) ?>" target="_blank" rel="noopener">Pesan Sekarang <span aria-hidden="true">↗</span></a></article><?php endforeach; ?></div><script id="pricing-catalog" type="application/json"><?= json_encode($pricingCatalog, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script></div></section>
+        <section class="section pricing-section" id="pricing">
+            <span id="pricelist" class="anchor-target"></span>
+            <div class="container">
+                <div class="section-heading reveal"><p class="eyebrow">Harga jasa website</p><h2>Pilih paket jasa pembuatan <span>website</span></h2></div>
+                <div class="pricing-selector reveal"><span class="pricing-selector-label">Jenis website</span><div class="pricing-type-list" role="group" aria-label="Pilih jenis website"><?php foreach ($pricingCatalog as $key => $category): ?><button class="pricing-type-option <?= $key === $defaultPricingKey ? 'is-active' : '' ?>" type="button" data-pricing-option="<?= e($key) ?>" aria-pressed="<?= $key === $defaultPricingKey ? 'true' : 'false' ?>"><?= e($category['label']) ?></button><?php endforeach; ?></div></div>
+                <div class="pricing-grid" id="pricing-grid" data-pricing-grid>
+                    <?php foreach ($defaultPricing['plans'] as $index => $plan): ?>
+                        <?php $planFeatures = (array) $plan['features']; $planDomain = pricing_domain_from_plan($plan); ?>
+                        <article class="price-card <?= $index === 1 ? 'price-card-featured' : '' ?> reveal reveal-delay-<?= min($index, 2) ?>">
+                            <div class="price-header"><h3><?= e($plan['name']) ?></h3><?php if ($index === 1): ?><span class="price-badge">Pilihan terbaik</span><?php endif; ?></div>
+                            <strong class="price">Rp<?= e($plan['price']) ?></strong>
+                            <p class="renewal"><?= e($plan['renewal']) ?></p>
+                            <p class="price-domain"><i class="fi fi-rr-globe" aria-hidden="true"></i> Domain <?= e($planDomain) ?> termasuk</p>
+                            <ul>
+                                <?php foreach (array_slice($planFeatures, 0, 5) as $feature): ?><li><i class="fi <?= e(pricing_feature_icon($feature)) ?>" aria-hidden="true"></i><span><?= e($feature) ?></span></li><?php endforeach; ?>
+                                <?php if (count($planFeatures) > 5): ?><li class="price-more-wrap"><details class="price-more"><summary><i class="fi fi-rr-plus" aria-hidden="true"></i><span>Lihat lebih banyak</span></summary><ul><?php foreach (array_slice($planFeatures, 5) as $feature): ?><li><i class="fi <?= e(pricing_feature_icon($feature)) ?>" aria-hidden="true"></i><span><?= e($feature) ?></span></li><?php endforeach; ?></ul></details></li><?php endif; ?>
+                            </ul>
+                            <a class="button <?= $index === 1 ? 'button-primary' : 'button-outline' ?>" href="/pricing/?category=<?= e($defaultPricingKey) ?>&amp;plan=<?= e(pricing_plan_slug($plan['name'])) ?>">Pilih Paket <i class="fi fi-rr-arrow-right" aria-hidden="true"></i></a>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+                <script id="pricing-catalog" type="application/json"><?= json_encode($pricingCatalog, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
+            </div>
+        </section>
         <section class="section testimonial-section"><div class="container"><div class="section-heading reveal"><p class="eyebrow">Cerita dari klien</p><h2>Testi<span>moni</span></h2></div><div class="testimonial-grid"><?php foreach ($testimonials as $index => $testimonial): ?><article class="testimonial-card reveal reveal-delay-<?= min($index, 2) ?>"><div class="stars" aria-label="5 dari 5 bintang">★★★★★</div><p>“<?= e($testimonial['text']) ?>”</p><strong><?= e($testimonial['name']) ?></strong><span><?= e($testimonial['company']) ?></span></article><?php endforeach; ?></div></div></section>
         <section class="section reasons-section"><div class="container reasons-grid"><div class="reasons-copy reveal"><p class="eyebrow">Kenapa Webkubator?</p><h2>Kenapa memilih <span>kami</span></h2><p>Bangun kehadiran online yang dapat dipercaya dengan partner yang memahami kebutuhan bisnis Anda.</p><div class="tech-visual reasons-lottie" aria-label="Animasi visual dari website WordPress lama"><lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_qwz0gbhf.json" background="transparent" speed="1" loop autoplay></lottie-player></div></div><div class="reason-list"><?php foreach ($reasons as $index => $reason): ?><article class="reason-card reveal reveal-delay-<?= min($index, 2) ?>"><span class="reason-icon"><?= icon($reason['icon']) ?></span><div><h3><?= e($reason['title']) ?></h3><p><?= e($reason['text']) ?></p></div></article><?php endforeach; ?></div></div></section>
         <section class="section contact-section" id="contactus"><div class="container contact-shell reveal"><div><p class="eyebrow">Siap memulai?</p><h2>Hubungi <span>kami</span></h2><p>Diskusikan kebutuhan website Anda bersama Webkubator.</p></div><div class="contact-list"><a class="contact-card" href="https://wa.me/6287753719307" target="_blank" rel="noopener"><span class="contact-icon">☎</span><span><small>Hubungi Kami</small><strong>(+62)87753719307</strong></span><b aria-hidden="true">↗</b></a><a class="contact-card" href="mailto:webkubator@gmail.com"><span class="contact-icon">@</span><span><small>Email</small><strong>webkubator@gmail.com</strong></span><b aria-hidden="true">↗</b></a></div></div></section>

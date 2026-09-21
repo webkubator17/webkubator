@@ -156,9 +156,28 @@
     const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
     }[character]));
-    const orderLink = (category, plan) => {
-      const message = `Halo Webkubator, saya mau order ${category.label}. Nama: Bidang Bisnis: Paket: ${plan.name} Jenis Website: Terimakasih`;
-      return `https://wa.me/6287753719307?text=${encodeURIComponent(message)}`;
+    const iconForFeature = (feature) => {
+      const value = String(feature).toLowerCase();
+      const icons = {
+        domain: 'fi-rr-globe', halaman: 'fi-rr-browser', produk: 'fi-rr-box-open', hosting: 'fi-rr-server',
+        ssl: 'fi-rr-shield-check', bandwidth: 'fi-rr-gauge-max', email: 'fi-rr-envelope', sosial: 'fi-rr-share',
+        whatsapp: 'fi-rr-paper-plane', manual: 'fi-rr-book-alt', kontak: 'fi-rr-form', template: 'fi-rr-palette',
+        seo: 'fi-rr-search', plugin: 'fi-rr-puzzle-piece', garansi: 'fi-rr-badge-check', brand: 'fi-rr-star',
+        tombol: 'fi-rr-link', mobile: 'fi-rr-mobile', katalog: 'fi-rr-list-check', keranjang: 'fi-rr-shopping-cart',
+        checkout: 'fi-rr-credit-card', pesanan: 'fi-rr-receipt', pembayaran: 'fi-rr-wallet', stok: 'fi-rr-boxes',
+        voucher: 'fi-rr-ticket', laporan: 'fi-rr-chart-histogram', profil: 'fi-rr-id-badge', organisasi: 'fi-rr-users',
+        maps: 'fi-rr-marker', publik: 'fi-rr-document', berita: 'fi-rr-newspaper', program: 'fi-rr-calendar',
+        analytics: 'fi-rr-chart-line-up', form: 'fi-rr-form'
+      };
+      return Object.entries(icons).find(([keyword]) => value.includes(keyword))?.[1] || 'fi-rr-check';
+    };
+    const domainForPlan = (plan) => String(plan.features.find((feature) => /^FREE Domain/i.test(feature)) || 'FREE Domain .COM').replace(/^FREE Domain\s*/i, '');
+    const detailLink = (key, plan) => `/pricing/?category=${encodeURIComponent(key)}&plan=${encodeURIComponent(plan.name)}`;
+    const featureList = (features) => {
+      const item = (feature) => `<li><i class="fi ${iconForFeature(feature)}" aria-hidden="true"></i><span>${escapeHtml(feature)}</span></li>`;
+      const visible = features.slice(0, 5).map(item).join('');
+      const extra = features.slice(5).map(item).join('');
+      return `${visible}${extra ? `<li class="price-more-wrap"><details class="price-more"><summary><i class="fi fi-rr-plus" aria-hidden="true"></i><span>Lihat lebih banyak</span></summary><ul>${extra}</ul></details></li>` : ''}`;
     };
 
     const render = (key) => {
@@ -169,7 +188,7 @@
         option.classList.toggle('is-active', active);
         option.setAttribute('aria-pressed', String(active));
       });
-      grid.innerHTML = category.plans.map((plan, index) => `<article class="price-card ${index === 1 ? 'price-card-featured' : ''} is-visible"><div class="price-header"><h3>${escapeHtml(plan.name)}</h3></div><strong class="price">Rp${escapeHtml(plan.price)}</strong><p class="renewal">${escapeHtml(plan.renewal)}</p><ul>${plan.features.map((feature) => `<li><span aria-hidden="true">✓</span>${escapeHtml(feature)}</li>`).join('')}</ul><a class="button ${index === 1 ? 'button-primary' : 'button-outline'}" href="${orderLink(category, plan)}" target="_blank" rel="noopener">Pesan Sekarang <span aria-hidden="true">↗</span></a></article>`).join('');
+      grid.innerHTML = category.plans.map((plan, index) => `<article class="price-card ${index === 1 ? 'price-card-featured' : ''} is-visible"><div class="price-header"><h3>${escapeHtml(plan.name)}</h3>${index === 1 ? '<span class="price-badge">Pilihan terbaik</span>' : ''}</div><strong class="price">Rp${escapeHtml(plan.price)}</strong><p class="renewal">${escapeHtml(plan.renewal)}</p><p class="price-domain"><i class="fi fi-rr-globe" aria-hidden="true"></i> Domain ${escapeHtml(domainForPlan(plan))} termasuk</p><ul>${featureList(plan.features)}</ul><a class="button ${index === 1 ? 'button-primary' : 'button-outline'}" href="${detailLink(key, plan)}">Pilih Paket <i class="fi fi-rr-arrow-right" aria-hidden="true"></i></a></article>`).join('');
     };
 
     options.forEach((option) => option.addEventListener('click', () => render(option.dataset.pricingOption)));

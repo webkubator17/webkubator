@@ -11,4 +11,5 @@ deployment:
     - /bin/cp sitemap.xml $DEPLOYPATH
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R portal $DEPLOYPATH
-
+    - /bin/cp -R pricing $DEPLOYPATH
+    - /bin/cp pricing-data.php $DEPLOYPATH

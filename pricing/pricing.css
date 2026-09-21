@@ -1,0 +1,83 @@
+.pricing-detail-body{background:linear-gradient(180deg,#00032d 0%,#030520 42%,#00032d 100%)}
+.pricing-detail-page{padding-top:82px}
+.pricing-detail-intro{position:relative;overflow:hidden;padding:58px 0 34px;background:radial-gradient(circle at 82% 30%,rgba(1,45,181,.28),transparent 38%)}
+.pricing-detail-intro:after{content:'';position:absolute;right:-160px;top:-220px;width:460px;height:460px;border:1px solid rgba(26,217,255,.18);border-radius:50%;transform:rotate(25deg);pointer-events:none}
+.pricing-back-link{display:inline-flex;align-items:center;gap:8px;margin-bottom:30px;color:var(--muted);font:500 13px 'Poppins',Arial,sans-serif;transition:color .2s,transform .2s}
+.pricing-back-link:hover,.pricing-back-link:focus-visible{color:var(--white);transform:translateX(-3px)}
+.pricing-back-link i{font-size:14px}
+.pricing-detail-intro .eyebrow{margin-bottom:13px}
+.pricing-detail-intro h1{max-width:850px;font-size:clamp(36px,5vw,58px)}
+.pricing-detail-intro h1 span{color:var(--yellow)}
+.pricing-detail-lead{max-width:650px;margin-top:18px;color:var(--muted);font-size:17px}
+.pricing-detail-section{padding-top:24px}
+.pricing-checkout-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.75fr);gap:22px;align-items:start}
+.pricing-config-card,.order-summary-card{border:1px solid rgba(255,255,255,.13);border-radius:18px;background:rgba(16,22,99,.47);box-shadow:0 22px 55px rgba(0,0,0,.18)}
+.pricing-config-card{padding:30px}
+.pricing-card-heading{display:flex;align-items:center;gap:16px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.pricing-heading-icon,.summary-icon{display:grid;place-items:center;flex:0 0 auto;width:52px;height:52px;border-radius:15px;background:#012db5;color:var(--white);box-shadow:0 10px 24px rgba(1,45,181,.3)}
+.pricing-heading-icon i,.summary-icon i{font-size:22px}
+.pricing-card-kicker{margin:0 0 4px;color:var(--yellow);font:600 11px/1.25 'Poppins',Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.pricing-card-heading h2{font-size:clamp(22px,3vw,30px);color:var(--white)}
+.pricing-config-block{padding:27px 0;border-bottom:1px solid var(--line)}
+.pricing-block-heading{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:18px}
+.pricing-block-heading h3{font-size:21px;color:var(--white)}
+.pricing-inline-note,.domain-free-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(26,217,255,.11);color:var(--cyan);font:600 11px/1.2 'Poppins',Arial,sans-serif;white-space:nowrap}
+.domain-free-pill{background:rgba(255,190,0,.12);color:var(--yellow)}
+.duration-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.duration-option{display:grid;gap:3px;min-height:78px;padding:14px 15px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(0,3,45,.28);color:var(--muted);text-align:left;cursor:pointer;transition:background .2s,border-color .2s,transform .2s,box-shadow .2s}
+.duration-option:hover,.duration-option:focus-visible{border-color:var(--cyan);transform:translateY(-2px)}
+.duration-option.is-active{border-color:#012db5;background:#012db5;color:var(--white);box-shadow:0 12px 25px rgba(1,45,181,.28)}
+.duration-option strong{font:700 16px/1.2 'Poppins',Arial,sans-serif;color:inherit}
+.duration-option span{font-size:12px;color:inherit;opacity:.8}
+.duration-breakdown{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:15px;color:var(--muted);font-size:13px}
+.duration-breakdown span{display:inline-flex;align-items:center;gap:7px}
+.duration-breakdown i{color:var(--yellow)}
+.domain-block label{display:block;margin-bottom:8px;color:var(--white);font:600 14px 'Poppins',Arial,sans-serif}
+.domain-input-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:stretch;overflow:hidden;border:1px solid rgba(255,255,255,.23);border-radius:11px;background:rgba(0,3,45,.5);transition:border-color .2s,box-shadow .2s}
+.domain-input-row:focus-within{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(26,217,255,.12)}
+.domain-prefix{display:flex;align-items:center;padding:0 0 0 14px;color:rgba(216,216,216,.66);font-size:14px}
+.domain-input-row input{min-width:0;padding:14px 9px;border:0;outline:0;background:transparent;color:var(--white);font:500 15px 'Poppins',Arial,sans-serif}
+.domain-input-row input::placeholder{color:rgba(216,216,216,.45)}
+.domain-check-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:105px;padding:0 15px;border:0;background:#012db5;color:var(--white);font:600 13px 'Poppins',Arial,sans-serif;cursor:pointer;transition:background .2s}
+.domain-check-button:hover,.domain-check-button:focus-visible{background:#174bd4}
+.domain-check-button:disabled{opacity:.7;cursor:wait}
+.domain-help{margin-top:9px;color:rgba(216,216,216,.72);font-size:12px;line-height:1.55}
+.domain-status{display:flex;align-items:flex-start;gap:7px;min-height:24px;margin-top:9px;color:var(--muted);font-size:13px}
+.domain-status i{margin-top:3px;color:var(--cyan)}
+.domain-status.is-success{color:#75f0b0}.domain-status.is-success i{color:#20d37a}
+.domain-status.is-error{color:#ff9797}.domain-status.is-error i{color:#ff6f6f}
+.domain-status.is-warning{color:var(--yellow)}.domain-status.is-warning i{color:var(--yellow)}
+.pricing-benefit-box{margin-top:25px;padding:18px 19px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(0,3,45,.26)}
+.pricing-benefit-box ul{display:grid;gap:12px;padding:0;margin:13px 0 0;list-style:none}
+.pricing-benefit-box li{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:14px}
+.pricing-benefit-box li i{flex:0 0 auto;margin-top:4px;color:var(--cyan);font-size:15px}
+.pricing-benefit-box strong{color:var(--white)}
+.order-summary-card{position:sticky;top:105px;padding:28px}
+.summary-topline{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.summary-topline .summary-icon{width:42px;height:42px;border-radius:12px}
+.summary-topline .summary-icon i{font-size:18px}
+.summary-topline p{color:var(--muted);font:600 14px 'Poppins',Arial,sans-serif}
+.order-summary-card h2{color:var(--white);font-size:28px}
+.summary-category{margin-top:3px;color:var(--yellow);font:500 13px 'Poppins',Arial,sans-serif}
+.summary-list{display:grid;gap:0;margin:22px 0 0}
+.summary-list div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.summary-list dt{color:var(--muted);font-size:13px}.summary-list dd{margin:0;color:var(--white);font:600 13px 'Poppins',Arial,sans-serif;text-align:right}.summary-list .summary-free{color:#73e8a8}
+.summary-discount-row dd{color:var(--yellow)}
+.summary-total{display:flex;justify-content:space-between;align-items:end;gap:14px;padding:22px 0 16px}.summary-total span{color:var(--muted);font-size:14px}.summary-total strong{color:var(--white);font:700 24px 'Poppins',Arial,sans-serif;text-align:right}
+.summary-domain{display:flex;justify-content:space-between;gap:14px;margin-bottom:19px;padding:12px 14px;border-radius:10px;background:rgba(1,45,181,.2);font-size:13px}.summary-domain span{color:var(--muted)}.summary-domain strong{max-width:60%;overflow-wrap:anywhere;color:var(--white);font:600 12px 'Poppins',Arial,sans-serif;text-align:right}
+.summary-submit{width:100%;margin-top:2px}.summary-submit.is-disabled{opacity:.5;pointer-events:none;cursor:not-allowed}.summary-footnote{display:flex;gap:7px;margin-top:14px;color:rgba(216,216,216,.66);font-size:11px;line-height:1.55}.summary-footnote i{flex:0 0 auto;margin-top:3px;color:var(--cyan)}
+.pricing-footer{margin-top:35px}
+
+/* Compact home pricing cards: five essentials first, the rest progressive disclosure. */
+.pricing-grid .price-card{min-height:0;padding:27px 23px}
+.pricing-grid .price-card-featured{border-color:#4c78ef;background:linear-gradient(180deg,rgba(1,45,181,.98),rgba(1,45,181,.72));box-shadow:0 20px 50px rgba(1,45,181,.3)}
+.price-header{position:relative;display:flex;align-items:center;gap:10px;flex-wrap:wrap}.price-header h3{flex:1 1 auto}
+.price-badge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;background:var(--yellow);color:var(--navy);font:700 10px/1.2 'Poppins',Arial,sans-serif;white-space:nowrap}
+.price-domain{display:flex;align-items:center;gap:7px;min-height:28px;margin:0 0 18px;color:var(--cyan);font-size:12px}.price-domain i{font-size:14px}.price-card-featured .price-domain{color:#b9f6ff}
+.price-card ul{gap:11px;margin-bottom:16px}.price-card li{align-items:flex-start;gap:9px}.price-card li i{flex:0 0 auto;margin-top:4px;color:var(--cyan);font-size:13px}.price-card li span{color:var(--muted);font-weight:400}.price-card-featured li span{color:var(--white)}
+.price-more-wrap{display:block!important;margin-top:2px}.price-more summary{display:inline-flex;align-items:center;gap:7px;color:var(--yellow);font:600 12px 'Poppins',Arial,sans-serif;cursor:pointer;list-style:none}.price-more summary::-webkit-details-marker{display:none}.price-more summary i{color:currentColor!important;font-size:12px!important}.price-more[open] summary i{transform:rotate(45deg)}.price-more ul{padding:12px 0 0;margin:0}
+.pricing-grid .price-card .button{margin-top:20px}.pricing-grid .price-card-featured .button-primary{background:#fff;color:#012db5}.pricing-grid .price-card-featured .button-primary:hover,.pricing-grid .price-card-featured .button-primary:focus-visible{background:var(--yellow);color:var(--navy)}
+
+@media (max-width:980px){.pricing-checkout-layout{grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr)}.pricing-config-card{padding:25px}.order-summary-card{padding:24px}.pricing-detail-intro{padding-top:45px}}
+@media (max-width:700px){.pricing-detail-page{padding-top:70px}.pricing-detail-intro{padding:38px 0 24px}.pricing-detail-intro h1{font-size:34px}.pricing-detail-lead{font-size:15px}.pricing-detail-section{padding:25px 0 45px}.pricing-checkout-layout{grid-template-columns:1fr;gap:16px}.pricing-config-card,.order-summary-card{padding:20px;border-radius:15px}.pricing-card-heading{gap:12px;padding-bottom:19px}.pricing-heading-icon{width:44px;height:44px;border-radius:12px}.pricing-heading-icon i{font-size:19px}.pricing-card-heading h2{font-size:21px}.pricing-block-heading{align-items:start;flex-direction:column;gap:10px}.duration-options{gap:7px}.duration-option{min-height:72px;padding:11px 9px}.duration-option strong{font-size:13px}.duration-option span{font-size:10px}.duration-breakdown{display:grid;gap:7px;font-size:12px}.domain-input-row{grid-template-columns:auto minmax(0,1fr)}.domain-check-button{grid-column:1/-1;min-height:46px}.domain-prefix{padding-left:12px;font-size:12px}.domain-input-row input{padding:12px 7px;font-size:13px}.order-summary-card{position:static}.summary-total strong{font-size:22px}.pricing-back-link{margin-bottom:24px}.pricing-grid .price-card{padding:23px 19px}.price-badge{font-size:9px}}
+@media (prefers-reduced-motion:reduce){.duration-option,.pricing-back-link{transition:none}.duration-option:hover,.pricing-back-link:hover{transform:none}}
