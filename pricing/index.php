@@ -95,22 +95,14 @@ header('Pragma: no-cache');
         </div>
     </header>
 
-    <main id="pricing-detail" class="pricing-detail-page" data-pricing-detail data-category="<?= pricing_page_e($categoryKey) ?>" data-plan="<?= pricing_page_e(pricing_plan_slug($plan['name'])) ?>" data-base-price="<?= pricing_page_e((string) $basePrice) ?>" data-renewal-price="<?= pricing_page_e((string) $renewalPrice) ?>" data-free-domain="<?= pricing_page_e($freeDomain) ?>" data-wa-number="6287753719307">
-        <section class="pricing-detail-intro">
-            <div class="container">
-                <a class="pricing-back-link" href="../#pricing"><i class="fi fi-rr-arrow-left" aria-hidden="true"></i> Kembali ke daftar paket</a>
-                <h1><?= pricing_page_e($category['label']) ?> <?= pricing_page_e($plan['name']) ?></h1>
-            </div>
-        </section>
-
+    <main id="pricing-detail" class="pricing-detail-page" data-pricing-detail data-category="<?= pricing_page_e($categoryKey) ?>" data-category-label="<?= pricing_page_e($category['label']) ?>" data-plan="<?= pricing_page_e(pricing_plan_slug($plan['name'])) ?>" data-plan-name="<?= pricing_page_e($plan['name']) ?>" data-base-price="<?= pricing_page_e((string) $basePrice) ?>" data-renewal-price="<?= pricing_page_e((string) $renewalPrice) ?>" data-free-domain="<?= pricing_page_e($freeDomain) ?>" data-wa-number="6287753719307">
         <section class="section pricing-detail-section">
             <div class="container pricing-checkout-layout">
                 <section class="pricing-config-card" aria-labelledby="config-title">
                     <div class="pricing-card-heading">
                         <span class="pricing-heading-icon"><i class="fi fi-rr-settings-sliders" aria-hidden="true"></i></span>
                         <div>
-                            <p class="pricing-card-kicker">Paket terpilih</p>
-                            <h2 id="config-title"><?= pricing_page_e($category['label']) ?> — <?= pricing_page_e($plan['name']) ?></h2>
+                            <h2 id="config-title"><?= pricing_page_e($category['label']) ?> — Paket <?= pricing_page_e($plan['name']) ?></h2>
                         </div>
                     </div>
 
@@ -119,12 +111,12 @@ header('Pragma: no-cache');
                             <div>
                                 <h3>Durasi website</h3>
                             </div>
-                            <span class="pricing-inline-note">Hemat hingga 30%</span>
+                            <span class="pricing-inline-note">Hemat hingga 10%</span>
                         </div>
                         <div class="duration-options" role="group" aria-label="Pilih durasi website">
                             <button class="duration-option is-active" type="button" data-duration="1" aria-pressed="true"><strong>1 Tahun</strong><span>Harga normal</span></button>
-                            <button class="duration-option" type="button" data-duration="2" aria-pressed="false"><strong>2 Tahun</strong><span>Diskon 20%</span></button>
-                            <button class="duration-option" type="button" data-duration="3" aria-pressed="false"><strong>3 Tahun</strong><span>Diskon 30%</span></button>
+                            <button class="duration-option" type="button" data-duration="2" aria-pressed="false"><strong>2 Tahun</strong><span>Diskon 5%</span></button>
+                            <button class="duration-option" type="button" data-duration="3" aria-pressed="false"><strong>3 Tahun</strong><span>Diskon 10%</span></button>
                         </div>
                         <div class="duration-breakdown" aria-live="polite">
                             <span><i class="fi fi-rr-calendar" aria-hidden="true"></i> Tahun pertama Rp<?= pricing_page_e(number_format($basePrice, 0, ',', '.')) ?></span>
@@ -141,12 +133,11 @@ header('Pragma: no-cache');
                         </div>
                         <label for="domain-input">Nama domain yang ingin dipesan</label>
                         <div class="domain-input-row">
-                            <input id="domain-input" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="nama-bisnis" aria-describedby="domain-help domain-status">
-                            <span class="domain-suffix" aria-hidden="true">(.com / .web.id / .id)</span>
+                            <input id="domain-input" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="namatoko" aria-describedby="domain-status">
                             <button class="domain-check-button" id="domain-check" type="button"><i class="fi fi-rr-search" aria-hidden="true"></i><span>Periksa</span></button>
                         </div>
-                        <p class="domain-help" id="domain-help">Tulis nama domain saja, tanpa https:// atau www. Ekstensi domain tersedia di kolom pencarian.</p>
-                        <p class="domain-status" id="domain-status" role="status" aria-live="polite"><i class="fi fi-rr-info" aria-hidden="true"></i><span>Isi domain untuk mulai memeriksa.</span></p>
+                        <p class="domain-status is-empty" id="domain-status" role="status" aria-live="polite"><i class="fi fi-rr-info" aria-hidden="true"></i><span></span></p>
+                        <div class="domain-options" id="domain-options" aria-live="polite"></div>
                     </div>
 
                     <div class="pricing-benefit-box">
@@ -167,12 +158,12 @@ header('Pragma: no-cache');
 
                 <aside class="order-summary-card" aria-labelledby="summary-title">
                     <div class="summary-topline"><span class="summary-icon"><i class="fi fi-rr-receipt" aria-hidden="true"></i></span><p>Ringkasan pesanan</p></div>
-                    <h2 id="summary-title"><?= pricing_page_e($plan['name']) ?></h2>
-                    <p class="summary-category"><?= pricing_page_e($category['label']) ?></p>
+                    <h2 id="summary-title"><?= pricing_page_e($category['label']) ?> — Paket <?= pricing_page_e($plan['name']) ?></h2>
                     <dl class="summary-list">
                         <div><dt>Durasi</dt><dd id="summary-duration">1 tahun</dd></div>
                         <div><dt>Jasa pembuatan website</dt><dd id="summary-service">Rp<?= pricing_page_e(number_format($basePrice, 0, ',', '.')) ?></dd></div>
-                        <div><dt>Free domain <?= pricing_page_e($freeDomain) ?></dt><dd class="summary-free">Rp0</dd></div>
+                        <div><dt>Domain tahun pertama</dt><dd id="summary-domain-first-fee" class="summary-free">Rp0</dd></div>
+                        <div id="summary-domain-renewal-row" hidden><dt>Perpanjangan domain</dt><dd id="summary-domain-renewal-fee" class="summary-free">Rp0/tahun</dd></div>
                         <div><dt>Free hosting</dt><dd class="summary-free">Rp0</dd></div>
                         <div class="summary-discount-row" id="summary-discount-row" hidden><dt>Diskon durasi</dt><dd id="summary-discount">-Rp0</dd></div>
                     </dl>
