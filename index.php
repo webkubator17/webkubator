@@ -93,7 +93,7 @@ function icon(string $name): string
     ];
     return '<svg viewBox="0 0 512 512" aria-hidden="true" focusable="false">' . ($paths[$name] ?? '') . '</svg>';
 }
-$assetVersion = (string) max((int) @filemtime(__DIR__ . '/styles.css'), (int) @filemtime(__DIR__ . '/script.js'));
+$assetVersion = (string) max((int) @filemtime(__DIR__ . '/styles.css'), (int) @filemtime(__DIR__ . '/script.js'), (int) @filemtime(__DIR__ . '/pricing/pricing.css'));
 header('Cache-Control: no-cache, must-revalidate, max-age=0');
 header('Pragma: no-cache');
 ?>
@@ -106,6 +106,7 @@ header('Pragma: no-cache');
     <script type="application/ld+json"><?= json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://cdn-uicons.flaticon.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Ubuntu:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
     <link rel="stylesheet" href="styles.css?v=<?= e($assetVersion) ?>">
+    <link rel="stylesheet" href="pricing/pricing.css?v=<?= e($assetVersion) ?>">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
 </head>
 <body>
