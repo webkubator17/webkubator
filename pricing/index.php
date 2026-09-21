@@ -161,6 +161,12 @@ header('Pragma: no-cache');
                             <li><i class="fi fi-rr-shield-check" aria-hidden="true"></i><span>SSL/HTTPS dan dukungan setelah website online</span></li>
                         </ul>
                     </div>
+                    <div class="pricing-full-features">
+                        <p class="pricing-card-kicker">Fitur lengkap paket</p>
+                        <ul>
+                            <?php foreach ($plan['features'] as $feature): ?><li><i class="fi <?= pricing_page_e(pricing_feature_icon($feature)) ?>" aria-hidden="true"></i><span><?= pricing_page_e($feature) ?></span></li><?php endforeach; ?>
+                        </ul>
+                    </div>
                 </section>
 
                 <aside class="order-summary-card" aria-labelledby="summary-title">
