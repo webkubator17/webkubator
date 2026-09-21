@@ -102,7 +102,7 @@ header('Pragma: no-cache');
                     <div class="pricing-card-heading">
                         <span class="pricing-heading-icon"><i class="fi fi-rr-settings-sliders" aria-hidden="true"></i></span>
                         <div>
-                            <h2 id="config-title"><?= pricing_page_e($category['label']) ?> — Paket <?= pricing_page_e($plan['name']) ?></h2>
+                            <h2 id="config-title"><?= pricing_page_e($category['label']) ?></h2>
                         </div>
                     </div>
 
@@ -158,14 +158,13 @@ header('Pragma: no-cache');
 
                 <aside class="order-summary-card" aria-labelledby="summary-title">
                     <div class="summary-topline"><span class="summary-icon"><i class="fi fi-rr-receipt" aria-hidden="true"></i></span><p>Ringkasan pesanan</p></div>
-                    <h2 id="summary-title"><?= pricing_page_e($category['label']) ?> — Paket <?= pricing_page_e($plan['name']) ?></h2>
+                    <h2 id="summary-title"><?= pricing_page_e($category['label']) ?></h2>
                     <dl class="summary-list">
                         <div><dt>Durasi</dt><dd id="summary-duration">1 tahun</dd></div>
-                        <div><dt>Jasa pembuatan website</dt><dd id="summary-service">Rp<?= pricing_page_e(number_format($basePrice, 0, ',', '.')) ?></dd></div>
-                        <div><dt>Domain tahun pertama</dt><dd id="summary-domain-first-fee" class="summary-free">Rp0</dd></div>
-                        <div id="summary-domain-renewal-row" hidden><dt>Perpanjangan domain</dt><dd id="summary-domain-renewal-fee" class="summary-free">Rp0/tahun</dd></div>
-                        <div><dt>Free hosting</dt><dd class="summary-free">Rp0</dd></div>
-                        <div class="summary-discount-row" id="summary-discount-row" hidden><dt>Diskon durasi</dt><dd id="summary-discount">-Rp0</dd></div>
+                        <div><dt>Paket</dt><dd>Paket <?= pricing_page_e(strtolower($plan['name'])) ?></dd></div>
+                        <div><dt>Domain</dt><dd id="summary-domain-cost" class="summary-free">Belum dipilih</dd></div>
+                        <div><dt>Hosting</dt><dd class="summary-free">Free</dd></div>
+                        <div class="summary-discount-row" id="summary-discount-row"><dt>Diskon</dt><dd id="summary-discount">Rp0</dd></div>
                     </dl>
                     <div class="summary-total"><span>Total</span><strong id="summary-total">Rp<?= pricing_page_e(number_format($basePrice, 0, ',', '.')) ?></strong></div>
                     <div class="summary-domain"><span>Domain</span><strong id="summary-domain">Belum diisi</strong></div>

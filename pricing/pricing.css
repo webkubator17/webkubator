@@ -12,7 +12,7 @@
 .pricing-heading-icon,.summary-icon{display:grid;place-items:center;flex:0 0 auto;width:52px;height:52px;border-radius:15px;background:#012db5;color:var(--white);box-shadow:0 10px 24px rgba(1,45,181,.3)}
 .pricing-heading-icon i,.summary-icon i{font-size:22px}
 .pricing-card-kicker{margin:0 0 4px;color:var(--yellow);font:600 11px/1.25 'Poppins',Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}
-.pricing-card-heading h2{margin:0;font-size:clamp(22px,3vw,30px);color:var(--white)}
+.pricing-card-heading h2{margin:0;font-size:clamp(18px,2.1vw,24px);color:var(--white)}
 .pricing-config-block{padding:27px 0;border-bottom:1px solid var(--line)}
 .pricing-block-heading{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:18px}
 .pricing-block-heading h3{font-size:21px;color:var(--white)}
@@ -61,7 +61,7 @@
 .summary-topline .summary-icon{width:42px;height:42px;border-radius:12px}
 .summary-topline .summary-icon i{font-size:18px}
 .summary-topline p{color:var(--muted);font:600 14px 'Poppins',Arial,sans-serif}
-.order-summary-card h2{margin:0;color:var(--white);font-size:clamp(22px,2.4vw,28px);line-height:1.25}
+.order-summary-card h2{margin:0;color:var(--white);font-size:clamp(19px,2.1vw,24px);line-height:1.25}
 .summary-category{margin-top:3px;color:var(--yellow);font:500 13px 'Poppins',Arial,sans-serif}
 .summary-list{display:grid;gap:0;margin:22px 0 0}
 .summary-list div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -84,6 +84,6 @@
 .pricing-grid .price-card .button{margin-top:20px}.pricing-grid .price-card-featured .button-primary{background:#fff;color:#012db5}.pricing-grid .price-card-featured .button-primary:hover,.pricing-grid .price-card-featured .button-primary:focus-visible{background:#f5f8ff;color:#012db5}
 
 @media (max-width:980px){.pricing-checkout-layout{grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr)}.pricing-config-card{padding:25px}.order-summary-card{padding:24px}}
-@media (max-width:700px){.pricing-detail-page{padding-top:70px}.pricing-detail-section{padding:25px 0 45px}.pricing-checkout-layout{grid-template-columns:1fr;gap:16px}.pricing-config-card,.order-summary-card{padding:20px;border-radius:15px}.pricing-card-heading{gap:12px;padding-bottom:19px}.pricing-card-heading>div{min-height:44px}.pricing-heading-icon{width:44px;height:44px;border-radius:12px}.pricing-heading-icon i{font-size:19px}.pricing-card-heading h2{font-size:21px}.pricing-block-heading{align-items:start;flex-direction:column;gap:10px}.duration-options{gap:7px}.duration-option{min-height:72px;padding:11px 9px}.duration-option strong{font-size:13px}.duration-option span{font-size:10px}.duration-breakdown{display:grid;gap:7px;font-size:12px}.domain-check-button{grid-column:auto;min-height:46px}.domain-input-row input{padding:12px 7px;font-size:13px}.domain-option{grid-template-columns:auto minmax(0,1fr);gap:8px;padding:10px}.domain-option-price{grid-column:2;text-align:left}.order-summary-card{position:static}.summary-total strong{font-size:22px}.pricing-grid .price-card{padding:23px 19px}.price-badge{top:15px;right:-43px;width:144px;font-size:9px}}
+@media (max-width:700px){.pricing-detail-page{padding-top:70px}.pricing-detail-section{padding:25px 0 45px}.pricing-checkout-layout{grid-template-columns:1fr;gap:16px}.pricing-config-card,.order-summary-card{padding:20px;border-radius:15px}.pricing-card-heading{gap:12px;padding-bottom:19px}.pricing-card-heading>div{min-height:44px}.pricing-heading-icon{width:44px;height:44px;border-radius:12px}.pricing-heading-icon i{font-size:19px}.pricing-card-heading h2{font-size:19px}.pricing-block-heading{align-items:start;flex-direction:column;gap:10px}.duration-options{gap:7px}.duration-option{min-height:72px;padding:11px 9px}.duration-option strong{font-size:13px}.duration-option span{font-size:10px}.duration-breakdown{display:grid;gap:7px;font-size:12px}.domain-check-button{grid-column:auto;min-height:46px}.domain-input-row input{padding:12px 7px;font-size:13px}.domain-option{grid-template-columns:auto minmax(0,1fr);gap:8px;padding:10px}.domain-option-price{grid-column:2;text-align:left}.order-summary-card{position:static}.summary-total strong{font-size:22px}.pricing-grid .price-card{padding:23px 19px}.price-badge{top:15px;right:-43px;width:144px;font-size:9px}}
 @media (max-width:700px){.pricing-full-features>ul{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.duration-option,.pricing-back-link{transition:none}.duration-option:hover,.pricing-back-link:hover{transform:none}}

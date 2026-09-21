@@ -30,9 +30,7 @@
   const summaryDiscount = document.querySelector('#summary-discount');
   const summaryTotal = document.querySelector('#summary-total');
   const summaryDomain = document.querySelector('#summary-domain');
-  const summaryDomainFirstFee = document.querySelector('#summary-domain-first-fee');
-  const summaryDomainRenewalRow = document.querySelector('#summary-domain-renewal-row');
-  const summaryDomainRenewalFee = document.querySelector('#summary-domain-renewal-fee');
+  const summaryDomainCost = document.querySelector('#summary-domain-cost');
   let years = 1;
   let selectedDomain = '';
   let selectedDomainMeta = null;
@@ -81,6 +79,12 @@
     return { firstYear, renewal, total: firstYear + (renewal * (years - 1)) };
   };
 
+  const domainDisplayPrice = () => {
+    if (!selectedDomainMeta) return 'Belum dipilih';
+    if (selectedDomainMeta.isFree && years === 1) return 'Free';
+    return `${formatRupiah(selectedDomainMeta.price)}/${years === 1 ? 'tahun' : `${years} tahun`}`;
+  };
+
   const renderDomainOptions = (results) => {
     if (!domainOptions) return;
     domainOptions.innerHTML = results.map((result) => {
@@ -89,8 +93,8 @@
       const disabled = result.status !== 'available' ? ' disabled' : '';
       const icon = result.status === 'available' ? 'fi-rr-check-circle' : result.status === 'used' ? 'fi-rr-cross-circle' : 'fi-rr-exclamation';
       const statusText = result.status === 'available' ? 'Tersedia, klik untuk memilih' : result.status === 'used' ? 'Domain sudah digunakan, pilih domain lain' : 'Status belum dapat dipastikan';
-      const firstYearText = result.isFree ? 'Gratis tahun pertama' : `${formatRupiah(result.price)} tahun pertama`;
-      return `<button class="domain-option ${statusClass}${selectedClass}" type="button" data-domain="${escapeHtml(result.domain)}"${disabled}><span class="domain-option-icon"><i class="fi ${icon}" aria-hidden="true"></i></span><span class="domain-option-copy"><strong class="domain-option-name">${escapeHtml(result.domain)}</strong><small>${statusText}</small></span><span class="domain-option-price"><strong>${firstYearText}</strong><small>Perpanjangan ${formatRupiah(result.price)}/tahun</small></span></button>`;
+      const priceText = result.isFree ? 'Free' : `${formatRupiah(result.price)}/tahun`;
+      return `<button class="domain-option ${statusClass}${selectedClass}" type="button" data-domain="${escapeHtml(result.domain)}"${disabled}><span class="domain-option-icon"><i class="fi ${icon}" aria-hidden="true"></i></span><span class="domain-option-copy"><strong class="domain-option-name">${escapeHtml(result.domain)}</strong><small>${statusText}</small></span><span class="domain-option-price"><strong>${priceText}</strong></span></button>`;
     }).join('');
   };
 
@@ -107,8 +111,8 @@
       `Paket: ${plan}`,
       `Durasi: ${years} tahun`,
       `Domain: ${domain}`,
-      `Biaya domain tahun pertama: ${formatRupiah(domainFees.firstYear)}`,
-      `Perpanjangan domain: ${formatRupiah(domainFees.renewal)}/tahun`,
+      `Biaya domain: ${domainDisplayPrice()}`,
+      `Total biaya domain: ${formatRupiah(domainFees.total)}`,
       'Free hosting: termasuk sesuai paket',
       `Harga jasa: ${formatRupiah(serviceSubtotal)}`,
       `Diskon durasi: ${formatRupiah(discount)}`,
@@ -131,13 +135,11 @@
     const total = serviceSubtotal - discount + domainFees.total;
     if (summaryDuration) summaryDuration.textContent = `${years} tahun`;
     if (summaryService) summaryService.textContent = formatRupiah(serviceSubtotal);
-    if (summaryDiscountRow) summaryDiscountRow.hidden = discount === 0;
-    if (summaryDiscount) summaryDiscount.textContent = `-${formatRupiah(discount)}`;
+    if (summaryDiscountRow) summaryDiscountRow.hidden = false;
+    if (summaryDiscount) summaryDiscount.textContent = discount ? `-${formatRupiah(discount)}` : 'Rp0';
     if (summaryTotal) summaryTotal.textContent = formatRupiah(total);
     if (summaryDomain) summaryDomain.textContent = selectedDomain || 'Belum dipilih';
-    if (summaryDomainFirstFee) summaryDomainFirstFee.textContent = formatRupiah(domainFees.firstYear);
-    if (summaryDomainRenewalRow) summaryDomainRenewalRow.hidden = !selectedDomainMeta;
-    if (summaryDomainRenewalFee) summaryDomainRenewalFee.textContent = `${formatRupiah(domainFees.renewal)}/tahun`;
+    if (summaryDomainCost) summaryDomainCost.textContent = domainDisplayPrice();
     updateOrderLink();
   };
 
