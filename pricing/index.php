@@ -99,9 +99,7 @@ header('Pragma: no-cache');
         <section class="pricing-detail-intro">
             <div class="container">
                 <a class="pricing-back-link" href="../#pricing"><i class="fi fi-rr-arrow-left" aria-hidden="true"></i> Kembali ke daftar paket</a>
-                <p class="eyebrow"><span class="eyebrow-dot"></span> Konfigurasi paket website</p>
-                <h1><?= pricing_page_e($category['label']) ?> <span><?= pricing_page_e($plan['name']) ?></span></h1>
-                <p class="pricing-detail-lead">Atur durasi, cek domain, lalu kirim rincian pesanan langsung ke WhatsApp Webkubator.</p>
+                <h1><?= pricing_page_e($category['label']) ?> <?= pricing_page_e($plan['name']) ?></h1>
             </div>
         </section>
 
@@ -119,7 +117,6 @@ header('Pragma: no-cache');
                     <div class="pricing-config-block">
                         <div class="pricing-block-heading">
                             <div>
-                                <p class="pricing-card-kicker">Langkah 1</p>
                                 <h3>Durasi website</h3>
                             </div>
                             <span class="pricing-inline-note">Hemat hingga 30%</span>
@@ -138,18 +135,17 @@ header('Pragma: no-cache');
                     <div class="pricing-config-block domain-block">
                         <div class="pricing-block-heading">
                             <div>
-                                <p class="pricing-card-kicker">Langkah 2</p>
                                 <h3>Pesan domain</h3>
                             </div>
                             <span class="domain-free-pill"><i class="fi fi-rr-badge-check" aria-hidden="true"></i> Gratis <?= pricing_page_e($freeDomain) ?></span>
                         </div>
                         <label for="domain-input">Nama domain yang ingin dipesan</label>
                         <div class="domain-input-row">
-                            <span class="domain-prefix" aria-hidden="true">https://</span>
-                            <input id="domain-input" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="namabisnis.com" aria-describedby="domain-help domain-status">
+                            <input id="domain-input" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="nama-bisnis" aria-describedby="domain-help domain-status">
+                            <span class="domain-suffix" aria-hidden="true">(.com / .web.id / .id)</span>
                             <button class="domain-check-button" id="domain-check" type="button"><i class="fi fi-rr-search" aria-hidden="true"></i><span>Periksa</span></button>
                         </div>
-                        <p class="domain-help" id="domain-help">Masukkan tanpa https:// dan tanpa www. Ketersediaan diperiksa melalui registry domain.</p>
+                        <p class="domain-help" id="domain-help">Tulis nama domain saja, tanpa https:// atau www. Ekstensi domain tersedia di kolom pencarian.</p>
                         <p class="domain-status" id="domain-status" role="status" aria-live="polite"><i class="fi fi-rr-info" aria-hidden="true"></i><span>Isi domain untuk mulai memeriksa.</span></p>
                     </div>
 
@@ -157,7 +153,7 @@ header('Pragma: no-cache');
                         <p class="pricing-card-kicker">Yang Anda dapatkan</p>
                         <ul>
                             <li><i class="fi fi-rr-globe" aria-hidden="true"></i><span>Free domain <strong><?= pricing_page_e($freeDomain) ?></strong> selama 1 tahun</span></li>
-                            <li><i class="fi fi-rr-server" aria-hidden="true"></i><span>Free hosting sesuai kapasitas paket</span></li>
+                            <li><i class="fi fi-rr-database" aria-hidden="true"></i><span>Free hosting sesuai kapasitas paket</span></li>
                             <li><i class="fi fi-rr-shield-check" aria-hidden="true"></i><span>SSL/HTTPS dan dukungan setelah website online</span></li>
                         </ul>
                     </div>
@@ -180,7 +176,7 @@ header('Pragma: no-cache');
                         <div><dt>Free hosting</dt><dd class="summary-free">Rp0</dd></div>
                         <div class="summary-discount-row" id="summary-discount-row" hidden><dt>Diskon durasi</dt><dd id="summary-discount">-Rp0</dd></div>
                     </dl>
-                    <div class="summary-total"><span>Total tanpa pajak</span><strong id="summary-total">Rp<?= pricing_page_e(number_format($basePrice, 0, ',', '.')) ?></strong></div>
+                    <div class="summary-total"><span>Total</span><strong id="summary-total">Rp<?= pricing_page_e(number_format($basePrice, 0, ',', '.')) ?></strong></div>
                     <div class="summary-domain"><span>Domain</span><strong id="summary-domain">Belum diisi</strong></div>
                     <a class="button button-primary summary-submit is-disabled" id="order-whatsapp" href="<?= pricing_page_e(pricing_page_wa($initialOrderMessage)) ?>" target="_blank" rel="noopener" aria-disabled="true"><i class="fi fi-rr-paper-plane" aria-hidden="true"></i> Pesan Sekarang</a>
                     <p class="summary-footnote"><i class="fi fi-rr-lock" aria-hidden="true"></i> Rincian aman dikirim ke WhatsApp untuk konsultasi dan konfirmasi akhir.</p>

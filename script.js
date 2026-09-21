@@ -159,8 +159,8 @@
     const iconForFeature = (feature) => {
       const value = String(feature).toLowerCase();
       const icons = {
-        domain: 'fi-rr-globe', halaman: 'fi-rr-browser', produk: 'fi-rr-box-open', hosting: 'fi-rr-server',
-        ssl: 'fi-rr-shield-check', bandwidth: 'fi-rr-gauge-max', email: 'fi-rr-envelope', sosial: 'fi-rr-share',
+        domain: 'fi-rr-globe', halaman: 'fi-rr-browser', produk: 'fi-rr-box-open', hosting: 'fi-rr-database',
+        ssl: 'fi-rr-shield-check', bandwidth: 'fi-rr-chart-line-up', email: 'fi-rr-envelope', sosial: 'fi-rr-share',
         whatsapp: 'fi-rr-paper-plane', manual: 'fi-rr-book-alt', kontak: 'fi-rr-form', template: 'fi-rr-palette',
         seo: 'fi-rr-search', plugin: 'fi-rr-puzzle-piece', garansi: 'fi-rr-badge-check', brand: 'fi-rr-star',
         tombol: 'fi-rr-link', mobile: 'fi-rr-mobile', katalog: 'fi-rr-list-check', keranjang: 'fi-rr-shopping-cart',

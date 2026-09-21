@@ -60,7 +60,7 @@
       'Free hosting: termasuk sesuai paket',
       `Harga jasa: ${formatRupiah(subtotal)}`,
       `Diskon durasi: ${formatRupiah(discount)}`,
-      `Total tanpa pajak: ${formatRupiah(total)}`,
+      `Total: ${formatRupiah(total)}`,
       'Mohon bantu proses dan konfirmasi detailnya.'
     ].join('\n');
     if (orderLink) {
@@ -96,7 +96,7 @@
     }
     if (!isValidDomain(domain)) {
       domainState = 'invalid';
-      setStatus('error', 'Format domain belum benar. Contoh: namabisnis.com', 'fi-rr-cross-circle');
+      setStatus('error', 'Format domain belum benar. Tambahkan ekstensi domain yang valid.', 'fi-rr-cross-circle');
       return;
     }
     activeController?.abort();
