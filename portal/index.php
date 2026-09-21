@@ -19,10 +19,10 @@ $whatsappUrl = 'https://wa.me/6287753719307?text=' . rawurlencode('Halo Webkubat
 $links = [
     ['label' => 'Website', 'icon' => 'fi-rr-globe', 'href' => '../', 'external' => false],
     ['label' => 'Whatsapp', 'icon' => 'fi-rr-paper-plane', 'href' => $whatsappUrl, 'external' => true],
-    ['label' => 'Portofolio', 'icon' => 'fi-rr-briefcase', 'href' => '../#portfolio', 'external' => false],
+    ['label' => 'Portofolio', 'icon' => 'fi-rr-briefcase', 'href' => '../portofolio/', 'external' => false],
     ['label' => 'Pricelist Landing Page', 'icon' => 'fi-rr-browser', 'href' => '../?pricing=landing-page#pricing', 'external' => false],
     ['label' => 'Pricelist Company Profile', 'icon' => 'fi-rr-building', 'href' => '../?pricing=company-profile#pricing', 'external' => false],
-    ['label' => 'Pricelist Toko Online', 'icon' => 'fi-rr-shopping-bag', 'href' => '../?pricing=toko-online#pricing', 'external' => false],
+    ['label' => 'Pricelist Website Instansi', 'icon' => 'fi-rr-building', 'href' => '../?pricing=toko-online#pricing', 'external' => false],
     ['label' => 'Pricelist E-commerce', 'icon' => 'fi-rr-shopping-cart', 'href' => '../?pricing=e-commerce#pricing', 'external' => false],
     ['label' => 'Pricelist Link Bio', 'icon' => 'fi-rr-link', 'href' => '../?pricing=link-bio#pricing', 'external' => false],
 ];

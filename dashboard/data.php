@@ -45,7 +45,8 @@ function dashboard_default_data(): array
             ['name' => 'Kazeem Vokasi', 'image' => 'assets/images/portfolio-kazeem.webp', 'preview_url' => '', 'url' => 'https://kazeemvocint.com/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Fikri Hamdani', 'image' => 'assets/images/portfolio-fikri.webp', 'preview_url' => '', 'url' => 'https://fikrihamdani.my.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Sraya Bali Wellness', 'image' => 'assets/images/portfolio-sraya.webp', 'preview_url' => '', 'url' => 'https://srayabaliwellness.com', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Tanajava Essential Oil', 'image' => '', 'preview_url' => '', 'url' => 'https://tanajava.my.id', 'traffic' => 0, 'visible' => false],
+            ['name' => 'Tanajava Essential Oil', 'image' => 'assets/images/portfolio-tanajava.webp', 'preview_url' => '', 'url' => 'https://tanajava.my.id/', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Nusantara Coaching', 'image' => 'assets/images/portfolio-nusantara-coaching.webp', 'preview_url' => '', 'url' => 'https://nusantaracoaching.com/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Nusa Jaya Steel', 'image' => 'assets/images/portfolio-nusajaya.webp', 'preview_url' => '', 'url' => 'https://nusajayasteel.com', 'traffic' => 0, 'visible' => true],
             ['name' => 'Matrix Welding School', 'image' => 'assets/images/portfolio-matrix.webp', 'preview_url' => '', 'url' => 'https://matrixweldingschool.com', 'traffic' => 0, 'visible' => true],
             ['name' => 'Capunglam', 'image' => 'assets/images/portfolio-capunglam.webp', 'preview_url' => '', 'url' => 'https://capunglam.com', 'traffic' => 0, 'visible' => true],
@@ -99,11 +100,44 @@ function dashboard_normalize_data(array $data): array
             'Kazeem Vokasi' => 'assets/images/portfolio-kazeem.webp',
             'Fikri Hamdani' => 'assets/images/portfolio-fikri.webp',
             'Sraya Bali Wellness' => 'assets/images/portfolio-sraya.webp',
+            'Tanajava Essential Oil' => 'assets/images/portfolio-tanajava.webp',
+            'Nusantara Coaching' => 'assets/images/portfolio-nusantara-coaching.webp',
             'Nusa Jaya Steel' => 'assets/images/portfolio-nusajaya.webp',
             'Matrix Welding School' => 'assets/images/portfolio-matrix.webp',
             'Capunglam' => 'assets/images/portfolio-capunglam.webp',
             'Sakuta Dewandaru Mada' => 'assets/images/portfolio-sakuta.webp',
         ];
+        $portfolioAdditions = [
+            [
+                'name' => 'Tanajava Essential Oil',
+                'image' => 'assets/images/portfolio-tanajava.webp',
+                'preview_url' => '',
+                'url' => 'https://tanajava.my.id/',
+                'traffic' => 0,
+                'visible' => true,
+                'order' => count($data['projects']),
+            ],
+            [
+                'name' => 'Nusantara Coaching',
+                'image' => 'assets/images/portfolio-nusantara-coaching.webp',
+                'preview_url' => '',
+                'url' => 'https://nusantaracoaching.com/',
+                'traffic' => 0,
+                'visible' => true,
+                'order' => count($data['projects']) + 1,
+            ],
+        ];
+        $projectNames = array_map(
+            static fn (array $project): string => trim((string) ($project['name'] ?? '')),
+            $data['projects']
+        );
+        foreach ($portfolioAdditions as $addition) {
+            if (!in_array($addition['name'], $projectNames, true)) {
+                $data['projects'][] = $addition;
+                $projectNames[] = $addition['name'];
+            }
+        }
+
         $normalized['projects'] = [];
         $usesManualOrder = $data['projects'] !== [];
         foreach ($data['projects'] as $position => $project) {
@@ -118,8 +152,8 @@ function dashboard_normalize_data(array $data): array
                 $projectPreviewUrl = '';
             }
             $projectVisible = (bool) ($project['visible'] ?? false);
-            if ($projectName === 'Tanajava Essential Oil') {
-                $projectVisible = false;
+            if (in_array($projectName, ['Tanajava Essential Oil', 'Nusantara Coaching'], true)) {
+                $projectVisible = true;
             }
             $hasOrder = array_key_exists('order', $project) && is_numeric($project['order']);
             if (!$hasOrder) {

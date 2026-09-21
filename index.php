@@ -67,33 +67,33 @@ $pricingCatalog = [
     'landing-page' => [
         'label' => 'Landing Page',
         'plans' => [
-            ['name' => 'Startup', 'price' => '1.450.000', 'renewal' => 'Perpanjangan Rp1.000.000/Tahun', 'features' => ['FREE Domain .WEB.ID', '6 Menu Landing Page', 'Hosting 800MB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '5 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Garansi Selamanya']],
-            ['name' => 'Bisnis', 'price' => '1.750.000', 'renewal' => 'Perpanjangan Rp1.200.000/Tahun', 'features' => ['FREE Domain .COM', '10 Menu Landing Page', 'Hosting 1,2GB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '10 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Free Template Premium', 'Garansi Selamanya']],
-            ['name' => 'Premium', 'price' => '2.500.000', 'renewal' => 'Perpanjangan Rp1.500.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '20 Menu Landing Page', 'Hosting 3GB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '20 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Free Template Premium', 'Optimasi SEO', 'Free Plugin', 'Garansi Selamanya']],
+            ['name' => 'Startup', 'price' => '700.000', 'renewal' => 'Perpanjangan Rp600.000/Tahun', 'features' => ['FREE Domain .WEB.ID', '6 Menu Landing Page', 'Hosting 800MB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '5 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Garansi Selamanya']],
+            ['name' => 'Bisnis', 'price' => '900.000', 'renewal' => 'Perpanjangan Rp750.000/Tahun', 'features' => ['FREE Domain .COM', '10 Menu Landing Page', 'Hosting 1,2GB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '10 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Free Template Premium', 'Garansi Selamanya']],
+            ['name' => 'Premium', 'price' => '1.100.000', 'renewal' => 'Perpanjangan Rp900.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '20 Menu Landing Page', 'Hosting 3GB', 'Website SSL/HTTPS', 'Unlimited Bandwidth', '20 Email Domain', 'Integrasi Sosial Media', 'Fitur Chat WhatsApp', 'Manual Book', 'Standar Kontak Form', 'Free Template Premium', 'Optimasi SEO', 'Free Plugin', 'Garansi Selamanya']],
         ],
     ],
     'company-profile' => [
         'label' => 'Company Profile',
         'plans' => [
-            ['name' => 'Starter', 'price' => '2.500.000', 'renewal' => 'Perpanjangan Rp1.500.000/Tahun', 'features' => ['FREE Domain .COM', '5 Halaman Website', 'Hosting 1GB', 'Website SSL/HTTPS', 'Profil & Layanan', 'Integrasi WhatsApp', 'Google Maps', 'Form Kontak', 'SEO Dasar', 'Garansi Selamanya']],
-            ['name' => 'Bisnis', 'price' => '3.500.000', 'renewal' => 'Perpanjangan Rp2.000.000/Tahun', 'features' => ['FREE Domain .COM', '10 Halaman Website', 'Hosting 2GB', 'Website SSL/HTTPS', 'Profil, Layanan & Tim', 'Portofolio Proyek', 'Integrasi WhatsApp & Maps', 'Form Kontak', 'SEO Dasar', 'Free Template Premium', 'Garansi Selamanya']],
-            ['name' => 'Premium', 'price' => '5.000.000', 'renewal' => 'Perpanjangan Rp2.500.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '15+ Halaman Website', 'Hosting 3GB', 'Website SSL/HTTPS', 'Profil, Tim & Cabang', 'Portofolio Proyek', 'Blog atau Berita', 'Integrasi WhatsApp & Maps', 'Optimasi SEO', 'Free Plugin', 'Garansi Selamanya']],
+            ['name' => 'Startup', 'price' => '850.000', 'renewal' => 'Perpanjangan Rp700.000/Tahun', 'features' => ['FREE Domain .COM', '5 Halaman Website', 'Hosting 1GB', 'Website SSL/HTTPS', 'Profil & Layanan', 'Integrasi WhatsApp', 'Google Maps', 'Form Kontak', 'SEO Dasar', 'Garansi Selamanya']],
+            ['name' => 'Bisnis', 'price' => '1.100.000', 'renewal' => 'Perpanjangan Rp900.000/Tahun', 'features' => ['FREE Domain .COM', '10 Halaman Website', 'Hosting 2GB', 'Website SSL/HTTPS', 'Profil, Layanan & Tim', 'Portofolio Proyek', 'Integrasi WhatsApp & Maps', 'Form Kontak', 'SEO Dasar', 'Free Template Premium', 'Garansi Selamanya']],
+            ['name' => 'Premium', 'price' => '1.300.000', 'renewal' => 'Perpanjangan Rp1.050.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '15+ Halaman Website', 'Hosting 3GB', 'Website SSL/HTTPS', 'Profil, Tim & Cabang', 'Portofolio Proyek', 'Blog atau Berita', 'Integrasi WhatsApp & Maps', 'Optimasi SEO', 'Free Plugin', 'Garansi Selamanya']],
         ],
     ],
     'toko-online' => [
-        'label' => 'Toko Online',
+        'label' => 'Website Instansi',
         'plans' => [
-            ['name' => 'Starter', 'price' => '3.500.000', 'renewal' => 'Perpanjangan Rp2.000.000/Tahun', 'features' => ['FREE Domain .COM', 'Hingga 30 Produk', 'Hosting 2GB', 'Website SSL/HTTPS', 'Katalog Produk', 'Keranjang Belanja', 'Checkout WhatsApp', 'Kupon Dasar', 'Integrasi Sosial Media', 'Garansi Selamanya']],
-            ['name' => 'Bisnis', 'price' => '5.000.000', 'renewal' => 'Perpanjangan Rp2.500.000/Tahun', 'features' => ['FREE Domain .COM', 'Hingga 100 Produk', 'Hosting 3GB', 'Website SSL/HTTPS', 'Katalog & Kategori Produk', 'Keranjang Belanja', 'Checkout & Ongkir Dasar', 'Kupon dan Diskon', 'Integrasi WhatsApp', 'Optimasi SEO', 'Garansi Selamanya']],
-            ['name' => 'Premium', 'price' => '7.500.000', 'renewal' => 'Perpanjangan Rp3.500.000/Tahun', 'features' => ['FREE Domain .COM/.ID', 'Produk Unlimited', 'Hosting 5GB', 'Website SSL/HTTPS', 'Manajemen Pesanan', 'Checkout Lengkap', 'Integrasi Pembayaran', 'Kupon dan Diskon', 'Optimasi SEO', 'Free Plugin Premium', 'Garansi Selamanya']],
+            ['name' => 'Startup', 'price' => '850.000', 'renewal' => 'Perpanjangan Rp700.000/Tahun', 'features' => ['FREE Domain .COM', '5 Halaman Website', 'Hosting 1GB', 'Website SSL/HTTPS', 'Profil Instansi & Layanan', 'Struktur Organisasi', 'Google Maps', 'Form Kontak', 'SEO Dasar', 'Garansi Selamanya']],
+            ['name' => 'Bisnis', 'price' => '1.100.000', 'renewal' => 'Perpanjangan Rp900.000/Tahun', 'features' => ['FREE Domain .COM', '10 Halaman Website', 'Hosting 2GB', 'Website SSL/HTTPS', 'Profil, Layanan & Program', 'Struktur Organisasi', 'Informasi Publik', 'Integrasi WhatsApp & Maps', 'SEO Dasar', 'Garansi Selamanya']],
+            ['name' => 'Premium', 'price' => '1.300.000', 'renewal' => 'Perpanjangan Rp1.050.000/Tahun', 'features' => ['FREE Domain .COM/.ID', '15+ Halaman Website', 'Hosting 3GB', 'Website SSL/HTTPS', 'Profil, Program & Unit Kerja', 'Struktur Organisasi', 'Berita atau Agenda', 'Form Layanan Publik', 'Optimasi SEO', 'Garansi Selamanya']],
         ],
     ],
     'e-commerce' => [
         'label' => 'E-Commerce',
         'plans' => [
-            ['name' => 'Starter', 'price' => '6.500.000', 'renewal' => 'Perpanjangan Rp3.000.000/Tahun', 'features' => ['FREE Domain .COM', 'Produk hingga 100 Item', 'Hosting 4GB', 'Website SSL/HTTPS', 'Kategori & Variasi Produk', 'Keranjang & Checkout', 'Manajemen Pesanan', 'Integrasi Pembayaran', 'Integrasi WhatsApp', 'Garansi Selamanya']],
-            ['name' => 'Bisnis', 'price' => '9.500.000', 'renewal' => 'Perpanjangan Rp4.000.000/Tahun', 'features' => ['FREE Domain .COM', 'Produk Unlimited', 'Hosting 6GB', 'Website SSL/HTTPS', 'Manajemen Stok', 'Voucher dan Promo', 'Integrasi Pembayaran', 'Laporan Penjualan', 'Optimasi SEO', 'Free Plugin Premium', 'Garansi Selamanya']],
-            ['name' => 'Premium', 'price' => '14.000.000', 'renewal' => 'Perpanjangan Rp5.500.000/Tahun', 'features' => ['FREE Domain .COM/.ID', 'Produk Unlimited', 'Hosting 10GB', 'Website SSL/HTTPS', 'Fitur Multi-Level', 'Manajemen Stok & Pesanan', 'Integrasi Pembayaran', 'Laporan Penjualan', 'Optimasi SEO Lanjutan', 'Prioritas Support', 'Garansi Selamanya']],
+            ['name' => 'Startup', 'price' => '1.000.000', 'renewal' => 'Perpanjangan Rp800.000/Tahun', 'features' => ['FREE Domain .COM', 'Produk hingga 100 Item', 'Hosting 4GB', 'Website SSL/HTTPS', 'Kategori & Variasi Produk', 'Keranjang & Checkout', 'Manajemen Pesanan', 'Integrasi Pembayaran', 'Integrasi WhatsApp', 'Garansi Selamanya']],
+            ['name' => 'Bisnis', 'price' => '1.500.000', 'renewal' => 'Perpanjangan Rp1.200.000/Tahun', 'features' => ['FREE Domain .COM', 'Produk Unlimited', 'Hosting 6GB', 'Website SSL/HTTPS', 'Manajemen Stok', 'Voucher dan Promo', 'Integrasi Pembayaran', 'Laporan Penjualan', 'Optimasi SEO', 'Free Plugin Premium', 'Garansi Selamanya']],
+            ['name' => 'Premium', 'price' => '1.750.000', 'renewal' => 'Perpanjangan Rp1.400.000/Tahun', 'features' => ['FREE Domain .COM/.ID', 'Produk Unlimited', 'Hosting 10GB', 'Website SSL/HTTPS', 'Fitur Multi-Level', 'Manajemen Stok & Pesanan', 'Integrasi Pembayaran', 'Laporan Penjualan', 'Optimasi SEO Lanjutan', 'Prioritas Support', 'Garansi Selamanya']],
         ],
     ],
     'link-bio' => [
