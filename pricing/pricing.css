@@ -65,6 +65,7 @@
 .summary-category{margin-top:3px;color:var(--yellow);font:500 13px 'Poppins',Arial,sans-serif}
 .summary-list{display:grid;gap:0;margin:22px 0 0}
 .summary-list div{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.summary-list div[hidden]{display:none}
 .summary-list dt{color:var(--muted);font-size:13px}.summary-list dd{margin:0;color:var(--white);font:600 13px 'Poppins',Arial,sans-serif;text-align:right}.summary-list .summary-free{color:#73e8a8}
 .summary-discount-row dd{color:var(--yellow)}
 .summary-total{display:flex;justify-content:space-between;align-items:end;gap:14px;padding:22px 0 16px}.summary-total span{color:var(--muted);font-size:14px}.summary-total strong{color:var(--white);font:700 24px 'Poppins',Arial,sans-serif;text-align:right}

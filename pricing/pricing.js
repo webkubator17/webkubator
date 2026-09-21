@@ -26,6 +26,8 @@
   const orderLink = document.querySelector('#order-whatsapp');
   const summaryDuration = document.querySelector('#summary-duration');
   const summaryService = document.querySelector('#summary-service');
+  const summaryRenewalRow = document.querySelector('#summary-renewal-row');
+  const summaryRenewal = document.querySelector('#summary-renewal');
   const summaryDiscountRow = document.querySelector('#summary-discount-row');
   const summaryDiscount = document.querySelector('#summary-discount');
   const summaryTotal = document.querySelector('#summary-total');
@@ -72,17 +74,23 @@
 
   const isValidDomainBase = (value) => /^(?=.{1,63}$)(?!.*\.\.)([a-z0-9](?:[a-z0-9.-]*[a-z0-9])?)$/i.test(value);
   const domainCandidates = (base) => orderedDomainCatalog().map((item) => ({ ...item, domain: `${base}${item.extension}`, isFree: item.extension === freeExtension }));
-  const domainCost = () => {
-    if (!selectedDomainMeta) return { firstYear: 0, renewal: 0, total: 0 };
-    const firstYear = selectedDomainMeta.isFree ? 0 : selectedDomainMeta.price;
-    const renewal = selectedDomainMeta.price;
-    return { firstYear, renewal, total: firstYear + (renewal * (years - 1)) };
+  const domainCost = (domain = selectedDomainMeta) => {
+    return !domain || domain.isFree ? 0 : domain.price * years;
   };
 
-  const domainDisplayPrice = () => {
-    if (!selectedDomainMeta) return 'Belum dipilih';
-    if (selectedDomainMeta.isFree && years === 1) return 'Free';
-    return `${formatRupiah(selectedDomainMeta.price)}/${years === 1 ? 'tahun' : `${years} tahun`}`;
+  const domainDisplayPrice = (domain = selectedDomainMeta) => {
+    if (!domain) return 'Belum dipilih';
+    if (domain.isFree) return 'Free';
+    return `${formatRupiah(domainCost(domain))}/${years === 1 ? 'tahun' : `${years} tahun`}`;
+  };
+
+  const calculateOrder = () => {
+    const renewalSubtotal = renewalPrice * (years - 1);
+    const serviceSubtotal = basePrice + renewalSubtotal;
+    const discountRate = years === 2 ? 0.05 : years === 3 ? 0.1 : 0;
+    const discount = Math.round(serviceSubtotal * discountRate);
+    const domainFee = domainCost();
+    return { renewalSubtotal, serviceSubtotal, discount, domainFee, total: serviceSubtotal - discount + domainFee };
   };
 
   const renderDomainOptions = (results) => {
@@ -93,17 +101,12 @@
       const disabled = result.status !== 'available' ? ' disabled' : '';
       const icon = result.status === 'available' ? 'fi-rr-check-circle' : result.status === 'used' ? 'fi-rr-cross-circle' : 'fi-rr-exclamation';
       const statusText = result.status === 'available' ? 'Tersedia, klik untuk memilih' : result.status === 'used' ? 'Domain sudah digunakan, pilih domain lain' : 'Status belum dapat dipastikan';
-      const priceText = result.isFree ? 'Free' : `${formatRupiah(result.price)}/tahun`;
+      const priceText = domainDisplayPrice(result);
       return `<button class="domain-option ${statusClass}${selectedClass}" type="button" data-domain="${escapeHtml(result.domain)}"${disabled}><span class="domain-option-icon"><i class="fi ${icon}" aria-hidden="true"></i></span><span class="domain-option-copy"><strong class="domain-option-name">${escapeHtml(result.domain)}</strong><small>${statusText}</small></span><span class="domain-option-price"><strong>${priceText}</strong></span></button>`;
     }).join('');
   };
 
-  const updateOrderLink = () => {
-    const serviceSubtotal = basePrice + (renewalPrice * (years - 1));
-    const discountRate = years === 2 ? 0.05 : years === 3 ? 0.1 : 0;
-    const discount = Math.round(serviceSubtotal * discountRate);
-    const domainFees = domainCost();
-    const total = serviceSubtotal - discount + domainFees.total;
+  const updateOrderLink = ({ renewalSubtotal, serviceSubtotal, discount, domainFee, total }) => {
     const domain = selectedDomain || 'belum dipilih';
     const message = [
       'Halo Webkubator, saya ingin memesan paket website.',
@@ -112,8 +115,10 @@
       `Durasi: ${years} tahun`,
       `Domain: ${domain}`,
       `Biaya domain: ${domainDisplayPrice()}`,
-      `Total biaya domain: ${formatRupiah(domainFees.total)}`,
+      `Total biaya domain: ${formatRupiah(domainFee)}`,
       'Free hosting: termasuk sesuai paket',
+      `Paket ${plan} (tahun pertama): ${formatRupiah(basePrice)}`,
+      ...(years > 1 ? [`Perpanjangan (${years - 1} tahun): ${formatRupiah(renewalSubtotal)}`] : []),
       `Harga jasa: ${formatRupiah(serviceSubtotal)}`,
       `Diskon durasi: ${formatRupiah(discount)}`,
       `Total: ${formatRupiah(total)}`,
@@ -128,19 +133,18 @@
   };
 
   const updateSummary = () => {
-    const serviceSubtotal = basePrice + (renewalPrice * (years - 1));
-    const discountRate = years === 2 ? 0.05 : years === 3 ? 0.1 : 0;
-    const discount = Math.round(serviceSubtotal * discountRate);
-    const domainFees = domainCost();
-    const total = serviceSubtotal - discount + domainFees.total;
+    const totals = calculateOrder();
+    const { renewalSubtotal, discount, total } = totals;
     if (summaryDuration) summaryDuration.textContent = `${years} tahun`;
-    if (summaryService) summaryService.textContent = formatRupiah(serviceSubtotal);
+    if (summaryService) summaryService.textContent = formatRupiah(basePrice);
+    if (summaryRenewalRow) summaryRenewalRow.hidden = years === 1;
+    if (summaryRenewal) summaryRenewal.textContent = formatRupiah(renewalSubtotal);
     if (summaryDiscountRow) summaryDiscountRow.hidden = false;
     if (summaryDiscount) summaryDiscount.textContent = discount ? `-${formatRupiah(discount)}` : 'Rp0';
     if (summaryTotal) summaryTotal.textContent = formatRupiah(total);
     if (summaryDomain) summaryDomain.textContent = selectedDomain || 'Belum dipilih';
     if (summaryDomainCost) summaryDomainCost.textContent = domainDisplayPrice();
-    updateOrderLink();
+    updateOrderLink(totals);
   };
 
   const fetchDomainStatus = async (candidate, signal) => {
@@ -217,6 +221,7 @@
         item.classList.toggle('is-active', active);
         item.setAttribute('aria-pressed', String(active));
       });
+      renderDomainOptions(domainResults);
       updateSummary();
     });
   });

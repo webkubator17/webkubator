@@ -143,7 +143,7 @@ header('Pragma: no-cache');
                     <div class="pricing-benefit-box">
                         <p class="pricing-card-kicker">Yang Anda dapatkan</p>
                         <ul>
-                            <li><i class="fi fi-rr-globe" aria-hidden="true"></i><span>Free domain <strong><?= pricing_page_e($freeDomain) ?></strong> selama 1 tahun</span></li>
+                            <li><i class="fi fi-rr-globe" aria-hidden="true"></i><span>Free domain <strong><?= pricing_page_e($freeDomain) ?></strong> selama durasi paket</span></li>
                             <li><i class="fi fi-rr-database" aria-hidden="true"></i><span>Free hosting sesuai kapasitas paket</span></li>
                             <li><i class="fi fi-rr-shield-check" aria-hidden="true"></i><span>SSL/HTTPS dan dukungan setelah website online</span></li>
                         </ul>
@@ -158,10 +158,11 @@ header('Pragma: no-cache');
 
                 <aside class="order-summary-card" aria-labelledby="summary-title">
                     <div class="summary-topline"><span class="summary-icon"><i class="fi fi-rr-receipt" aria-hidden="true"></i></span><p>Ringkasan pesanan</p></div>
-                    <h2 id="summary-title"><?= pricing_page_e($category['label']) ?></h2>
+                    <h2 id="summary-title"><?= pricing_page_e($category['label']) ?> — <?= pricing_page_e($plan['name']) ?></h2>
                     <dl class="summary-list">
                         <div><dt>Durasi</dt><dd id="summary-duration">1 tahun</dd></div>
-                        <div><dt>Paket</dt><dd>Paket <?= pricing_page_e(strtolower($plan['name'])) ?></dd></div>
+                        <div><dt>Paket <?= pricing_page_e($plan['name']) ?></dt><dd id="summary-service">Rp<?= pricing_page_e(number_format($basePrice, 0, ',', '.')) ?></dd></div>
+                        <div id="summary-renewal-row" hidden><dt>Perpanjangan</dt><dd id="summary-renewal">Rp0</dd></div>
                         <div><dt>Domain</dt><dd id="summary-domain-cost" class="summary-free">Belum dipilih</dd></div>
                         <div><dt>Hosting</dt><dd class="summary-free">Free</dd></div>
                         <div class="summary-discount-row" id="summary-discount-row"><dt>Diskon</dt><dd id="summary-discount">Rp0</dd></div>
