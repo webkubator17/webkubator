@@ -11,7 +11,9 @@
   <link rel="icon" type="image/png" href="../assets/images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn-uicons.flaticon.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
   <link rel="stylesheet" href="store.css?v=20260922-1">
   <link rel="stylesheet" href="store-overrides.css?v=20260922-2">
   <script src="store.js?v=20260922-2" defer></script>
@@ -42,10 +44,10 @@
     <div class="container header-inner">
       <a class="brand" href="../" aria-label="Webkubator, ke website utama">
         <span class="brand-mark"><img src="../assets/images/logo-white.webp" width="48" height="48" alt=""></span>
-        <span>Webkubator</span><span class="store-tag">Store</span>
+        <span>Webkubator</span>
       </a>
       <button class="favorites-toggle" id="favorites-toggle" type="button" aria-pressed="false" aria-label="Lihat favorit, 0 produk" disabled>
-        <svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>
+        <i class="fi fi-rr-heart" aria-hidden="true"></i>
         <span class="favorites-label">Favorit</span><span class="favorites-count" id="favorites-count">0</span>
       </button>
     </div>
@@ -55,35 +57,35 @@
       <form class="search-row" id="search-form" role="search">
         <div class="search-field">
           <div class="search-input-wrap">
-            <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
-            <input id="product-search" type="search" aria-label="Cari website" placeholder="Cari website yang kamu butuhkan…" autocomplete="off" maxlength="100" disabled>
+            <i class="fi fi-rr-search" aria-hidden="true"></i>
+            <input id="product-search" type="search" aria-label="Cari produk" placeholder="Ketik nama produk atau kategori…" autocomplete="off" maxlength="100" disabled>
           </div>
         </div>
         <button class="filter-toggle" id="filter-toggle" type="button" aria-haspopup="dialog" disabled>
-          <svg class="icon" aria-hidden="true"><use href="#i-filter"/></svg><span>Filter</span><span class="filter-count" id="filter-count" hidden>0</span>
+          <i class="fi fi-rr-settings-sliders" aria-hidden="true"></i><span>Filter</span><span class="filter-count" id="filter-count" hidden>0</span>
         </button>
       </form>
       <div class="category-slider">
-        <button class="slider-arrow previous" type="button" aria-label="Geser kategori ke kiri" disabled><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+        <button class="slider-arrow previous" type="button" aria-label="Geser kategori ke kiri" disabled><i class="fi fi-rr-angle-right" aria-hidden="true"></i></button>
         <div class="category-track" id="categories" role="group" aria-label="Kategori produk"></div>
-        <button class="slider-arrow next" type="button" aria-label="Geser kategori ke kanan" disabled><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+        <button class="slider-arrow next" type="button" aria-label="Geser kategori ke kanan" disabled><i class="fi fi-rr-angle-right" aria-hidden="true"></i></button>
       </div>
     </section>
     <section id="catalog" class="catalog" aria-label="Daftar produk" tabindex="-1">
       <div class="catalog-heading"><span id="result-count" role="status" aria-live="polite">Memuat produk…</span><button class="reset-filters" id="reset-filters" type="button">Reset filter</button></div>
       <div class="product-grid" id="product-grid" aria-busy="true"></div>
       <div class="empty-state" id="empty-state" hidden>
-        <span class="empty-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
+        <span class="empty-icon"><i class="fi fi-rr-search" aria-hidden="true"></i></span>
         <h2 id="empty-title">Produk tidak ditemukan</h2><p id="empty-copy">Coba kata kunci atau kategori lainnya.</p>
         <button class="button primary" id="empty-reset" type="button">Lihat semua produk</button>
       </div>
       <noscript><p class="notice">Aktifkan JavaScript untuk menampilkan katalog, mencari produk, dan menyimpan favorit.</p></noscript>
     </section>
-    <footer class="store-footer"><span>Webkubator Store</span><a href="../">Kembali ke website utama <span aria-hidden="true">↗</span></a></footer>
+    <footer class="store-footer"><span>Webkubator</span><a href="../">Kembali ke website utama <i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></a></footer>
   </main>
   <dialog id="filter-dialog" aria-labelledby="filter-title">
     <form id="filter-form">
-      <div class="dialog-heading"><h2 id="filter-title">Filter produk</h2><button class="icon-button" id="filter-close" type="button" aria-label="Tutup filter"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+      <div class="dialog-heading"><h2 id="filter-title">Filter produk</h2><button class="icon-button" id="filter-close" type="button" aria-label="Tutup filter"><i class="fi fi-rr-cross-small" aria-hidden="true"></i></button></div>
       <fieldset><legend>Harga</legend><div class="price-options">
         <label><input type="radio" name="price" value="all" checked><span>Semua</span></label>
         <label><input type="radio" name="price" value="free"><span>Gratis</span></label>

@@ -1,11 +1,11 @@
 (() => {
   'use strict';
   const categories = [
-    ['all', 'Semua Produk', 'grid'], ['random', 'Random Web', 'random'],
-    ['birthday', 'Birthday Web', 'cake'], ['app', 'App Web', 'app'],
-    ['productivity', 'ProductivityWeb', 'task'], ['link-bio', 'Link Bio', 'link'],
-    ['company-profile', 'Company Profile', 'building'], ['landing-page', 'Landing Page', 'page'],
-    ['e-commerce', 'E-commerce', 'bag'], ['instansi', 'Website Instansi', 'institution']
+    ['all', 'Semua Produk', 'fi-rr-apps'], ['random', 'Random Web', 'fi-rr-shuffle'],
+    ['birthday', 'Birthday Web', 'fi-rr-cake-birthday'], ['app', 'App Web', 'fi-rr-mobile'],
+    ['productivity', 'ProductivityWeb', 'fi-rr-list-check'], ['link-bio', 'Link Bio', 'fi-rr-link'],
+    ['company-profile', 'Company Profile', 'fi-rr-building'], ['landing-page', 'Landing Page', 'fi-rr-browser'],
+    ['e-commerce', 'E-commerce', 'fi-rr-shopping-cart'], ['instansi', 'Website Instansi', 'fi-rr-bank']
   ];
   const $ = (id) => document.getElementById(id);
   const grid = $('product-grid');
@@ -19,7 +19,7 @@
   let favorites = new Set();
   let catalogLoaded = false;
   let feedbackTimer;
-  const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+  const icon = (name) => `<i class="fi ${name}" aria-hidden="true"></i>`;
   const categoryName = (id) => categories.find((item) => item[0] === id)?.[1] || id;
   const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const notify = (message) => {
@@ -83,7 +83,7 @@
       // Text is escaped; images are restricted to store previews and portfolio assets.
       card.innerHTML = `<div class="product-visual">
         <img src="${escapeHtml(product.image)}" width="800" height="450" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" alt="Contoh preview ${escapeHtml(product.name)}">
-        <button class="product-favorite" type="button" data-favorite="${escapeHtml(product.id)}" aria-pressed="${liked}" aria-label="${liked ? 'Hapus' : 'Simpan'} ${escapeHtml(product.name)} ${liked ? 'dari' : 'ke'} favorit">${icon('heart')}</button>
+        <button class="product-favorite" type="button" data-favorite="${escapeHtml(product.id)}" aria-pressed="${liked}" aria-label="${liked ? 'Hapus' : 'Simpan'} ${escapeHtml(product.name)} ${liked ? 'dari' : 'ke'} favorit">${icon('fi-rr-heart')}</button>
       </div><div class="product-info"><span class="product-category">${escapeHtml(categoryName(product.category))}</span>
         <h2>${escapeHtml(product.name)}</h2><p class="price-line">
         <strong class="current-price${product.price === 0 ? ' price-free' : ''}">${product.price === 0 ? 'Gratis' : money.format(product.price)}</strong>
@@ -165,7 +165,7 @@
   dialog.addEventListener('click',(event) => {if (event.target === dialog) {const rect = dialog.getBoundingClientRect();if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();}});
   $('filter-reset').addEventListener('click',() => form.reset());
   form.addEventListener('submit',(event) => {event.preventDefault();state.price = form.elements.price.value;state.discount = form.elements.discount.checked;state.sort = form.elements.sort.value;render();dialog.close();});
-  $('reset-filters').addEventListener('click',() => {resetFilters();$('product-search').focus();});
+  $('reset-filters').addEventListener('click',() => resetFilters(true));
   $('empty-reset').addEventListener('click',() => {
     if (!catalogLoaded) {loadCatalog();return;}
     resetFilters(true);$('product-search').focus();
