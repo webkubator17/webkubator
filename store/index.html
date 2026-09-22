@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#012db5">
   <meta name="description" content="Jelajahi koleksi website siap pakai di Webkubator Store. Temukan website gratis dan berbayar untuk berbagai kebutuhan.">
   <!-- Keep the example catalog out of search results until real products are published. -->
   <meta name="robots" content="noindex,follow">
@@ -13,7 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="store.css?v=20260922-1">
-  <script src="store.js?v=20260922-1" defer></script>
+  <link rel="stylesheet" href="store-overrides.css?v=20260922-2">
+  <script src="store.js?v=20260922-2" defer></script>
   <title>Webkubator Store — Website Siap Pakai</title>
 </head>
 <body>
@@ -53,10 +54,9 @@
     <section aria-label="Pencarian dan kategori produk" class="browse-controls">
       <form class="search-row" id="search-form" role="search">
         <div class="search-field">
-          <label for="product-search">Cari website</label>
           <div class="search-input-wrap">
             <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
-            <input id="product-search" type="search" placeholder="Cari website yang kamu butuhkan…" autocomplete="off" maxlength="100" disabled>
+            <input id="product-search" type="search" aria-label="Cari website" placeholder="Cari website yang kamu butuhkan…" autocomplete="off" maxlength="100" disabled>
           </div>
         </div>
         <button class="filter-toggle" id="filter-toggle" type="button" aria-haspopup="dialog" disabled>
@@ -69,10 +69,8 @@
         <button class="slider-arrow next" type="button" aria-label="Geser kategori ke kanan" disabled><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
       </div>
     </section>
-    <section id="catalog" class="catalog" aria-labelledby="catalog-title" tabindex="-1">
-      <div class="catalog-heading"><h1 id="catalog-title">Semua Produk</h1><span id="result-count" role="status" aria-live="polite">Memuat produk…</span></div>
-      <p class="demo-note" id="demo-note" hidden>Pratinjau katalog: produk dan harga di bawah adalah contoh, belum tersedia untuk transaksi.</p>
-      <div class="active-filters" id="active-filters" hidden><span id="filter-description"></span><button id="reset-filters" type="button">Reset filter</button></div>
+    <section id="catalog" class="catalog" aria-label="Daftar produk" tabindex="-1">
+      <div class="catalog-heading"><span id="result-count" role="status" aria-live="polite">Memuat produk…</span><button class="reset-filters" id="reset-filters" type="button">Reset filter</button></div>
       <div class="product-grid" id="product-grid" aria-busy="true"></div>
       <div class="empty-state" id="empty-state" hidden>
         <span class="empty-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>

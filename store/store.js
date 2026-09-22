@@ -91,15 +91,11 @@
       </p></div>`;
       grid.append(card);
     });
-    $('catalog-title').textContent = state.favoritesOnly ? 'Favorit Saya' : categoryName(state.category);
     $('result-count').textContent = `${visible.length} produk${state.favoritesOnly ? ' favorit' : ''}`;
     $('empty-state').hidden = visible.length !== 0;
     $('empty-title').textContent = state.favoritesOnly && !products.some((p) => favorites.has(p.id)) ? 'Belum ada favorit' : 'Produk tidak ditemukan';
     $('empty-copy').textContent = state.favoritesOnly && !products.some((p) => favorites.has(p.id)) ? 'Ketuk ikon hati pada produk untuk menyimpannya di sini.' : 'Coba kata kunci, kategori, atau filter lainnya.';
     track.querySelectorAll('button').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.category === state.category)));
-    const active = [state.category !== 'all' ? categoryName(state.category) : '', state.query ? `Pencarian: ${state.query}` : '', state.price === 'free' ? 'Gratis' : state.price === 'paid' ? 'Berbayar' : '', state.discount ? 'Diskon' : '', state.sort !== 'default' ? { 'price-asc':'Harga terendah','price-desc':'Harga tertinggi',name:'Nama A–Z'}[state.sort] : ''].filter(Boolean);
-    $('active-filters').hidden = !active.length;
-    $('filter-description').textContent = active.join(' · ');
     const filterCount = Number(state.price !== 'all') + Number(state.discount) + Number(state.sort !== 'default');
     $('filter-count').hidden = !filterCount;
     $('filter-count').textContent = filterCount;
@@ -192,7 +188,6 @@
         return valid;
       });
       favorites = readFavorites();catalogLoaded = true;readUrl();
-      $('demo-note').hidden = data.demo !== true;
       $('empty-reset').textContent = 'Lihat semua produk';
       for (const control of [$('favorites-toggle'),$('product-search'),$('filter-toggle'),...track.querySelectorAll('button')]) control.disabled = false;
       render();updateSlider();
