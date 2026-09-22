@@ -46,9 +46,9 @@
         <span class="brand-mark"><img src="../assets/images/logo-white.webp" width="48" height="48" alt=""></span>
         <span>Webkubator</span>
       </a>
-      <button class="favorites-toggle" id="favorites-toggle" type="button" aria-pressed="false" aria-label="Lihat favorit, 0 produk" disabled>
-        <i class="fi fi-rr-heart" aria-hidden="true"></i>
-        <span class="favorites-label">Favorit</span><span class="favorites-count" id="favorites-count">0</span>
+      <button class="favorites-toggle" id="favorites-toggle" type="button" aria-pressed="false" aria-label="Keranjang belanja, 0 produk">
+        <i class="fi fi-rr-shopping-cart" aria-hidden="true"></i>
+        <span class="favorites-label">Keranjang</span><span class="favorites-count" id="favorites-count">0</span>
       </button>
     </div>
   </header>
@@ -93,9 +93,13 @@
       </div></fieldset>
       <label class="discount-option"><input type="checkbox" name="discount"><span>Hanya produk diskon</span></label>
       <label class="sort-label" for="sort-order">Urutkan berdasarkan</label>
-      <select id="sort-order" name="sort"><option value="default">Urutan katalog</option><option value="price-asc">Harga terendah</option><option value="price-desc">Harga tertinggi</option><option value="name">Nama A–Z</option></select>
+      <select id="sort-order" name="sort"><option value="price-asc">Harga terendah</option><option value="price-desc">Harga tertinggi</option><option value="name">Nama A–Z</option><option value="name-desc">Nama Z–A</option></select>
       <div class="dialog-actions"><button class="button secondary" id="filter-reset" type="button">Reset</button><button class="button primary" type="submit">Terapkan filter</button></div>
     </form>
+  </dialog>
+  <dialog id="preview-dialog" class="preview-dialog" aria-labelledby="preview-title">
+    <div class="dialog-heading"><h2 id="preview-title">Preview website</h2><button class="icon-button" id="preview-close" type="button" aria-label="Tutup preview"><i class="fi fi-rr-cross-small" aria-hidden="true"></i></button></div>
+    <img id="preview-image" src="" alt="" width="1600" height="900">
   </dialog>
   <p class="toast" id="feedback" role="status" aria-live="polite"></p>
 </body>

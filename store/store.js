@@ -11,6 +11,9 @@
   const grid = $('product-grid');
   const track = $('categories');
   const dialog = $('filter-dialog');
+  const previewDialog = $('preview-dialog');
+  const previewImage = $('preview-image');
+  const previewTitle = $('preview-title');
   const form = $('filter-form');
   const storageKey = 'webkubator.store.favorites.v1';
   const state = {category:'all', query:'', price:'all', discount:false, sort:'default', favoritesOnly:false};
@@ -19,6 +22,7 @@
   let favorites = new Set();
   let catalogLoaded = false;
   let feedbackTimer;
+  let previewTrigger = null;
   const icon = (name) => `<i class="fi ${name}" aria-hidden="true"></i>`;
   const categoryName = (id) => categories.find((item) => item[0] === id)?.[1] || id;
   const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -35,10 +39,9 @@
     } catch { return new Set(); }
   }
   function updateFavoriteCount() {
-    const count = products.filter((product) => favorites.has(product.id)).length;
-    $('favorites-count').textContent = count;
-    $('favorites-toggle').setAttribute('aria-pressed', String(state.favoritesOnly));
-    $('favorites-toggle').setAttribute('aria-label', `${state.favoritesOnly ? 'Tutup' : 'Lihat'} favorit, ${count} produk`);
+    $('favorites-count').textContent = '0';
+    $('favorites-toggle').setAttribute('aria-pressed', 'false');
+    $('favorites-toggle').setAttribute('aria-label', 'Keranjang belanja, 0 produk');
   }
   function syncUrl() {
     const url = new URL(location.href);
@@ -53,7 +56,7 @@
     state.category = categories.some(([id]) => id === query.get('category')) ? query.get('category') : 'all';
     state.query = (query.get('q') || '').slice(0,100);
     state.price = ['free','paid'].includes(query.get('price')) ? query.get('price') : 'all';
-    state.sort = ['price-asc','price-desc','name'].includes(query.get('sort')) ? query.get('sort') : 'default';
+    state.sort = ['price-asc','price-desc','name','name-desc'].includes(query.get('sort')) ? query.get('sort') : 'default';
     state.discount = query.get('discount') === '1';
     state.favoritesOnly = query.get('favorites') === '1';
     $('product-search').value = state.query;
@@ -70,6 +73,7 @@
     if (state.sort === 'price-asc') result.sort((a,b) => a.price - b.price);
     if (state.sort === 'price-desc') result.sort((a,b) => b.price - a.price);
     if (state.sort === 'name') result.sort((a,b) => a.name.localeCompare(b.name,'id'));
+    if (state.sort === 'name-desc') result.sort((a,b) => b.name.localeCompare(a.name,'id'));
     return result;
   }
   function render() {
@@ -77,13 +81,14 @@
     grid.replaceChildren();
     visible.forEach((product,index) => {
       const card = document.createElement('article');
-      const liked = favorites.has(product.id);
       card.className = 'product-card';
       card.dataset.productId = product.id;
       // Text is escaped; images are restricted to store previews and portfolio assets.
       card.innerHTML = `<div class="product-visual">
-        <img src="${escapeHtml(product.image)}" width="800" height="450" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" alt="Contoh preview ${escapeHtml(product.name)}">
-        <button class="product-favorite" type="button" data-favorite="${escapeHtml(product.id)}" aria-pressed="${liked}" aria-label="${liked ? 'Hapus' : 'Simpan'} ${escapeHtml(product.name)} ${liked ? 'dari' : 'ke'} favorit">${icon('fi-rr-heart')}</button>
+        <button class="product-preview" type="button" data-preview-src="${escapeHtml(product.image)}" data-preview-name="${escapeHtml(product.name)}" aria-label="Perbesar preview ${escapeHtml(product.name)}">
+          <img src="${escapeHtml(product.image)}" width="800" height="450" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" alt="">
+          <span class="preview-hint" aria-hidden="true">${icon('fi-rr-expand')}</span>
+        </button>
       </div><div class="product-info"><span class="product-category">${escapeHtml(categoryName(product.category))}</span>
         <h2>${escapeHtml(product.name)}</h2><p class="price-line">
         <strong class="current-price${product.price === 0 ? ' price-free' : ''}">${product.price === 0 ? 'Gratis' : money.format(product.price)}</strong>
@@ -94,7 +99,7 @@
     $('result-count').textContent = `${visible.length} produk${state.favoritesOnly ? ' favorit' : ''}`;
     $('empty-state').hidden = visible.length !== 0;
     $('empty-title').textContent = state.favoritesOnly && !products.some((p) => favorites.has(p.id)) ? 'Belum ada favorit' : 'Produk tidak ditemukan';
-    $('empty-copy').textContent = state.favoritesOnly && !products.some((p) => favorites.has(p.id)) ? 'Ketuk ikon hati pada produk untuk menyimpannya di sini.' : 'Coba kata kunci, kategori, atau filter lainnya.';
+    $('empty-copy').textContent = state.favoritesOnly && !products.some((p) => favorites.has(p.id)) ? 'Keranjang belum berisi produk.' : 'Coba kata kunci, kategori, atau filter lainnya.';
     track.querySelectorAll('button').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.category === state.category)));
     const filterCount = Number(state.price !== 'all') + Number(state.discount) + Number(state.sort !== 'default');
     $('filter-count').hidden = !filterCount;
@@ -133,36 +138,26 @@
   window.addEventListener('resize',updateSlider,{passive:true});
   $('search-form').addEventListener('submit',(event) => event.preventDefault());
   $('product-search').addEventListener('input',(event) => {state.query = event.target.value;render();});
-  $('favorites-toggle').addEventListener('click',() => {state.favoritesOnly = !state.favoritesOnly;render();});
   grid.addEventListener('click',(event) => {
-    const button = event.target.closest('[data-favorite]');
+    const button = event.target.closest('[data-preview-src]');
     if (!button) return;
-    const id = button.dataset.favorite;
-    const product = products.find((entry) => entry.id === id);
-    if (!product) return;
-    favorites.has(id) ? favorites.delete(id) : favorites.add(id);
-    const liked = favorites.has(id);
-    let stored = true;
-    try {localStorage.setItem(storageKey,JSON.stringify([...favorites]));} catch {stored = false;}
-    if (state.favoritesOnly) {
-      const oldIndex = [...grid.querySelectorAll('[data-favorite]')].indexOf(button);
-      render();
-      const remaining = [...grid.querySelectorAll('[data-favorite]')];
-      (remaining[Math.min(oldIndex,remaining.length-1)] || $('empty-reset')).focus();
-    } else {
-      button.setAttribute('aria-pressed',String(liked));
-      button.setAttribute('aria-label',`${liked ? 'Hapus' : 'Simpan'} ${product.name} ${liked ? 'dari' : 'ke'} favorit`);
-      updateFavoriteCount();
-    }
-    notify(stored ? `${product.name} ${liked ? 'disimpan ke' : 'dihapus dari'} favorit.` : 'Favorit berubah untuk sesi ini. Penyimpanan browser tidak tersedia.');
+    previewTrigger = button;
+    previewTitle.textContent = button.dataset.previewName || 'Preview website';
+    previewImage.src = button.dataset.previewSrc;
+    previewImage.alt = `Preview ${button.dataset.previewName || 'website'}`;
+    previewDialog.showModal();
+    document.body.style.overflow = 'hidden';
   });
   $('filter-toggle').addEventListener('click',() => {
-    form.elements.price.value = state.price;form.elements.discount.checked = state.discount;form.elements.sort.value = state.sort;
+    form.elements.price.value = state.price;form.elements.discount.checked = state.discount;form.elements.sort.value = state.sort === 'default' ? 'price-asc' : state.sort;
     dialog.showModal();document.body.style.overflow = 'hidden';
   });
   $('filter-close').addEventListener('click',() => dialog.close());
   dialog.addEventListener('close',() => {document.body.style.overflow = ''; $('filter-toggle').focus();});
   dialog.addEventListener('click',(event) => {if (event.target === dialog) {const rect = dialog.getBoundingClientRect();if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();}});
+  $('preview-close').addEventListener('click',() => previewDialog.close());
+  previewDialog.addEventListener('close',() => {document.body.style.overflow = ''; previewImage.removeAttribute('src'); if (previewTrigger) previewTrigger.focus(); previewTrigger = null;});
+  previewDialog.addEventListener('click',(event) => {if (event.target === previewDialog) {const rect = previewDialog.getBoundingClientRect();if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) previewDialog.close();}});
   $('filter-reset').addEventListener('click',() => form.reset());
   form.addEventListener('submit',(event) => {event.preventDefault();state.price = form.elements.price.value;state.discount = form.elements.discount.checked;state.sort = form.elements.sort.value;render();dialog.close();});
   $('reset-filters').addEventListener('click',() => resetFilters(true));
