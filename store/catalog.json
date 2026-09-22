@@ -1,0 +1,14 @@
+{
+  "demo": true,
+  "products": [
+    {"id":"birthday-bloom","name":"Birthday Bloom","category":"birthday","price":49000,"originalPrice":79000,"image":"previews.svg#birthday"},
+    {"id":"focus-space","name":"Focus Space","category":"productivity","price":0,"originalPrice":0,"image":"previews.svg#focus"},
+    {"id":"bio-minimal","name":"Bio Minimal","category":"link-bio","price":29000,"originalPrice":49000,"image":"previews.svg#bio"},
+    {"id":"random-picker","name":"Random Picker","category":"random","price":0,"originalPrice":0,"image":"previews.svg#random"},
+    {"id":"nusantara-profile","name":"Nusantara Coaching","category":"company-profile","price":149000,"originalPrice":199000,"image":"../assets/images/portfolio-nusantara-coaching.webp"},
+    {"id":"sraya-landing","name":"Sraya Bali Wellness","category":"landing-page","price":99000,"originalPrice":149000,"image":"../assets/images/portfolio-sraya.webp"},
+    {"id":"daily-notes","name":"Daily Notes App","category":"app","price":39000,"originalPrice":0,"image":"previews.svg#app"},
+    {"id":"tanajava-shop","name":"Tanajava Essential Oil","category":"e-commerce","price":249000,"originalPrice":299000,"image":"../assets/images/portfolio-tanajava.webp"},
+    {"id":"matrix-instansi","name":"Matrix Welding School","category":"instansi","price":199000,"originalPrice":0,"image":"../assets/images/portfolio-matrix.webp"}
+  ]
+}

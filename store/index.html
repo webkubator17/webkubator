@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Jelajahi koleksi website siap pakai di Webkubator Store. Temukan website gratis dan berbayar untuk berbagai kebutuhan.">
+  <!-- Keep the example catalog out of search results until real products are published. -->
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://webkubator.com/store/">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="store.css?v=20260922-1">
+  <script src="store.js?v=20260922-1" defer></script>
+  <title>Webkubator Store — Website Siap Pakai</title>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Lewati ke produk</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 7h7m4 0h5M4 17h3m4 0h9"/><circle cx="13" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+      <symbol id="i-random" viewBox="0 0 24 24"><path d="M3 7h3c5 0 7 10 12 10h3m-4-4 4 4-4 4M3 17h3c2 0 3-2 4-3m4-4c1-2 2-3 4-3h3m-4-4 4 4-4 4"/></symbol>
+      <symbol id="i-cake" viewBox="0 0 24 24"><path d="M4 21v-9h16v9H4Zm0-5c2 3 4-3 6 0s4-3 6 0 4 0 4 0M8 12V8m8 4V8M8 5V3m8 2V3"/></symbol>
+      <symbol id="i-app" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M10 5h4m-3 14h2"/></symbol>
+      <symbol id="i-task" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="3"/><path d="M9 4V2h6v2M8 13l3 3 5-6"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13 4-4m-7 6-1 1a4 4 0 0 0 6 6l4-4a4 4 0 0 0 0-6M8 12a4 4 0 0 1 0-6l4-4a4 4 0 0 1 6 6l-1 1" transform="translate(0 -1)"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24"><path d="M3 21h18M6 21V3h12v18M10 7h4m-4 4h4m-4 4h4m-3 6v-3h2v3"/></symbol>
+      <symbol id="i-page" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 8h18M7 6h.01M8 12h8m-8 4h5"/></symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l2 14H3L5 7Zm3 0V6a4 4 0 0 1 8 0v1"/></symbol>
+      <symbol id="i-institution" viewBox="0 0 24 24"><path d="m2 8 10-6 10 6H2Zm2 13h16M6 11v7m6-7v7m6-7v7"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    </defs>
+  </svg>
+  <header class="store-header">
+    <div class="container header-inner">
+      <a class="brand" href="../" aria-label="Webkubator, ke website utama">
+        <span class="brand-mark"><img src="../assets/images/logo-white.webp" width="48" height="48" alt=""></span>
+        <span>Webkubator</span><span class="store-tag">Store</span>
+      </a>
+      <button class="favorites-toggle" id="favorites-toggle" type="button" aria-pressed="false" aria-label="Lihat favorit, 0 produk" disabled>
+        <svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>
+        <span class="favorites-label">Favorit</span><span class="favorites-count" id="favorites-count">0</span>
+      </button>
+    </div>
+  </header>
+  <main class="container store-main">
+    <section aria-label="Pencarian dan kategori produk" class="browse-controls">
+      <form class="search-row" id="search-form" role="search">
+        <div class="search-field">
+          <label for="product-search">Cari website</label>
+          <div class="search-input-wrap">
+            <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="product-search" type="search" placeholder="Cari website yang kamu butuhkan…" autocomplete="off" maxlength="100" disabled>
+          </div>
+        </div>
+        <button class="filter-toggle" id="filter-toggle" type="button" aria-haspopup="dialog" disabled>
+          <svg class="icon" aria-hidden="true"><use href="#i-filter"/></svg><span>Filter</span><span class="filter-count" id="filter-count" hidden>0</span>
+        </button>
+      </form>
+      <div class="category-slider">
+        <button class="slider-arrow previous" type="button" aria-label="Geser kategori ke kiri" disabled><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+        <div class="category-track" id="categories" role="group" aria-label="Kategori produk"></div>
+        <button class="slider-arrow next" type="button" aria-label="Geser kategori ke kanan" disabled><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></button>
+      </div>
+    </section>
+    <section id="catalog" class="catalog" aria-labelledby="catalog-title" tabindex="-1">
+      <div class="catalog-heading"><h1 id="catalog-title">Semua Produk</h1><span id="result-count" role="status" aria-live="polite">Memuat produk…</span></div>
+      <p class="demo-note" id="demo-note" hidden>Pratinjau katalog: produk dan harga di bawah adalah contoh, belum tersedia untuk transaksi.</p>
+      <div class="active-filters" id="active-filters" hidden><span id="filter-description"></span><button id="reset-filters" type="button">Reset filter</button></div>
+      <div class="product-grid" id="product-grid" aria-busy="true"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span class="empty-icon"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
+        <h2 id="empty-title">Produk tidak ditemukan</h2><p id="empty-copy">Coba kata kunci atau kategori lainnya.</p>
+        <button class="button primary" id="empty-reset" type="button">Lihat semua produk</button>
+      </div>
+      <noscript><p class="notice">Aktifkan JavaScript untuk menampilkan katalog, mencari produk, dan menyimpan favorit.</p></noscript>
+    </section>
+    <footer class="store-footer"><span>Webkubator Store</span><a href="../">Kembali ke website utama <span aria-hidden="true">↗</span></a></footer>
+  </main>
+  <dialog id="filter-dialog" aria-labelledby="filter-title">
+    <form id="filter-form">
+      <div class="dialog-heading"><h2 id="filter-title">Filter produk</h2><button class="icon-button" id="filter-close" type="button" aria-label="Tutup filter"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+      <fieldset><legend>Harga</legend><div class="price-options">
+        <label><input type="radio" name="price" value="all" checked><span>Semua</span></label>
+        <label><input type="radio" name="price" value="free"><span>Gratis</span></label>
+        <label><input type="radio" name="price" value="paid"><span>Berbayar</span></label>
+      </div></fieldset>
+      <label class="discount-option"><input type="checkbox" name="discount"><span>Hanya produk diskon</span></label>
+      <label class="sort-label" for="sort-order">Urutkan berdasarkan</label>
+      <select id="sort-order" name="sort"><option value="default">Urutan katalog</option><option value="price-asc">Harga terendah</option><option value="price-desc">Harga tertinggi</option><option value="name">Nama A–Z</option></select>
+      <div class="dialog-actions"><button class="button secondary" id="filter-reset" type="button">Reset</button><button class="button primary" type="submit">Terapkan filter</button></div>
+    </form>
+  </dialog>
+  <p class="toast" id="feedback" role="status" aria-live="polite"></p>
+</body>
+</html>

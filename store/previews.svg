@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="2250" viewBox="0 0 800 2250">
+  <view id="birthday" viewBox="0 0 800 450"/>
+  <view id="focus" viewBox="0 450 800 450"/>
+  <view id="bio" viewBox="0 900 800 450"/>
+  <view id="random" viewBox="0 1350 800 450"/>
+  <view id="app" viewBox="0 1800 800 450"/>
+  <defs>
+    <clipPath id="tile"><path d="M0 0h800v450H0z"/></clipPath>
+    <pattern id="paper" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#d6dfec"/></pattern>
+    <linearGradient id="birthday-bg" x2="1" y2="1"><stop stop-color="#fcebf2"/><stop offset="1" stop-color="#e8e3fc"/></linearGradient>
+    <linearGradient id="focus-bg" x2="1" y2="1"><stop stop-color="#deeafa"/><stop offset="1" stop-color="#c2d4ff"/></linearGradient>
+    <linearGradient id="bio-bg" x2="1" y2="1"><stop stop-color="#e6eadc"/><stop offset="1" stop-color="#cbd7be"/></linearGradient>
+  </defs>
+  <g font-family="Arial,sans-serif">
+    <!-- Original illustrative previews, not customer products. -->
+    <g clip-path="url(#tile)">
+      <path fill="url(#birthday-bg)" d="M0 0h800v450H0z"/>
+      <circle cx="690" cy="390" r="165" fill="#ddd4f4"/><circle cx="65" cy="60" r="110" fill="#f8dbe5"/>
+      <rect x="63" y="49" width="674" height="360" rx="17" fill="#c8b7d1" opacity=".25"/>
+      <rect x="57" y="41" width="686" height="360" rx="16" fill="#fffaf8"/>
+      <path d="M57 76h686" stroke="#ede1e6"/><circle cx="76" cy="59" r="4" fill="#ec9eb0"/><circle cx="89" cy="59" r="4" fill="#e9c76d"/><circle cx="102" cy="59" r="4" fill="#a4b699"/>
+      <text x="400" y="63" text-anchor="middle" fill="#998992" font-size="11">a little surprise, just for you</text>
+      <text x="98" y="137" fill="#b25572" font-size="12" font-weight="700" letter-spacing="3">MAKE A WISH</text>
+      <text x="96" y="197" fill="#592f4a" font-family="Georgia,serif" font-size="48">Happy</text><text x="96" y="249" fill="#592f4a" font-family="Georgia,serif" font-size="48" font-style="italic">birthday, you.</text>
+      <text x="98" y="281" fill="#826875" font-size="13">A new chapter. A little more magic.</text>
+      <rect x="98" y="310" width="136" height="35" rx="18" fill="#a64f72"/><text x="166" y="332" fill="#fff" font-size="12" text-anchor="middle">Open your surprise</text>
+      <g transform="translate(548 226)"><ellipse cy="110" rx="85" ry="15" fill="#efdde3"/><rect x="-65" y="21" width="130" height="83" rx="12" fill="#e9a8bf"/><ellipse cy="25" rx="65" ry="20" fill="#f7d3df"/><path d="M-65 29v20q12 25 24 0 14 22 26 0 15 24 28 0 16 22 29 0 13 23 23-2V29" fill="#fff3ed"/><rect x="-38" y="-53" width="77" height="78" rx="12" fill="#f0c1d0"/><ellipse cy="-49" rx="39" ry="12" fill="#fff3ed"/><path d="M-38-48v14q10 19 20 0 10 19 20 0 10 19 20 0 10 19 17 0v-14" fill="#fff3ed"/><path d="M0-92v35" stroke="#ad7296" stroke-width="8"/><path d="M0-120q-15 18 0 24 14-6 0-24" fill="#e8b74c"/></g>
+      <path d="m637 131 5 11 12 2-9 8 2 12-10-6-11 6 3-12-9-8 12-2Z" fill="#dcab49"/><circle cx="469" cy="147" r="4" fill="#c587a5"/><circle cx="675" cy="305" r="5" fill="#c587a5"/>
+    </g>
+    <g transform="translate(0 450)" clip-path="url(#tile)">
+      <path fill="url(#focus-bg)" d="M0 0h800v450H0z"/><circle cx="740" cy="80" r="170" fill="#dce7ff"/>
+      <rect x="51" y="46" width="698" height="362" rx="16" fill="#6d87b4" opacity=".15"/>
+      <rect x="45" y="38" width="710" height="362" rx="16" fill="#f9fbff"/>
+      <path d="M45 76h710M212 76v324" stroke="#e2e9f3"/>
+      <text x="69" y="63" fill="#214581" font-size="13" font-weight="700">focus space.</text><circle cx="704" cy="57" r="10" fill="#b5c9eb"/>
+      <text x="68" y="112" fill="#73809b" font-size="10" letter-spacing="1">MY WORKSPACE</text>
+      <rect x="61" y="131" width="132" height="34" rx="7" fill="#e7eeff"/><text x="78" y="153" fill="#315bc1" font-size="12" font-weight="700">Today</text>
+      <text x="78" y="195" fill="#7a869e" font-size="12">My tasks</text><text x="78" y="235" fill="#7a869e" font-size="12">Focus sessions</text><text x="78" y="275" fill="#7a869e" font-size="12">Weekly overview</text>
+      <text x="238" y="114" fill="#192f57" font-size="20" font-weight="700">A little focus goes a long way.</text><text x="238" y="135" fill="#7b87a0" font-size="11">Make room for what matters today.</text>
+      <rect x="238" y="157" width="281" height="219" rx="12" fill="#e8efff"/><text x="379" y="188" text-anchor="middle" fill="#315bc1" font-size="11" letter-spacing="2">TIME TO FOCUS</text>
+      <circle cx="379" cy="264" r="57" fill="none" stroke="#d2dcf6" stroke-width="6"/><path d="M379 207a57 57 0 1 1-54 76" fill="none" stroke="#315bc1" stroke-width="6" stroke-linecap="round"/>
+      <text x="379" y="279" text-anchor="middle" fill="#1c376e" font-size="40" font-weight="700">25:00</text><rect x="330" y="341" width="98" height="24" rx="12" fill="#315bc1"/><text x="379" y="358" text-anchor="middle" fill="#fff" font-size="10">Start session</text>
+      <text x="542" y="177" fill="#243d65" font-size="13" font-weight="700">Today's priorities</text>
+      <g fill="#fff" stroke="#e2e9f3"><rect x="539" y="194" width="189" height="47" rx="8"/><rect x="539" y="252" width="189" height="47" rx="8"/><rect x="539" y="310" width="189" height="47" rx="8"/></g>
+      <g fill="none" stroke="#93a8ca"><circle cx="557" cy="217" r="5"/><circle cx="557" cy="275" r="5"/><circle cx="557" cy="333" r="5"/></g>
+      <g fill="#6a7a95" font-size="10"><text x="572" y="221">Plan the next big thing</text><text x="572" y="279">Make something great</text><text x="572" y="337">Take a little break</text></g>
+    </g>
+    <g transform="translate(0 900)" clip-path="url(#tile)">
+      <path fill="url(#bio-bg)" d="M0 0h800v450H0z"/><circle cx="84" cy="330" r="180" fill="#dce4d2"/><circle cx="741" cy="69" r="170" fill="#b5c4a4" opacity=".4"/>
+      <text x="75" y="175" fill="#425638" font-size="12" letter-spacing="4">LESS, BUT BETTER.</text><text x="72" y="229" fill="#364a2e" font-size="43" font-family="Georgia,serif">All your links.</text><text x="72" y="278" fill="#364a2e" font-size="43" font-family="Georgia,serif" font-style="italic">One little space.</text><path d="M75 308h165" stroke="#849a74"/>
+      <rect x="475" y="23" width="239" height="410" rx="30" fill="#728768" opacity=".17"/><rect x="465" y="16" width="239" height="410" rx="30" fill="#f9faf4" stroke="#adbba3" stroke-width="2"/>
+      <rect x="544" y="28" width="80" height="9" rx="5" fill="#d8decf"/><circle cx="584" cy="99" r="33" fill="#d2dcbc"/><circle cx="584" cy="91" r="11" fill="#7a8c64"/><path d="M563 119q1-24 21-24t21 24" fill="#7a8c64"/>
+      <text x="584" y="153" text-anchor="middle" fill="#3e5134" font-family="Georgia,serif" font-size="21">Hello, I'm Alex.</text><text x="584" y="177" text-anchor="middle" fill="#778367" font-size="10">Designer. Maker. Daydreamer.</text>
+      <g fill="#e7ecdf"><rect x="487" y="203" width="195" height="40" rx="9"/><rect x="487" y="253" width="195" height="40" rx="9"/><rect x="487" y="303" width="195" height="40" rx="9"/></g>
+      <g fill="#4a5c3e" font-size="11" text-anchor="middle"><text x="584" y="228">Explore my work</text><text x="584" y="278">A few things I love</text><text x="584" y="328">Let's make something</text></g><text x="584" y="380" text-anchor="middle" fill="#7a8c64" font-size="11">say hello ↗</text>
+    </g>
+    <g transform="translate(0 1350)" clip-path="url(#tile)">
+      <path fill="#fff1d8" d="M0 0h800v450H0z"/><path fill="url(#paper)" d="M0 0h800v450H0z"/>
+      <rect x="68" y="44" width="670" height="366" rx="17" fill="#d9b16b" opacity=".2"/><rect x="59" y="35" width="682" height="366" rx="16" fill="#fffdf8"/>
+      <path d="M59 73h682" stroke="#ede5d4"/><circle cx="80" cy="55" r="4" fill="#d8c293"/><circle cx="94" cy="55" r="4" fill="#d8c293"/><circle cx="108" cy="55" r="4" fill="#d8c293"/>
+      <text x="400" y="131" text-anchor="middle" fill="#9e7934" font-size="12" letter-spacing="3">LET A LITTLE CHANCE DECIDE</text><text x="400" y="177" text-anchor="middle" fill="#3c3323" font-size="35" font-weight="700">What's your next move?</text>
+      <rect x="124" y="211" width="550" height="74" rx="12" fill="#fbf1dc" stroke="#ecdbb7"/><text x="400" y="256" text-anchor="middle" fill="#786849" font-size="20">A fresh idea starts here.</text>
+      <rect x="310" y="312" width="180" height="42" rx="10" fill="#d59326"/><text x="400" y="338" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Surprise me</text>
+      <path d="m650 305 6 14 15 2-11 10 3 15-13-8-14 8 3-15-11-10 16-2Z" fill="#eccb7f"/>
+    </g>
+    <g transform="translate(0 1800)" clip-path="url(#tile)">
+      <path fill="#e8e5f4" d="M0 0h800v450H0z"/>
+      <rect x="45" y="34" width="710" height="382" rx="17" fill="#fcfbff"/><path d="M45 75h710M203 75v341" stroke="#e9e4f2"/>
+      <text x="72" y="60" fill="#554479" font-size="14" font-weight="700">daily notes.</text><text x="74" y="120" fill="#7c7290" font-size="10" letter-spacing="1">YOUR CORNER</text>
+      <rect x="60" y="141" width="125" height="34" rx="8" fill="#eeebf8"/><text x="77" y="163" fill="#705797" font-size="12">All notes</text><text x="77" y="205" fill="#8c819e" font-size="12">Personal</text><text x="77" y="245" fill="#8c819e" font-size="12">Work</text><text x="77" y="285" fill="#8c819e" font-size="12">Little ideas</text>
+      <text x="229" y="119" fill="#443556" font-size="24" font-weight="700">Good things start with a note.</text><text x="230" y="142" fill="#8c819e" font-size="11">A calm space for everything on your mind.</text>
+      <rect x="227" y="170" width="242" height="105" rx="11" fill="#f7e9c9"/><rect x="485" y="170" width="242" height="105" rx="11" fill="#e3eccc"/><rect x="227" y="290" width="242" height="105" rx="11" fill="#e9e1f6"/><rect x="485" y="290" width="242" height="105" rx="11" fill="#f6dfe4"/>
+      <g fill="#655668" font-size="13" font-weight="700"><text x="245" y="198">Ideas worth keeping</text><text x="503" y="198">This week's little wins</text><text x="245" y="318">My next project</text><text x="503" y="318">A moment for myself</text></g>
+      <g fill="#a5979f"><rect x="245" y="215" width="173" height="4" rx="2"/><rect x="245" y="227" width="139" height="4" rx="2"/><rect x="503" y="215" width="163" height="4" rx="2"/><rect x="503" y="227" width="119" height="4" rx="2"/><rect x="245" y="335" width="162" height="4" rx="2"/><rect x="245" y="347" width="123" height="4" rx="2"/><rect x="503" y="335" width="166" height="4" rx="2"/><rect x="503" y="347" width="123" height="4" rx="2"/></g>
+    </g>
+  </g>
+</svg>
