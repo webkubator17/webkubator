@@ -35,7 +35,9 @@ jobs:
       - name: Upload website via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          # Use the apex hostname because ftp.webkubator.com intermittently
+          # fails DNS resolution from GitHub-hosted runners.
+          server: webkubator.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
