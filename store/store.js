@@ -85,10 +85,8 @@
       card.dataset.productId = product.id;
       // Text is escaped; images are restricted to store previews and portfolio assets.
       card.innerHTML = `<div class="product-visual">
-        <button class="product-preview" type="button" data-preview-src="${escapeHtml(product.image)}" data-preview-name="${escapeHtml(product.name)}" aria-label="Perbesar preview ${escapeHtml(product.name)}">
-          <img src="${escapeHtml(product.image)}" width="800" height="450" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" alt="">
-          <span class="preview-hint" aria-hidden="true">${icon('fi-rr-expand')}</span>
-        </button>
+        <img src="${escapeHtml(product.image)}" width="800" height="450" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" alt="Contoh preview ${escapeHtml(product.name)}">
+        <button class="product-preview" type="button" data-preview-src="${escapeHtml(product.image)}" data-preview-name="${escapeHtml(product.name)}" aria-label="Perbesar preview ${escapeHtml(product.name)}">${icon('fi-rr-expand')}</button>
       </div><div class="product-info"><span class="product-category">${escapeHtml(categoryName(product.category))}</span>
         <h2>${escapeHtml(product.name)}</h2><p class="price-line">
         <strong class="current-price${product.price === 0 ? ' price-free' : ''}">${product.price === 0 ? 'Gratis' : money.format(product.price)}</strong>
