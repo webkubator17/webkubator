@@ -16,6 +16,7 @@
   const previewTitle = $('preview-title');
   const form = $('filter-form');
   const storageKey = 'webkubator.store.favorites.v1';
+  const cartKey = 'webkubator.store.cart.v1';
   const state = {category:'all', query:'', price:'all', discount:false, sort:'default', favoritesOnly:false};
   const money = new Intl.NumberFormat('id-ID', {style:'currency',currency:'IDR',maximumFractionDigits:0});
   let products = [];
@@ -39,9 +40,14 @@
     } catch { return new Set(); }
   }
   function updateFavoriteCount() {
-    $('favorites-count').textContent = '0';
+    let count = 0;
+    try {
+      const saved = JSON.parse(localStorage.getItem(cartKey) || '[]');
+      count = Array.isArray(saved) ? saved.filter((id) => typeof id === 'string').length : 0;
+    } catch { count = 0; }
+    $('favorites-count').textContent = String(count);
     $('favorites-toggle').setAttribute('aria-pressed', 'false');
-    $('favorites-toggle').setAttribute('aria-label', 'Keranjang belanja, 0 produk');
+    $('favorites-toggle').setAttribute('aria-label', `Keranjang belanja, ${count} produk`);
   }
   function syncUrl() {
     const url = new URL(location.href);
@@ -83,6 +89,9 @@
       const card = document.createElement('article');
       card.className = 'product-card';
       card.dataset.productId = product.id;
+      card.tabIndex = 0;
+      card.setAttribute('role', 'link');
+      card.setAttribute('aria-label', `Lihat detail produk ${product.name}`);
       // Text is escaped; images are restricted to store previews and portfolio assets.
       card.innerHTML = `<div class="product-visual">
         <img src="${escapeHtml(product.image)}" width="800" height="450" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async" alt="Contoh preview ${escapeHtml(product.name)}">
@@ -138,13 +147,24 @@
   $('product-search').addEventListener('input',(event) => {state.query = event.target.value;render();});
   grid.addEventListener('click',(event) => {
     const button = event.target.closest('[data-preview-src]');
-    if (!button) return;
-    previewTrigger = button;
-    previewTitle.textContent = button.dataset.previewName || 'Preview website';
-    previewImage.src = button.dataset.previewSrc;
-    previewImage.alt = `Preview ${button.dataset.previewName || 'website'}`;
-    previewDialog.showModal();
-    document.body.style.overflow = 'hidden';
+    if (button) {
+      previewTrigger = button;
+      previewTitle.textContent = button.dataset.previewName || 'Preview website';
+      previewImage.src = button.dataset.previewSrc;
+      previewImage.alt = `Preview ${button.dataset.previewName || 'website'}`;
+      previewDialog.showModal();
+      document.body.style.overflow = 'hidden';
+      return;
+    }
+    const card = event.target.closest('[data-product-id]');
+    if (card) location.href = `product.html?id=${encodeURIComponent(card.dataset.productId)}`;
+  });
+  grid.addEventListener('keydown',(event) => {
+    if (!['Enter',' '].includes(event.key) || event.target.closest('[data-preview-src]')) return;
+    const card = event.target.closest('[data-product-id]');
+    if (!card) return;
+    event.preventDefault();
+    location.href = `product.html?id=${encodeURIComponent(card.dataset.productId)}`;
   });
   $('filter-toggle').addEventListener('click',() => {
     form.elements.price.value = state.price;form.elements.discount.checked = state.discount;form.elements.sort.value = state.sort === 'default' ? 'price-asc' : state.sort;
@@ -163,7 +183,7 @@
     if (!catalogLoaded) {loadCatalog();return;}
     resetFilters(true);$('product-search').focus();
   });
-  window.addEventListener('storage',(event) => {if ((event.key === storageKey || event.key === null) && catalogLoaded) {favorites = readFavorites();render();}});
+  window.addEventListener('storage',(event) => {if ((event.key === storageKey || event.key === cartKey || event.key === null) && catalogLoaded) {favorites = readFavorites();render();}});
   window.addEventListener('popstate',() => {if (catalogLoaded) {readUrl();render();}});
   async function loadCatalog() {
     $('empty-state').hidden = true;
@@ -194,3 +214,4 @@
   }
   loadCatalog();
 })();
+

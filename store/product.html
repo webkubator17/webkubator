@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#012db5">
+  <meta name="description" content="Detail produk website siap pakai Webkubator.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn-uicons.flaticon.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="store.css?v=20260922-1">
+  <link rel="stylesheet" href="store-overrides.css?v=20260922-6">
+  <link rel="stylesheet" href="product.css?v=20260923-1">
+  <script src="product.js?v=20260923-1" defer></script>
+  <title>Detail Produk — Webkubator</title>
+</head>
+<body>
+  <a class="skip-link" href="#product-detail">Lewati ke detail produk</a>
+  <header class="store-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Webkubator Store, kembali ke katalog">
+        <span class="brand-mark"><img src="../assets/images/logo-white.webp" width="48" height="48" alt=""></span>
+        <span>Webkubator</span>
+      </a>
+      <a class="favorites-toggle product-cart-link" id="cart-link" href="./" aria-label="Keranjang belanja, 0 produk">
+        <i class="fi fi-rr-shopping-cart" aria-hidden="true"></i>
+        <span class="favorites-label">Keranjang</span><span class="favorites-count" id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+  <main class="container product-main" id="product-detail">
+    <a class="product-back-link" href="./"><i class="fi fi-rr-arrow-left" aria-hidden="true"></i> Kembali ke Store</a>
+    <div class="product-layout" id="product-layout" hidden>
+      <section class="product-media" aria-label="Media produk">
+        <div class="media-stage" id="media-stage" aria-live="polite">
+          <div class="media-frame">
+            <img id="product-image" src="" alt="" width="1600" height="900">
+            <video id="product-video" controls preload="metadata" playsinline hidden>
+              <source id="product-video-source" src="">
+            </video>
+          </div>
+          <button class="media-control media-previous" id="media-previous" type="button" aria-label="Media sebelumnya" hidden><i class="fi fi-rr-angle-left" aria-hidden="true"></i></button>
+          <button class="media-control media-next" id="media-next" type="button" aria-label="Media berikutnya" hidden><i class="fi fi-rr-angle-right" aria-hidden="true"></i></button>
+          <span class="media-counter" id="media-counter" aria-live="polite"></span>
+        </div>
+        <div class="media-thumbs" id="media-thumbs" role="list" aria-label="Pilih media produk"></div>
+      </section>
+      <section class="product-copy" aria-labelledby="detail-title">
+        <p class="detail-price" id="detail-price"></p>
+        <h1 id="detail-title"></h1>
+        <div class="product-meta" id="product-meta"></div>
+        <section class="detail-section" aria-labelledby="description-title">
+          <h2 id="description-title">Deskripsi Produk</h2>
+          <p class="detail-description" id="detail-description"></p>
+        </section>
+        <div class="detail-columns">
+          <section class="detail-section" aria-labelledby="features-title">
+            <h2 id="features-title">Fitur</h2>
+            <ul class="detail-list" id="detail-features"></ul>
+          </section>
+          <section class="detail-section" aria-labelledby="benefits-title">
+            <h2 id="benefits-title">Benefit</h2>
+            <ul class="detail-list" id="detail-benefits"></ul>
+          </section>
+        </div>
+        <section class="detail-section" aria-labelledby="technology-title">
+          <h2 id="technology-title">Bahasa pemrograman</h2>
+          <div class="technology-list" id="detail-technologies"></div>
+        </section>
+        <div class="product-actions desktop-actions" aria-label="Aksi produk">
+          <a class="product-action product-action-chat" id="desktop-chat" href="#" target="_blank" rel="noopener"><i class="fi fi-rr-comment-alt" aria-hidden="true"></i><span>Chat</span></a>
+          <button class="product-action product-action-cart" id="desktop-cart" type="button"><i class="fi fi-rr-shopping-cart" aria-hidden="true"></i><span>Keranjang</span></button>
+          <a class="product-action product-action-buy" id="desktop-buy" href="#" target="_blank" rel="noopener"><span>Beli sekarang</span><strong id="desktop-buy-price"></strong></a>
+        </div>
+      </section>
+    </div>
+    <section class="product-error" id="product-error" hidden aria-live="polite">
+      <span class="product-error-icon"><i class="fi fi-rr-search" aria-hidden="true"></i></span>
+      <h1>Produk tidak ditemukan</h1>
+      <p>Produk yang Anda cari tidak tersedia atau sudah dipindahkan.</p>
+      <a class="button primary" href="./">Kembali ke Store</a>
+    </section>
+  </main>
+  <nav class="mobile-action-bar" id="mobile-action-bar" aria-label="Aksi produk" hidden>
+    <a class="mobile-action mobile-chat" id="mobile-chat" href="#" target="_blank" rel="noopener" aria-label="Chat tentang produk"><i class="fi fi-rr-comment-alt" aria-hidden="true"></i><span>Chat</span></a>
+    <button class="mobile-action mobile-cart" id="mobile-cart" type="button" aria-label="Tambahkan produk ke keranjang"><i class="fi fi-rr-shopping-cart" aria-hidden="true"></i><span>Keranjang</span></button>
+    <a class="mobile-action mobile-buy" id="mobile-buy" href="#" target="_blank" rel="noopener"><span>Beli sekarang</span><strong id="mobile-buy-price"></strong></a>
+  </nav>
+  <footer class="store-footer" aria-label="Informasi Webkubator">
+    <div class="store-footer-inner">
+      <div class="store-footer-grid">
+        <div class="store-footer-brand">
+          <a class="store-footer-brand-link" href="../" aria-label="Webkubator, kembali ke halaman utama">
+            <span class="store-footer-mark"><img src="../assets/images/logo-white.webp" alt="Webkubator" width="52" height="52"></span>
+            <span>Webkubator</span>
+          </a>
+          <p class="store-footer-description">Webkubator menyediakan jasa pembuatan website profesional dan jasa website modern, cepat, serta responsif untuk bisnis Anda.</p>
+          <a class="store-footer-cta" href="../#contactus"><i class="fi fi-rr-paper-plane" aria-hidden="true"></i> Konsultasi Gratis</a>
+        </div>
+        <nav class="store-footer-nav" aria-label="Navigasi footer">
+          <h2 class="store-footer-heading">Jelajahi</h2>
+          <ul class="store-footer-links">
+            <li><a href="../#service">Layanan Website</a></li>
+            <li><a href="../#pricing">Paket Website</a></li>
+            <li><a href="../portofolio/">Portofolio</a></li>
+            <li><a href="../about/">Tentang Webkubator</a></li>
+            <li><a href="../#contactus">Kontak</a></li>
+          </ul>
+        </nav>
+        <div class="store-footer-contact">
+          <h2 class="store-footer-heading">Hubungi Kami</h2>
+          <address class="store-footer-address">
+            <a href="https://wa.me/6287753719307" target="_blank" rel="noopener"><span class="store-footer-contact-icon"><i class="fi fi-rr-phone-call" aria-hidden="true"></i></span><span><small>WhatsApp</small><strong>+62 877-5371-9307</strong></span></a>
+            <a href="mailto:webkubator@gmail.com"><span class="store-footer-contact-icon"><i class="fi fi-rr-envelope" aria-hidden="true"></i></span><span><small>Email</small><strong>webkubator@gmail.com</strong></span></a>
+          </address>
+        </div>
+      </div>
+      <div class="store-footer-bottom"><p>© 2026 Webkubator. Semua hak dilindungi.</p><div class="store-footer-legal"><a href="../about/">Tentang Kami</a><span aria-hidden="true">•</span><a href="#product-detail">Kembali ke atas <span aria-hidden="true">↑</span></a></div></div>
+    </div>
+  </footer>
+</body>
+</html>
+

@@ -15,6 +15,8 @@ button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-col
 .reset-filters:hover{border-color:var(--blue);background:#edf2ff}
 .product-card{box-shadow:0 4px 18px #16224512}
 .product-card:hover{box-shadow:0 8px 24px #1622451c}
+.product-card{cursor:pointer}
+.product-card:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 .product-preview{position:absolute;right:10px;bottom:10px;width:36px;height:36px;min-height:36px;padding:0;display:grid;place-items:center;border:1px solid #dfe5f0;border-radius:50%;background:#ffffffed;color:var(--blue);box-shadow:0 3px 10px #14204418;opacity:.9;transition:transform .18s,opacity .18s}
 .product-preview:hover,.product-preview:focus-visible{opacity:1;transform:scale(1.06)}
 .product-preview>i.fi{font-size:17px}
