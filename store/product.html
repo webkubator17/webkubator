@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
   <link rel="stylesheet" href="store.css?v=20260922-1">
   <link rel="stylesheet" href="store-overrides.css?v=20260922-6">
-  <link rel="stylesheet" href="product.css?v=20260923-3">
-  <script src="product.js?v=20260923-3" defer></script>
+  <link rel="stylesheet" href="product.css?v=20260923-4">
+  <script src="product.js?v=20260923-4" defer></script>
   <title>Detail Produk — Webkubator</title>
 </head>
 <body>
@@ -51,17 +51,17 @@
         <div class="media-thumbs" id="media-thumbs" role="list" aria-label="Pilih media produk"></div>
       </section>
       <section class="product-copy" aria-labelledby="detail-title">
-        <div class="product-intro-card">
+        <section class="product-purchase-card" aria-labelledby="detail-title">
           <div class="detail-price-line"><strong class="detail-price" id="detail-price"></strong><del class="detail-original-price" id="detail-original-price" hidden></del><span class="detail-discount" id="detail-discount" hidden></span></div>
           <h1 id="detail-title"></h1>
-        </div>
-        <section class="variant-picker" aria-labelledby="variant-title">
-          <div class="variant-options" id="variant-options" role="group" aria-label="Pilihan paket website"></div>
+          <section class="variant-picker" aria-label="Pilihan paket website">
+            <div class="variant-options" id="variant-options" role="group" aria-label="Pilihan paket website"></div>
+          </section>
+          <div class="quantity-control" aria-label="Jumlah pembelian">
+            <span>Jumlah</span>
+            <div class="quantity-input"><button id="quantity-minus" type="button" aria-label="Kurangi jumlah">−</button><input id="quantity" type="number" min="1" max="20" value="1" inputmode="numeric" aria-label="Jumlah pembelian"><button id="quantity-plus" type="button" aria-label="Tambah jumlah">+</button></div>
+          </div>
         </section>
-        <div class="quantity-control" aria-label="Jumlah pembelian">
-          <span>Jumlah</span>
-          <div class="quantity-input"><button id="quantity-minus" type="button" aria-label="Kurangi jumlah">−</button><input id="quantity" type="number" min="1" max="20" value="1" inputmode="numeric" aria-label="Jumlah pembelian"><button id="quantity-plus" type="button" aria-label="Tambah jumlah">+</button></div>
-        </div>
         <div class="details-card">
           <section class="detail-section" aria-labelledby="description-title">
             <h2 id="description-title">Deskripsi Produk</h2>

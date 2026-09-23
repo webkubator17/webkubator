@@ -106,8 +106,7 @@
     const options = $('variant-options');
     options.replaceChildren(...variants.map((variant) => {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'variant-option'; button.dataset.variantId = variant.id; button.setAttribute('aria-pressed', String(variant.id === selectedVariantId));
-      const oldPrice = variant.originalPrice > variant.price ? `<del>${escapeHtml(money.format(variant.originalPrice))}</del>` : '';
-      button.innerHTML = `<strong>${escapeHtml(variant.name)}</strong><small>${escapeHtml(formatPrice(variant.price))}</small>${oldPrice}`;
+      button.innerHTML = `<strong>${escapeHtml(variant.name)}</strong>`;
       return button;
     }));
   }
