@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
   <link rel="stylesheet" href="store.css?v=20260922-1">
-  <link rel="stylesheet" href="store-overrides.css?v=20260922-5">
+  <link rel="stylesheet" href="store-overrides.css?v=20260922-6">
   <script src="store.js?v=20260922-4" defer></script>
   <title>Webkubator — Website Siap Pakai</title>
 </head>
@@ -81,8 +81,48 @@
       </div>
       <noscript><p class="notice">Aktifkan JavaScript untuk menampilkan katalog, mencari produk, dan menyimpan favorit.</p></noscript>
     </section>
-    <footer class="store-footer"><span>Webkubator</span><a href="../">Kembali ke website utama <i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></a></footer>
   </main>
+  <footer class="store-footer" aria-label="Informasi Webkubator">
+    <div class="store-footer-inner">
+      <div class="store-footer-grid">
+        <div class="store-footer-brand">
+          <a class="store-footer-brand-link" href="../" aria-label="Webkubator, kembali ke halaman utama">
+            <span class="store-footer-mark"><img src="../assets/images/logo-white.webp" alt="Webkubator" width="52" height="52"></span>
+            <span>Webkubator</span>
+          </a>
+          <p class="store-footer-description">Webkubator menyediakan jasa pembuatan website profesional dan jasa website modern, cepat, serta responsif untuk bisnis Anda.</p>
+          <a class="store-footer-cta" href="../#contactus"><i class="fi fi-rr-paper-plane" aria-hidden="true"></i> Konsultasi Gratis</a>
+        </div>
+        <nav class="store-footer-nav" aria-label="Navigasi footer">
+          <h2 class="store-footer-heading">Jelajahi</h2>
+          <ul class="store-footer-links">
+            <li><a href="../#service">Layanan Website</a></li>
+            <li><a href="../#pricing">Paket Website</a></li>
+            <li><a href="../portofolio/">Portofolio</a></li>
+            <li><a href="../about/">Tentang Webkubator</a></li>
+            <li><a href="../#contactus">Kontak</a></li>
+          </ul>
+        </nav>
+        <div class="store-footer-contact">
+          <h2 class="store-footer-heading">Hubungi Kami</h2>
+          <address class="store-footer-address">
+            <a href="https://wa.me/6287753719307" target="_blank" rel="noopener">
+              <span class="store-footer-contact-icon"><i class="fi fi-rr-phone-call" aria-hidden="true"></i></span>
+              <span><small>WhatsApp</small><strong>+62 877-5371-9307</strong></span>
+            </a>
+            <a href="mailto:webkubator@gmail.com">
+              <span class="store-footer-contact-icon"><i class="fi fi-rr-envelope" aria-hidden="true"></i></span>
+              <span><small>Email</small><strong>webkubator@gmail.com</strong></span>
+            </a>
+          </address>
+        </div>
+      </div>
+      <div class="store-footer-bottom">
+        <p>© 2026 Webkubator. Semua hak dilindungi.</p>
+        <div class="store-footer-legal"><a href="../about/">Tentang Kami</a><span aria-hidden="true">•</span><a href="#">Kembali ke atas <span aria-hidden="true">↑</span></a></div>
+      </div>
+    </div>
+  </footer>
   <dialog id="filter-dialog" aria-labelledby="filter-title">
     <form id="filter-form">
       <div class="dialog-heading"><h2 id="filter-title">Filter produk</h2><button class="icon-button" id="filter-close" type="button" aria-label="Tutup filter"><i class="fi fi-rr-cross-small" aria-hidden="true"></i></button></div>
@@ -104,3 +144,4 @@
   <p class="toast" id="feedback" role="status" aria-live="polite"></p>
 </body>
 </html>
+

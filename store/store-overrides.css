@@ -32,11 +32,45 @@ i.fi{display:inline-flex;align-items:center;justify-content:center;font-size:18p
 .product-favorite>i.fi{font-size:20px}
 .icon-button>i.fi{font-size:20px}
 .empty-icon>i.fi{font-size:28px}
-.store-footer a>i.fi{font-size:15px}
+.store-footer{display:block;margin-top:64px;padding:64px 0 24px;background:var(--blue);border-top:1px solid rgba(255,255,255,.2);color:var(--white)}
+.store-footer-inner{width:min(1080px,calc(100% - 64px));margin-inline:auto}
+.store-footer-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(150px,.75fr) minmax(0,1fr);gap:52px;padding-bottom:48px}
+.store-footer .store-footer-brand-link{display:inline-flex;align-items:center;gap:12px;color:var(--white);font:600 25px/1.1 var(--heading);letter-spacing:-.035em}
+.store-footer-mark{display:grid;place-items:center;width:52px;height:52px}
+.store-footer-mark img{width:48px;height:48px;object-fit:contain}
+.store-footer-description{max-width:370px;margin:20px 0 24px;color:rgba(255,255,255,.74);font-size:14px;line-height:1.75}
+.store-footer-cta{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:11px 18px;border:1px solid rgba(255,255,255,.84);border-radius:10px;background:var(--white);color:var(--blue);font-weight:700;transition:background .2s,color .2s,transform .2s}
+.store-footer-cta:hover,.store-footer-cta:focus-visible{background:#edf2ff;color:var(--blue);transform:translateY(-2px)}
+.store-footer-cta>i.fi{font-size:15px}
+.store-footer-heading{margin:5px 0 18px;color:var(--white);font:600 17px/1.2 var(--heading);letter-spacing:-.02em}
+.store-footer-links{display:grid;gap:11px;padding:0;margin:0;list-style:none}
+.store-footer-links a{display:inline-flex;width:max-content;min-height:30px;align-items:center;color:rgba(255,255,255,.74);font-size:14px;transition:color .2s,transform .2s}
+.store-footer-links a:hover,.store-footer-links a:focus-visible{color:var(--white);transform:translateX(3px)}
+.store-footer-address{display:grid;gap:16px;margin:0;font-style:normal}
+.store-footer-address a{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:center;min-height:44px;color:rgba(255,255,255,.74);transition:color .2s,transform .2s}
+.store-footer-address a:hover,.store-footer-address a:focus-visible{color:var(--white);transform:translateX(3px)}
+.store-footer-contact-icon{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(255,255,255,.28);border-radius:11px;background:rgba(0,37,142,.38);color:#ffbe00}
+.store-footer-contact-icon>i.fi{font-size:15px}
+.store-footer-address small,.store-footer-address strong{display:block}
+.store-footer-address small{margin-bottom:2px;color:#ffbe00;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.store-footer-address strong{color:var(--white);font:500 14px/1.4 var(--body)}
+.store-footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);font-size:12px}
+.store-footer-bottom p{margin:0}
+.store-footer-legal{display:flex;align-items:center;gap:12px}
+.store-footer-legal a{min-height:30px;display:inline-flex;align-items:center;color:#ffbe00;transition:color .2s}
+.store-footer-legal a:hover,.store-footer-legal a:focus-visible{color:var(--white)}
 @media(max-width:700px){
   .container{width:calc(100% - 20px)}
   .store-main{padding-inline:0}
-  .store-footer{padding-inline:16px}
+  .store-footer{margin-top:48px;padding:50px 0 22px}
+  .store-footer-inner{width:calc(100% - 20px)}
+  .store-footer-grid{grid-template-columns:1fr;gap:34px;padding-bottom:34px}
+  .store-footer-brand-link{font-size:22px}
+  .store-footer-description{margin:16px 0 20px}
+  .store-footer-cta{width:100%;max-width:300px}
+  .store-footer-bottom{align-items:flex-start;flex-direction:column;gap:12px}
+  .store-footer-bottom p{font-size:11px}
+  .store-footer-legal{flex-wrap:wrap;gap:9px;font-size:11px}
   .category-track{margin-inline:0}
   .catalog-heading{margin-bottom:20px}
   .catalog-heading>span{font-size:12px}
@@ -49,3 +83,4 @@ i.fi{display:inline-flex;align-items:center;justify-content:center;font-size:18p
   .product-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 18px}
   .product-info h2{font-size:17px}
 }
+
