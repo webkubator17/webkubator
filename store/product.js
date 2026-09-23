@@ -99,7 +99,6 @@
     original.hidden = !(originalTotal > total); original.textContent = originalTotal > total ? money.format(originalTotal) : '';
     const discount = $('detail-discount');
     discount.hidden = !(originalTotal > total); discount.textContent = originalTotal > total ? `Diskon ${Math.round((1 - total / originalTotal) * 100)}%` : '';
-    $('detail-unit-price').textContent = `${formatPrice(variant.price)} / website${quantity > 1 ? ` • ${quantity} website` : ''}`;
     $('desktop-buy-price').textContent = formatPrice(total); $('mobile-buy-price').textContent = formatPrice(total);
     updatePurchaseLinks();
   }
