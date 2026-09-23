@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs><clipPath id="tile"><path d="M0 0h800v450H0z"/></clipPath><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#e6eadc"/><stop offset="1" stop-color="#cbd7be"/></linearGradient></defs>
+  <g font-family="Arial,sans-serif" clip-path="url(#tile)">
+    <path fill="url(#bg)" d="M0 0h800v450H0z"/><circle cx="84" cy="330" r="180" fill="#dce4d2"/><circle cx="741" cy="69" r="170" fill="#b5c4a4" opacity=".4"/>
+    <text x="75" y="175" fill="#425638" font-size="12" letter-spacing="4">LESS, BUT BETTER.</text><text x="72" y="229" fill="#364a2e" font-family="Georgia,serif" font-size="43">All your links.</text><text x="72" y="278" fill="#364a2e" font-family="Georgia,serif" font-size="43" font-style="italic">One little space.</text><path d="M75 308h165" stroke="#849a74"/>
+    <rect x="475" y="23" width="239" height="410" rx="30" fill="#728768" opacity=".17"/><rect x="465" y="16" width="239" height="410" rx="30" fill="#f9faf4" stroke="#adbba3" stroke-width="2"/><rect x="544" y="28" width="80" height="9" rx="5" fill="#d8decf"/><circle cx="584" cy="99" r="33" fill="#d2dcbc"/><circle cx="584" cy="91" r="11" fill="#7a8c64"/><path d="M563 119q1-24 21-24t21 24" fill="#7a8c64"/>
+    <text x="584" y="153" text-anchor="middle" fill="#3e5134" font-family="Georgia,serif" font-size="21">Hello, I'm Alex.</text><text x="584" y="177" text-anchor="middle" fill="#778367" font-size="10">Designer. Maker. Daydreamer.</text><g fill="#e7ecdf"><rect x="487" y="203" width="195" height="40" rx="9"/><rect x="487" y="253" width="195" height="40" rx="9"/><rect x="487" y="303" width="195" height="40" rx="9"/></g><g fill="#4a5c3e" font-size="11" text-anchor="middle"><text x="584" y="228">Explore my work</text><text x="584" y="278">A few things I love</text><text x="584" y="328">Let's make something</text></g><text x="584" y="380" text-anchor="middle" fill="#7a8c64" font-size="11">say hello ↗</text>
+  </g>
+</svg>
+

@@ -198,7 +198,7 @@
       if (!Array.isArray(data.products)) throw new Error('Invalid catalog');
       const ids = new Set();
       products = data.products.filter((product) => {
-        const valid = product && typeof product.id === 'string' && !ids.has(product.id) && typeof product.name === 'string' && categories.some(([id]) => id !== 'all' && id === product.category) && Number.isFinite(product.price) && product.price >= 0 && Number.isFinite(product.originalPrice) && product.originalPrice >= 0 && typeof product.image === 'string' && /^(?:previews\.svg#[a-z-]+|images\/[a-zA-Z0-9_-]+\.(?:webp|avif|png|jpg|jpeg)|\.\.\/assets\/images\/portfolio-[a-z-]+\.webp)$/.test(product.image);
+        const valid = product && typeof product.id === 'string' && !ids.has(product.id) && typeof product.name === 'string' && categories.some(([id]) => id !== 'all' && id === product.category) && Number.isFinite(product.price) && product.price >= 0 && Number.isFinite(product.originalPrice) && product.originalPrice >= 0 && typeof product.image === 'string' && /^(?:previews(?:-[a-z-]+)?\.svg#[a-z-]+|previews-[a-z-]+\.svg|images\/[a-zA-Z0-9_-]+\.(?:webp|avif|png|jpg|jpeg)|\.\.\/assets\/images\/portfolio-[a-z-]+\.webp)$/.test(product.image);
         if (valid) ids.add(product.id);
         return valid;
       });

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs><clipPath id="tile"><path d="M0 0h800v450H0z"/></clipPath><pattern id="paper" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#d6dfec"/></pattern></defs>
+  <g font-family="Arial,sans-serif" clip-path="url(#tile)">
+    <path fill="#fff1d8" d="M0 0h800v450H0z"/><path fill="url(#paper)" d="M0 0h800v450H0z"/><rect x="68" y="44" width="670" height="366" rx="17" fill="#d9b16b" opacity=".2"/><rect x="59" y="35" width="682" height="366" rx="16" fill="#fffdf8"/>
+    <path d="M59 73h682" stroke="#ede5d4"/><circle cx="80" cy="55" r="4" fill="#d8c293"/><circle cx="94" cy="55" r="4" fill="#d8c293"/><circle cx="108" cy="55" r="4" fill="#d8c293"/>
+    <text x="400" y="131" text-anchor="middle" fill="#9e7934" font-size="12" letter-spacing="3">LET A LITTLE CHANCE DECIDE</text><text x="400" y="177" text-anchor="middle" fill="#3c3323" font-size="35" font-weight="700">What's your next move?</text><rect x="124" y="211" width="550" height="74" rx="12" fill="#fbf1dc" stroke="#ecdbb7"/><text x="400" y="256" text-anchor="middle" fill="#786849" font-size="20">A fresh idea starts here.</text><rect x="310" y="312" width="180" height="42" rx="10" fill="#d59326"/><text x="400" y="338" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Surprise me</text><path d="m650 305 6 14 15 2-11 10 3 15-13-8-14 8 3-15-11-10 16-2Z" fill="#eccb7f"/>
+  </g>
+</svg>
+
