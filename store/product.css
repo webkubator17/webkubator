@@ -24,7 +24,7 @@
 .media-thumb-video{display:grid;place-items:center;background:#eaf0ff;color:var(--blue)}
 .media-thumb-video>i.fi{font-size:20px}
 .product-copy{min-width:0;padding:4px 0}
-.product-purchase-card,.details-card,.technology-card{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:0 10px 28px #1420440d}
+.product-purchase-card,.details-card,.technology-card{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:0 10px 28px #1420440d}.product-purchase-card{margin-bottom:26px}
 .product-purchase-card h1{margin-bottom:0}
 .detail-price-line{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:3px;font-variant-numeric:tabular-nums}
 .detail-price{color:var(--blue);font:700 clamp(20px,2.2vw,28px)/1.15 var(--heading)}
@@ -34,7 +34,7 @@
 .product-copy h1{margin:0 0 22px;color:var(--ink);font:700 clamp(24px,2.4vw,34px)/1.14 var(--heading);letter-spacing:-.04em}
 .variant-picker{margin-top:22px}
 .variant-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
-.variant-option{display:flex;min-height:64px;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:11px 12px;border:1px solid var(--blue);border-radius:12px;background:var(--blue);color:var(--white);text-align:center;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s,transform .2s}
+.variant-option{display:flex;min-height:52px;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 10px;border:1px solid var(--blue);border-radius:12px;background:var(--blue);color:var(--white);text-align:center;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s,transform .2s}
 .variant-option:hover,.variant-option:focus-visible{border-color:var(--blue-hover);background:var(--blue-hover);color:var(--white);transform:translateY(-2px)}.variant-option[aria-pressed=true]{border-color:var(--blue-hover);background:var(--blue-hover);box-shadow:0 0 0 3px #ffbe0038}.variant-option strong{font:600 14px/1.2 var(--heading)}
 .quantity-control{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:20px 0 4px;color:var(--ink);font-size:14px;font-weight:600}.quantity-input{display:flex;align-items:center;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--white)}.quantity-input button{width:42px;height:44px;min-height:44px;border:0;background:transparent;color:var(--blue);font-size:22px;line-height:1}.quantity-input button:hover,.quantity-input button:focus-visible{background:#edf2ff}.quantity-input input{width:42px;height:44px;min-height:44px;padding:0;border:0;border-inline:1px solid var(--line);color:var(--ink);font-size:15px;font-weight:700;text-align:center;outline:none}.quantity-input input::-webkit-inner-spin-button,.quantity-input input::-webkit-outer-spin-button{margin:0}
 .detail-section{margin-top:26px}.details-card>.detail-section:first-child{margin-top:0}.technology-card.detail-section{margin-top:26px}.detail-section h2{margin-bottom:11px;color:var(--ink);font:600 17px/1.25 var(--heading);letter-spacing:-.02em}
@@ -64,7 +64,8 @@
   .product-copy{padding:0}
   .detail-price{font-size:23px}.detail-original-price{font-size:12px}.detail-discount{font-size:10px}
   .product-copy h1{margin-bottom:18px;font-size:26px;line-height:1.14}
-  .variant-picker{margin-top:18px}.variant-options{gap:7px}.variant-option{min-height:58px;padding:9px 8px}.variant-option strong{font-size:12px}
+  .product-purchase-card{margin-bottom:22px}
+  .variant-picker{margin-top:18px}.variant-options{gap:7px}.variant-option{min-height:48px;padding:7px 8px}.variant-option strong{font-size:12px}
   .quantity-control{margin-top:17px}
   .detail-section{margin-top:22px}.details-card>.detail-section:first-child{margin-top:0}.technology-card.detail-section{margin-top:22px}.detail-section h2{font-size:16px}.detail-description{font-size:14px;line-height:1.7}
   .detail-columns{grid-template-columns:1fr;gap:20px;margin-top:22px}.detail-list{font-size:13px}
