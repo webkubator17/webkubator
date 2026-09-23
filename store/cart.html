@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#012db5">
+  <meta name="description" content="Keranjang produk website siap pakai Webkubator.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn-uicons.flaticon.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <link rel="stylesheet" href="store.css?v=20260922-1">
+  <link rel="stylesheet" href="store-overrides.css?v=20260922-6">
+  <link rel="stylesheet" href="cart.css?v=20260923-1">
+  <script src="cart.js?v=20260923-1" defer></script>
+  <title>Keranjang — Webkubator Store</title>
+</head>
+<body>
+  <a class="skip-link" href="#cart-page">Lewati ke keranjang</a>
+  <header class="store-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Webkubator Store, kembali ke katalog">
+        <span class="brand-mark"><img src="../assets/images/logo-white.webp" width="48" height="48" alt=""></span>
+        <span>Webkubator</span>
+      </a>
+      <a class="favorites-toggle product-cart-link" id="cart-link" href="cart.html" aria-label="Keranjang belanja, 0 produk">
+        <i class="fi fi-rr-shopping-cart" aria-hidden="true"></i>
+        <span class="favorites-label">Keranjang</span><span class="favorites-count" id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+  <main class="container cart-main" id="cart-page">
+    <a class="product-back-link" href="./"><i class="fi fi-rr-arrow-left" aria-hidden="true"></i> Kembali ke Store</a>
+    <div class="cart-page-heading"><div><p class="cart-kicker">Webkubator Store</p><h1>Keranjang Anda</h1></div><span id="cart-item-count" role="status" aria-live="polite">0 produk</span></div>
+    <div class="cart-layout">
+      <section class="cart-list-section" aria-labelledby="cart-list-title">
+        <div class="cart-list-heading"><h2 id="cart-list-title">Produk pilihan</h2><button class="cart-clear" id="cart-clear" type="button" hidden><i class="fi fi-rr-trash" aria-hidden="true"></i> Kosongkan keranjang</button></div>
+        <div class="cart-items" id="cart-items"></div>
+        <section class="cart-empty" id="cart-empty" hidden aria-live="polite">
+          <span class="cart-empty-icon"><i class="fi fi-rr-shopping-cart" aria-hidden="true"></i></span>
+          <h2>Keranjang masih kosong</h2><p>Pilih produk website yang ingin Anda gunakan untuk mulai berbelanja.</p>
+          <a class="button primary" href="./">Lihat produk</a>
+        </section>
+      </section>
+      <aside class="cart-summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Ringkasan pesanan</h2>
+        <div class="summary-row"><span>Jumlah item</span><strong id="summary-quantity">0</strong></div>
+        <div class="summary-row"><span>Subtotal</span><strong id="summary-subtotal">Gratis</strong></div>
+        <div class="summary-divider"></div>
+        <div class="summary-total"><span>Total</span><strong id="summary-total">Gratis</strong></div>
+        <a class="button primary cart-checkout" id="cart-checkout" href="#" target="_blank" rel="noopener" aria-disabled="true">Pesan via WhatsApp <i class="fi fi-rr-arrow-up-right" aria-hidden="true"></i></a>
+        <p class="summary-note">Detail produk, paket, dan jumlah akan ikut terkirim ke WhatsApp Webkubator.</p>
+      </aside>
+    </div>
+  </main>
+  <footer class="store-footer" aria-label="Informasi Webkubator">
+    <div class="store-footer-inner">
+      <div class="store-footer-grid">
+        <div class="store-footer-brand">
+          <a class="store-footer-brand-link" href="../" aria-label="Webkubator, kembali ke halaman utama"><span class="store-footer-mark"><img src="../assets/images/logo-white.webp" alt="Webkubator" width="52" height="52"></span><span>Webkubator</span></a>
+          <p class="store-footer-description">Webkubator menyediakan jasa pembuatan website profesional dan jasa website modern, cepat, serta responsif untuk bisnis Anda.</p>
+          <a class="store-footer-cta" href="../#contactus"><i class="fi fi-rr-paper-plane" aria-hidden="true"></i> Konsultasi Gratis</a>
+        </div>
+        <nav class="store-footer-nav" aria-label="Navigasi footer"><h2 class="store-footer-heading">Jelajahi</h2><ul class="store-footer-links"><li><a href="../#service">Layanan Website</a></li><li><a href="../#pricing">Paket Website</a></li><li><a href="../portofolio/">Portofolio</a></li><li><a href="../about/">Tentang Webkubator</a></li><li><a href="../#contactus">Kontak</a></li></ul></nav>
+        <div class="store-footer-contact"><h2 class="store-footer-heading">Hubungi Kami</h2><address class="store-footer-address"><a href="https://wa.me/6287753719307" target="_blank" rel="noopener"><span class="store-footer-contact-icon"><i class="fi fi-rr-phone-call" aria-hidden="true"></i></span><span><small>WhatsApp</small><strong>+62 877-5371-9307</strong></span></a><a href="mailto:webkubator@gmail.com"><span class="store-footer-contact-icon"><i class="fi fi-rr-envelope" aria-hidden="true"></i></span><span><small>Email</small><strong>webkubator@gmail.com</strong></span></a></address></div>
+      </div>
+      <div class="store-footer-bottom"><p>© 2026 Webkubator. Semua hak dilindungi.</p><div class="store-footer-legal"><a href="../about/">Tentang Kami</a><span aria-hidden="true">•</span><a href="#cart-page">Kembali ke atas <span aria-hidden="true">↑</span></a></div></div>
+    </div>
+  </footer>
+</body>
+</html>
+

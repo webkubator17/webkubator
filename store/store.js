@@ -43,10 +43,12 @@
     let count = 0;
     try {
       const saved = JSON.parse(localStorage.getItem(cartKey) || '[]');
-      count = Array.isArray(saved) ? saved.filter((id) => typeof id === 'string').length : 0;
+      count = Array.isArray(saved) ? saved.reduce((total,item) => {
+        if (typeof item === 'string') return total + 1;
+        return item && typeof item.id === 'string' ? total + Math.max(1, Number(item.qty) || 1) : total;
+      }, 0) : 0;
     } catch { count = 0; }
     $('favorites-count').textContent = String(count);
-    $('favorites-toggle').setAttribute('aria-pressed', 'false');
     $('favorites-toggle').setAttribute('aria-label', `Keranjang belanja, ${count} produk`);
   }
   function syncUrl() {
