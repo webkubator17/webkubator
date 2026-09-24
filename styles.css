@@ -101,5 +101,3 @@ html body .logo-marquee-item{width:184px;height:86px;padding:12px 18px;border:1p
 .project-image:before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(112deg,transparent 20%,rgba(255,255,255,.2) 48%,transparent 72%);transform:translateX(-125%);transition:transform .7s ease}
 .project-image:hover:before,.project-image:focus-visible:before{transform:translateX(125%)}
 @media (prefers-reduced-motion:reduce){.project-card,.project-image:before{transition:none}.project-card:hover{transform:none}.project-image:hover:before,.project-image:focus-visible:before{transform:none}}
-
-html body .logo-marquee-item.logo-marquee-item-dark{background:rgba(16,22,99,.96);border-color:rgba(255,255,255,.24)}

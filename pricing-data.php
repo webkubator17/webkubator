@@ -85,6 +85,8 @@ function pricing_feature_icon(string $feature): string
         'program' => 'fi-rr-calendar',
         'analytics' => 'fi-rr-chart-line-up',
         'form' => 'fi-rr-form',
+        'revisi' => 'fi-rr-refresh',
+        'pengerjaan' => 'fi-rr-calendar',
     ];
     foreach ($icons as $keyword => $icon) {
         if (strpos($feature, $keyword) !== false) {

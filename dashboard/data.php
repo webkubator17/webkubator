@@ -46,11 +46,11 @@ function dashboard_default_data(): array
         'projects' => [
             ['name' => 'Edukasi Berkendara', 'image' => 'assets/images/portfolio-edukasi.webp', 'preview_url' => '', 'url' => 'https://edukasiberkendara.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Kazeem Vokasi', 'image' => 'assets/images/portfolio-kazeem.webp', 'preview_url' => '', 'url' => 'https://kazeemvocint.com/', 'traffic' => 0, 'visible' => true],
-            ['name' => 'Migranpreneur', 'image' => 'assets/images/portfolio-migranpreneur.webp', 'preview_url' => '', 'url' => 'https://migranpreneur.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Fikri Hamdani', 'image' => 'assets/images/portfolio-fikri.webp', 'preview_url' => '', 'url' => 'https://fikrihamdani.my.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Sraya Bali Wellness', 'image' => 'assets/images/portfolio-sraya.webp', 'preview_url' => '', 'url' => 'https://srayabaliwellness.com', 'traffic' => 0, 'visible' => true],
             ['name' => 'Tanajava Essential Oil', 'image' => 'assets/images/portfolio-tanajava.webp', 'preview_url' => '', 'url' => 'https://tanajava.my.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Nusantara Coaching', 'image' => 'assets/images/portfolio-nusantara-coaching.webp', 'preview_url' => '', 'url' => 'https://nusantaracoaching.com/', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Migranpreneur', 'image' => 'assets/images/portfolio-migranpreneur.webp', 'preview_url' => '', 'url' => 'https://migranpreneur.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Nusa Jaya Steel', 'image' => 'assets/images/portfolio-nusajaya.webp', 'preview_url' => '', 'url' => 'https://nusajayasteel.com', 'traffic' => 0, 'visible' => true],
             ['name' => 'Matrix Welding School', 'image' => 'assets/images/portfolio-matrix.webp', 'preview_url' => '', 'url' => 'https://matrixweldingschool.com', 'traffic' => 0, 'visible' => true],
             ['name' => 'Capunglam', 'image' => 'assets/images/portfolio-capunglam.webp', 'preview_url' => '', 'url' => 'https://capunglam.com', 'traffic' => 0, 'visible' => true],
@@ -171,7 +171,7 @@ function dashboard_normalize_data(array $data): array
                 $projectPreviewUrl = '';
             }
             $projectVisible = (bool) ($project['visible'] ?? false);
-            if (in_array($projectName, ['Tanajava Essential Oil', 'Nusantara Coaching'], true)) {
+            if (in_array($projectName, ['Tanajava Essential Oil', 'Nusantara Coaching', 'Migranpreneur'], true)) {
                 $projectVisible = true;
             }
             $hasOrder = array_key_exists('order', $project) && is_numeric($project['order']);
@@ -202,6 +202,26 @@ function dashboard_normalize_data(array $data): array
             $traffic = ((int) $b['traffic']) <=> ((int) $a['traffic']);
             return $traffic !== 0 ? $traffic : ($a['_position'] <=> $b['_position']);
         });
+        $migranpreneur = null;
+        $portfolioWithoutMigranpreneur = [];
+        foreach ($withPosition as $project) {
+            if (strcasecmp((string) $project['name'], 'Migranpreneur') === 0) {
+                $migranpreneur = $project;
+                continue;
+            }
+            $portfolioWithoutMigranpreneur[] = $project;
+        }
+        if ($migranpreneur !== null) {
+            $insertAfterNusantara = count($portfolioWithoutMigranpreneur);
+            foreach ($portfolioWithoutMigranpreneur as $position => $project) {
+                if (strcasecmp((string) $project['name'], 'Nusantara Coaching') === 0) {
+                    $insertAfterNusantara = $position + 1;
+                    break;
+                }
+            }
+            array_splice($portfolioWithoutMigranpreneur, $insertAfterNusantara, 0, [$migranpreneur]);
+            $withPosition = $portfolioWithoutMigranpreneur;
+        }
         foreach ($withPosition as $position => &$project) {
             $project['order'] = $position;
             unset($project['_position']);
