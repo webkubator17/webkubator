@@ -126,7 +126,7 @@ header('Pragma: no-cache');
                     <?php foreach ($defaultPricing['plans'] as $index => $plan): ?>
                         <?php $planFeatures = (array) $plan['features']; ?>
                         <article class="price-card <?= $index === 1 ? 'price-card-featured' : '' ?> reveal reveal-delay-<?= min($index, 2) ?>">
-                            <div class="price-header"><h3><?= e($plan['name']) ?></h3><?php if ($index === 1): ?><span class="price-badge">Pilihan terbaik</span><?php endif; ?></div>
+                            <div class="price-header"><h3><?= e($plan['name']) ?></h3></div>
                             <strong class="price">Rp<?= e($plan['price']) ?></strong>
                             <p class="renewal"><?= e($plan['renewal']) ?></p>
                             <ul>

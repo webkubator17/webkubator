@@ -187,7 +187,7 @@
         option.classList.toggle('is-active', active);
         option.setAttribute('aria-pressed', String(active));
       });
-      grid.innerHTML = category.plans.map((plan, index) => `<article class="price-card ${index === 1 ? 'price-card-featured' : ''} is-visible"><div class="price-header"><h3>${escapeHtml(plan.name)}</h3>${index === 1 ? '<span class="price-badge">Pilihan terbaik</span>' : ''}</div><strong class="price">Rp${escapeHtml(plan.price)}</strong><p class="renewal">${escapeHtml(plan.renewal)}</p><ul>${featureList(plan.features)}</ul><a class="button ${index === 1 ? 'button-primary' : 'button-outline'}" href="${detailLink(key, plan)}">Pilih Paket <i class="fi fi-rr-arrow-right" aria-hidden="true"></i></a></article>`).join('');
+      grid.innerHTML = category.plans.map((plan, index) => `<article class="price-card ${index === 1 ? 'price-card-featured' : ''} is-visible"><div class="price-header"><h3>${escapeHtml(plan.name)}</h3></div><strong class="price">Rp${escapeHtml(plan.price)}</strong><p class="renewal">${escapeHtml(plan.renewal)}</p><ul>${featureList(plan.features)}</ul><a class="button ${index === 1 ? 'button-primary' : 'button-outline'}" href="${detailLink(key, plan)}">Pilih Paket <i class="fi fi-rr-arrow-right" aria-hidden="true"></i></a></article>`).join('');
     };
 
     options.forEach((option) => option.addEventListener('click', () => render(option.dataset.pricingOption)));

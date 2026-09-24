@@ -101,9 +101,3 @@ html body .logo-marquee-item{width:184px;height:86px;padding:12px 18px;border:1p
 .project-image:before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(112deg,transparent 20%,rgba(255,255,255,.2) 48%,transparent 72%);transform:translateX(-125%);transition:transform .7s ease}
 .project-image:hover:before,.project-image:focus-visible:before{transform:translateX(125%)}
 @media (prefers-reduced-motion:reduce){.project-card,.project-image:before{transition:none}.project-card:hover{transform:none}.project-image:hover:before,.project-image:focus-visible:before{transform:none}}
-
-/* Featured pricing plan: centered raised label, aligned with the current palette. */
-.pricing-grid{padding-top:18px}
-.pricing-grid .price-card-featured{overflow:visible}
-.pricing-grid .price-card-featured .price-badge{top:-18px;right:auto;left:50%;width:auto;min-width:154px;padding:8px 18px;border-radius:12px 12px 6px 6px;background:var(--yellow);color:var(--navy);font-size:10px;line-height:1.2;transform:translateX(-50%);box-shadow:0 9px 20px rgba(0,0,0,.24)}
-@media (max-width:700px){.pricing-grid{padding-top:16px}.pricing-grid .price-card-featured .price-badge{top:-16px;min-width:146px;padding:7px 15px;font-size:10px}}
