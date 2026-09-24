@@ -16,8 +16,29 @@
 
   const notify = (message) => {
     let toast = $('product-feedback');
-    if (!toast) { toast = document.createElement('p'); toast.id = 'product-feedback'; toast.className = 'toast'; toast.setAttribute('role','status'); toast.setAttribute('aria-live','polite'); document.body.append(toast); }
-    clearTimeout(feedbackTimer); toast.textContent = message; toast.classList.add('is-visible');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'product-feedback';
+      toast.className = 'toast product-feedback-toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.setAttribute('aria-atomic', 'true');
+
+      const iconBadge = document.createElement('span');
+      iconBadge.className = 'product-feedback-icon';
+      const checkIcon = document.createElement('i');
+      checkIcon.className = 'fi fi-rr-check';
+      checkIcon.setAttribute('aria-hidden', 'true');
+      iconBadge.append(checkIcon);
+
+      const messageText = document.createElement('span');
+      messageText.className = 'product-feedback-message';
+      toast.append(iconBadge, messageText);
+      document.body.append(toast);
+    }
+    clearTimeout(feedbackTimer);
+    toast.querySelector('.product-feedback-message').textContent = message;
+    toast.classList.add('is-visible');
     feedbackTimer = setTimeout(() => toast.classList.remove('is-visible'), 3200);
   };
   function readCart() {
@@ -116,7 +137,7 @@
     const cart = readCart(); const variant = activeVariant();
     const existing = cart.find((item) => item.id === product.id && item.variant === variant.id);
     if (existing) existing.qty = Math.min(20, existing.qty + quantity); else cart.push({id:product.id,variant:variant.id,qty:quantity});
-    writeCart(cart); updateCartCount(); notify(existing ? 'Jumlah produk di keranjang diperbarui.' : `${product.name} ditambahkan ke keranjang.`);
+    writeCart(cart); updateCartCount(); notify('Dimasukan ke Keranjang');
   }
   function renderProduct() {
     const details = productDetails(product);
