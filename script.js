@@ -171,7 +171,6 @@
       };
       return Object.entries(icons).find(([keyword]) => value.includes(keyword))?.[1] || 'fi-rr-check';
     };
-    const domainForPlan = (plan) => String(plan.features.find((feature) => /^FREE Domain/i.test(feature)) || 'FREE Domain .COM').replace(/^FREE Domain\s*/i, '');
     const detailLink = (key, plan) => `/pricing/?category=${encodeURIComponent(key)}&plan=${encodeURIComponent(plan.name)}`;
     const featureList = (features) => {
       const item = (feature) => `<li><i class="fi ${iconForFeature(feature)}" aria-hidden="true"></i><span>${escapeHtml(feature)}</span></li>`;
@@ -188,7 +187,7 @@
         option.classList.toggle('is-active', active);
         option.setAttribute('aria-pressed', String(active));
       });
-      grid.innerHTML = category.plans.map((plan, index) => `<article class="price-card ${index === 1 ? 'price-card-featured' : ''} is-visible"><div class="price-header"><h3>${escapeHtml(plan.name)}</h3>${index === 1 ? '<span class="price-badge">Pilihan terbaik</span>' : ''}</div><strong class="price">Rp${escapeHtml(plan.price)}</strong><p class="renewal">${escapeHtml(plan.renewal)}</p><p class="price-domain"><i class="fi fi-rr-globe" aria-hidden="true"></i> Domain ${escapeHtml(domainForPlan(plan))} termasuk</p><ul>${featureList(plan.features)}</ul><a class="button ${index === 1 ? 'button-primary' : 'button-outline'}" href="${detailLink(key, plan)}">Pilih Paket <i class="fi fi-rr-arrow-right" aria-hidden="true"></i></a></article>`).join('');
+      grid.innerHTML = category.plans.map((plan, index) => `<article class="price-card ${index === 1 ? 'price-card-featured' : ''} is-visible"><div class="price-header"><h3>${escapeHtml(plan.name)}</h3>${index === 1 ? '<span class="price-badge">Pilihan terbaik</span>' : ''}</div><strong class="price">Rp${escapeHtml(plan.price)}</strong><p class="renewal">${escapeHtml(plan.renewal)}</p><ul>${featureList(plan.features)}</ul><a class="button ${index === 1 ? 'button-primary' : 'button-outline'}" href="${detailLink(key, plan)}">Pilih Paket <i class="fi fi-rr-arrow-right" aria-hidden="true"></i></a></article>`).join('');
     };
 
     options.forEach((option) => option.addEventListener('click', () => render(option.dataset.pricingOption)));

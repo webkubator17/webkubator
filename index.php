@@ -124,12 +124,11 @@ header('Pragma: no-cache');
                 <div class="pricing-selector reveal"><span class="pricing-selector-label">Jenis website</span><div class="pricing-type-list" role="group" aria-label="Pilih jenis website"><?php foreach ($pricingCatalog as $key => $category): ?><button class="pricing-type-option <?= $key === $defaultPricingKey ? 'is-active' : '' ?>" type="button" data-pricing-option="<?= e($key) ?>" aria-pressed="<?= $key === $defaultPricingKey ? 'true' : 'false' ?>"><?= e($category['label']) ?></button><?php endforeach; ?></div></div>
                 <div class="pricing-grid" id="pricing-grid" data-pricing-grid>
                     <?php foreach ($defaultPricing['plans'] as $index => $plan): ?>
-                        <?php $planFeatures = (array) $plan['features']; $planDomain = pricing_domain_from_plan($plan); ?>
+                        <?php $planFeatures = (array) $plan['features']; ?>
                         <article class="price-card <?= $index === 1 ? 'price-card-featured' : '' ?> reveal reveal-delay-<?= min($index, 2) ?>">
                             <div class="price-header"><h3><?= e($plan['name']) ?></h3><?php if ($index === 1): ?><span class="price-badge">Pilihan terbaik</span><?php endif; ?></div>
                             <strong class="price">Rp<?= e($plan['price']) ?></strong>
                             <p class="renewal"><?= e($plan['renewal']) ?></p>
-                            <p class="price-domain"><i class="fi fi-rr-globe" aria-hidden="true"></i> Domain <?= e($planDomain) ?> termasuk</p>
                             <ul>
                                 <?php foreach (array_slice($planFeatures, 0, 5) as $feature): ?><li><i class="fi <?= e(pricing_feature_icon($feature)) ?>" aria-hidden="true"></i><span><?= e($feature) ?></span></li><?php endforeach; ?>
                                 <?php if (count($planFeatures) > 5): ?><li class="price-more-wrap"><details class="price-more"><summary><i class="fi fi-rr-plus" aria-hidden="true"></i><span>Lihat lebih banyak</span></summary><ul><?php foreach (array_slice($planFeatures, 5) as $feature): ?><li><i class="fi <?= e(pricing_feature_icon($feature)) ?>" aria-hidden="true"></i><span><?= e($feature) ?></span></li><?php endforeach; ?></ul></details></li><?php endif; ?>
