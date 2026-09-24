@@ -29,6 +29,9 @@ function dashboard_default_data(): array
             'favicon' => 'assets/images/favicon.png',
         ],
         'partners' => [
+            ['image' => 'assets/images/client-logos/migranpreneur.png', 'alt' => 'Migranpreneur', 'visible' => true],
+            ['image' => 'assets/images/client-logos/pegadaian.png', 'alt' => 'Pegadaian', 'visible' => true],
+            ['image' => 'assets/images/client-logos/yea.png', 'alt' => 'Yea', 'visible' => true],
             ['image' => 'assets/images/partner-ofc.webp', 'alt' => 'Our Five Coco', 'visible' => true],
             ['image' => 'assets/images/partner-danuzkuy.webp', 'alt' => 'Danuzkuy', 'visible' => true],
             ['image' => 'assets/images/client-logos/pkbm-siloam.png', 'alt' => 'PKBM Siloam', 'visible' => true],
@@ -43,6 +46,7 @@ function dashboard_default_data(): array
         'projects' => [
             ['name' => 'Edukasi Berkendara', 'image' => 'assets/images/portfolio-edukasi.webp', 'preview_url' => '', 'url' => 'https://edukasiberkendara.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Kazeem Vokasi', 'image' => 'assets/images/portfolio-kazeem.webp', 'preview_url' => '', 'url' => 'https://kazeemvocint.com/', 'traffic' => 0, 'visible' => true],
+            ['name' => 'Migranpreneur', 'image' => 'assets/images/portfolio-migranpreneur.webp', 'preview_url' => '', 'url' => 'https://migranpreneur.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Fikri Hamdani', 'image' => 'assets/images/portfolio-fikri.webp', 'preview_url' => '', 'url' => 'https://fikrihamdani.my.id/', 'traffic' => 0, 'visible' => true],
             ['name' => 'Sraya Bali Wellness', 'image' => 'assets/images/portfolio-sraya.webp', 'preview_url' => '', 'url' => 'https://srayabaliwellness.com', 'traffic' => 0, 'visible' => true],
             ['name' => 'Tanajava Essential Oil', 'image' => 'assets/images/portfolio-tanajava.webp', 'preview_url' => '', 'url' => 'https://tanajava.my.id/', 'traffic' => 0, 'visible' => true],
@@ -80,24 +84,30 @@ function dashboard_normalize_data(array $data): array
             ];
         }
 
-        // Keep the two historical client logos when an older dashboard save
-        // contains only the newer portfolio/client entries.
-        $legacyPartners = [
-            ['image' => 'assets/images/partner-ofc.webp', 'alt' => 'Our Five Coco', 'visible' => true],
-            ['image' => 'assets/images/partner-danuzkuy.webp', 'alt' => 'Danuzkuy', 'visible' => true],
+        // Keep the requested client logos at the front, including when an
+        // older dashboard save already contains a custom partner list.
+        $priorityPartners = [
+            ['image' => 'assets/images/client-logos/migranpreneur.png', 'alt' => 'Migranpreneur', 'visible' => true],
+            ['image' => 'assets/images/client-logos/pegadaian.png', 'alt' => 'Pegadaian', 'visible' => true],
+            ['image' => 'assets/images/client-logos/yea.png', 'alt' => 'Yea', 'visible' => true],
         ];
-        $storedImages = array_column($normalized['partners'], 'image');
-        foreach (array_reverse($legacyPartners) as $legacyPartner) {
-            if (!in_array($legacyPartner['image'], $storedImages, true)) {
-                array_unshift($normalized['partners'], $legacyPartner);
-            }
+        $partnerByImage = [];
+        foreach ($normalized['partners'] as $partner) {
+            $partnerByImage[$partner['image']] = $partner;
         }
+        $priorityList = [];
+        foreach ($priorityPartners as $priorityPartner) {
+            $priorityList[] = $partnerByImage[$priorityPartner['image']] ?? $priorityPartner;
+            unset($partnerByImage[$priorityPartner['image']]);
+        }
+        $normalized['partners'] = array_merge($priorityList, array_values($partnerByImage));
     }
 
     if (isset($data['projects']) && is_array($data['projects'])) {
         $staticPortfolioImages = [
             'Edukasi Berkendara' => 'assets/images/portfolio-edukasi.webp',
             'Kazeem Vokasi' => 'assets/images/portfolio-kazeem.webp',
+            'Migranpreneur' => 'assets/images/portfolio-migranpreneur.webp',
             'Fikri Hamdani' => 'assets/images/portfolio-fikri.webp',
             'Sraya Bali Wellness' => 'assets/images/portfolio-sraya.webp',
             'Tanajava Essential Oil' => 'assets/images/portfolio-tanajava.webp',
@@ -109,13 +119,22 @@ function dashboard_normalize_data(array $data): array
         ];
         $portfolioAdditions = [
             [
+                'name' => 'Migranpreneur',
+                'image' => 'assets/images/portfolio-migranpreneur.webp',
+                'preview_url' => '',
+                'url' => 'https://migranpreneur.id/',
+                'traffic' => 0,
+                'visible' => true,
+                'order' => count($data['projects']),
+            ],
+            [
                 'name' => 'Tanajava Essential Oil',
                 'image' => 'assets/images/portfolio-tanajava.webp',
                 'preview_url' => '',
                 'url' => 'https://tanajava.my.id/',
                 'traffic' => 0,
                 'visible' => true,
-                'order' => count($data['projects']),
+                'order' => count($data['projects']) + 1,
             ],
             [
                 'name' => 'Nusantara Coaching',
@@ -124,7 +143,7 @@ function dashboard_normalize_data(array $data): array
                 'url' => 'https://nusantaracoaching.com/',
                 'traffic' => 0,
                 'visible' => true,
-                'order' => count($data['projects']) + 1,
+                'order' => count($data['projects']) + 2,
             ],
         ];
         $projectNames = array_map(
